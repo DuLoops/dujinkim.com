@@ -1,0 +1,29 @@
+//Colors
+$green-black: #031112;
+$grenn-dark: #051F20;
+$green-medium: #163832;
+$green-forest: #235347;
+$green-sea: #8EB69B;
+$green-light: #DAF1DE;
+
+$blue: #83A7AF;
+
+$yellow: #EDB25A;
+$mustard: #E19820;
+$orange-light: #F7893B;
+$orange: #DB6320;
+$orange-dark: #ED4F05;
+
+$red: #D93128;
+
+$fonts-Karla: 'serif';
+
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+  text-align: center;
+}
+
+//@include flexCenter();
