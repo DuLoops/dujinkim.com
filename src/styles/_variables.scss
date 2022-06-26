@@ -18,11 +18,10 @@ $red: #D93128;
 
 $fonts-Karla: 'serif';
 
-@mixin flexCenter($direction) {
+@mixin flexCenter() {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: $direction;
   text-align: center;
 }
 
