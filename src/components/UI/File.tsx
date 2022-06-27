@@ -1,34 +1,28 @@
 import { Link } from "react-router-dom";
-import { Container, Image, Flex, Text, Box} from "@chakra-ui/react";
+import { Container, Image, Flex, Text, Box, Center } from "@chakra-ui/react";
 
-interface fileInfo {
+interface fileProps {
   desc: string;
   img: any;
   alt: string;
   link: string;
-  isMobile: boolean;
+
 }
 
-const File = (props: fileInfo) => {
-
-
+const File = (props: fileProps) => {
   return (
-    <Flex
-      textAlign="center"
-      paddingX="2rem"
-    >
-      <Box padding='10px' >
+    <Center textAlign="center" margin='2rem'>
       <Link to={props.link} className="link">
         <Image
           src={props.img}
           alt={props.alt}
-          margin='auto'
-          w={{base: 200, xl: 300}}
+          margin="auto"
+          w={{ base: 200, xl: 300 }}
+          height={{ base: 200, xl: 230 }}
         />
         <Text fontSize="4xl">{props.desc}</Text>
       </Link>
-      </Box>
-    </Flex>
+    </Center>
   );
 };
 

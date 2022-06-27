@@ -1,32 +1,18 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  Flex,
-  Container,
-  Heading,
-  Grid,
-  GridItem,
-  Image,
-  Box,
-  Text,
-  useMediaQuery,
-} from "@chakra-ui/react";
+import { Box, useMediaQuery, Flex, Center } from "@chakra-ui/react";
 
 import "./home.scss";
-import File from "../components/UI/File";
+import HomeFolder from "../components/UI/HomeFolder";
 
 import backgroundImg from "../resources/images/dev/SideCountry.jpg";
 import backgroundGreen from "../resources/images/dev/background.jpg";
 import backgroundImgDark from "../resources/images/dev/Dark_lum_clear-0356.jpg";
 
-import {
-  folder,
-  folderGallery,
-  folderBlog,
-  PageMe,
-} from "../resources/images/icons";
-
 const Home = () => {
   const [isMobile] = useMediaQuery("(max-width: 1280px)");
+  const [isHover, setIsHover] = useState(false);
+  const [viewAddress, setViewAddress] = useState("");
 
   return (
     <Box
@@ -36,27 +22,28 @@ const Home = () => {
       bgRepeat="no-repeat"
       bgSize="cover"
       h="100vh"
+      position="relative"
     >
-      <Flex
-        flexDir={{ base: "column", md: "row" }}
-        width="100vw"
-        h="100vh"
-        align={{ base: "center", md: "end" }}
-        justifyContent="space-around"
-        pb={{ base: 0, md: 50, xl: "80px" }}
+      {isHover ? (
+        <Box>
+          <h1>{viewAddress}</h1>
+        </Box>
+      ) : null}
+      <Box
+
+        position= 'fixed'
+        bottom= '80px'
+        left= '50%'
+        transform= 'translate(-50%, 0%)'
+        onMouseEnter={() => {
+          setIsHover(true);
+        }}
+        onMouseLeave={() => {
+          setIsHover(false);
+        }}
       >
-        <File
-          link="/gallery"
-          desc="Visuals"
-          img={folderGallery}
-          alt="galleryIcon"
-          isMobile={isMobile}
-        />
-        <File link="/blog" desc="Blog" img={folderBlog} alt="folderBlog"           isMobile={isMobile}
-/>
-        <File link="/about" desc="About.me" img={PageMe} alt="PageMe"          isMobile={isMobile}
- />
-      </Flex>
+        <HomeFolder isHover={isHover} setViewAddress={setViewAddress} />
+      </Box>
     </Box>
   );
 };

@@ -53,7 +53,7 @@ const components = {
     variants: {
       flexCenter: {
         display: "flex",
-        alight: "center",
+        align: "center",
         textAlign: "center",
       },
     },
