@@ -1,9 +1,15 @@
-import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
-import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
+import { baseStyle, color, extendTheme, theme as baseTheme, type ThemeConfig } from "@chakra-ui/react"
+
+import {
+  mode,
+  StyleFunctionProps,
+  createBreakpoints,
+} from "@chakra-ui/theme-tools";
+import { readBuilderProgram } from "typescript";
 
 const config: ThemeConfig = {
-  initialColorMode: "dark",
-  useSystemColorMode: true,
+  initialColorMode: 'light',
+  useSystemColorMode: false,
 };
 
 const colors = {
@@ -31,6 +37,25 @@ const colors = {
     brandRed: {
       100: "#D93128",
     },
+    neutralGreen: {
+      100: '#a1bd9a'
+    },
+    light: {
+      100: '#171717'
+    },
+    dark: {
+      100: '#1C1D1F'
+    },
+    
+    primaryFontColor: {
+      lightMode: baseTheme.colors.gray['700'] ,
+      darkMode: baseTheme.colors.gray['700'],
+    },
+    secondaryFontColor: {
+      lightMode: baseTheme.colors.white["600"],
+      darkMode: baseTheme.colors.white["400"],
+    },
+
   },
 };
 
@@ -38,7 +63,7 @@ const styles = {
   styles: {
     global: (props: StyleFunctionProps) => ({
       body: {
-        bg: mode("","brandGreen.50")(props),
+        bg: mode("", colors.colors.dark['100'])(props),
       },
     }),
   },
@@ -46,17 +71,44 @@ const styles = {
 
 const components = {
   components: {
+    Text: {
+      baseStyle: (props: any) => ({
+        color: mode(
+          colors.colors.primaryFontColor.lightMode,
+          colors.colors.primaryFontColor.darkMode
+        )(props),
+      })
+    },
+    Heading: {
+      baseStyle: {
+        color: 'black'
+      }
+    },
     variants: {
-      'flexCenter': {
-        display: 'flex',
-        alight: 'center',
-        textAlign: 'center'
+      flexCenter: {
+        display: "flex",
+        align: "center",
+        textAlign: "center",
       },
-      'darkColor'
-    }
-  }
-}
+      secondary: (props: any) => ({
+        color: mode(
+          colors.colors.secondaryFontColor.lightMode,
+          colors.colors.secondaryFontColor.darkMode
+        )(props),
+      }),
+    },
+  },
+};
+
+const breakpoints = createBreakpoints({
+  sm: "544px",
+  md: "960px",
+  lg: "1229px",
+  xl: "2304px",
+  "2xl": "4096px",
+});
 
 const theme = extendTheme(config, colors, styles, components);
 
 export default theme;
+

@@ -1,44 +1,50 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Flex, Container, Heading } from "@chakra-ui/react";
+import {
+  Box,
+  useMediaQuery,
+  Flex,
+  Center,
+  ColorModeScript,
+} from "@chakra-ui/react";
+import { motion, AnimatePresence } from "framer-motion";
+import styled from "styled-components";
 
-import  "./home.scss";
-
+import HomeFolder from "../components/Home/HomeFolder";
+import ScrollableBackground from "../components/Home/ScrollableBackground";
+//import ScrollableBackgroundUI from "../components/UI/ScrollableBackground";
+import HomePreview from "../components/Home/HomePreview";
 import backgroundImg from "../resources/images/dev/SideCountry.jpg";
+import backgroundGreen from "../resources/images/dev/background.jpg";
 import backgroundImgDark from "../resources/images/dev/Dark_lum_clear-0356.jpg";
 
+//const pictures = [backgroundImg, backgroundGreen, backgroundImgDark];
 
 const Home = () => {
+  const [isMobile] = useMediaQuery("(max-width: 1280px)");
+  
+  const [isHover, setIsHover] = useState(false);
+  const [previewAddress, setPreviewAddress] = useState("");
+
   return (
-    <Flex 
-      bgImage={backgroundImgDark} 
-      height="100vh"
-      bgPosition="center"
-      bgRepeat="no-repeat"
-      bgSize="cover"
-      h="100vh"
-      align="center"
-      textAlign="center">
-      <Container className="container">
-        <Link to="/gallery"
-          className="link">
-          <Heading size='4xl'>Gallery</Heading>
-        </Link>
-      </Container>
-      <Container className="home--about">
-        <Link to="/about"
-         className="link">
-          <Heading size='4xl'>About</Heading>
-        </Link>
-      </Container>
-      <Container className="home--blog">
-        <Link to="/blog"
-         className="link">
-          <Heading size='4xl'
-            className="heading"
-            >Blog</Heading>
-        </Link>
-      </Container>
-    </Flex>
+    <Box className="home" overflow="hidden">
+      <ScrollableBackground />
+      <HomePreview isHover={isHover} previewAddress={previewAddress} />
+      <Box
+        position="fixed"
+        bottom="80px"
+        left="50%"
+        transform="translate(-50%, 0%)"
+        onMouseEnter={() => {
+          setIsHover(true);
+        }}
+        onMouseLeave={() => {
+          setIsHover(false);
+        }}
+      >
+        <HomeFolder setPreviewAddress={setPreviewAddress} />
+      </Box>
+    </Box>
   );
 };
 
