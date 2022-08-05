@@ -4,11 +4,11 @@ import WordWave from "../../UI/TextAnimation/WordWave";
 const AboutPreview = (props: any) => {
   return (
     <Box>
-      <Heading size="4xl" mb="1rem">
+      <Heading size="4xl" mb="1rem" color={'white'}>
         About Dujin Kim
       </Heading>
       {props.play ? (
-        <Heading size="2xl">
+        <Heading size="2xl" color={'light.100'}>
           <WordWave
             isArray={true}
             wordArray={["UI/UX Designer"]}
@@ -24,7 +24,7 @@ const AboutPreview = (props: any) => {
           />{" "}
         </Heading>
       ) : (
-        <Heading size="2xl">
+        <Heading size="2xl" color={'light.100'}>
           UI/UX Designer
           <br />
           &

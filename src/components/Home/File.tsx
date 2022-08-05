@@ -45,7 +45,7 @@ const File = (props: fileProps) => {
             height={{ base: 150, xl: 200 }}
             objectFit='scale-down'
           />
-          <Text fontSize="4xl" color='black'>{props.title}</Text>
+          <Text fontSize="4xl" color='white'>{props.title}</Text>
         </Link>
       </Center>
     </motion.div>

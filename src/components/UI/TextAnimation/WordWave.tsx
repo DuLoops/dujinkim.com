@@ -1,4 +1,5 @@
 import { motion, Variants, HTMLMotionProps } from "framer-motion";
+import { useEffect } from "react";
 
 interface textProps extends HTMLMotionProps<"div"> {
   isArray: boolean;
@@ -10,6 +11,7 @@ interface textProps extends HTMLMotionProps<"div"> {
 
 const TextAnimation = (props: textProps) => {
   const words = props.isArray ? props.wordArray : props.text?.split(" ");
+
   const container: Variants = {
     hidden: {
       opacity: 0,
@@ -28,7 +30,7 @@ const TextAnimation = (props: textProps) => {
       opacity: 1,
       y: 0,
       transition: {
-        type: "Tween",
+        type: "spring",
         damping: 12,
         stiffness: 200,
       },
@@ -46,18 +48,19 @@ const TextAnimation = (props: textProps) => {
 
   return (
     <motion.p
-      style={{ display: "flex", overflow: "hidden", paddingBottom:"1rem"}}
+      style={{ display: "flex", overflow: "hidden", paddingBottom: "1rem" }}
       variants={container}
       initial="hidden"
-      animate="visible" 
+      animate="visible"
     >
       {words?.map((word, index) => (
         <motion.span
           key={index}
           variants={child}
-          style={{display:'inline-block', marginInlineEnd: "1rem" }}
+          style={{ display: "inline-block" }}
+          //, marginInlineEnd: "1rem"
         >
-          {word}
+          {word.concat("\u00A0")}
         </motion.span>
       ))}
     </motion.p>
