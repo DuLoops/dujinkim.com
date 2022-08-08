@@ -44,12 +44,18 @@ const colors = {
       100: '#b2b2b2',
       200: '#808080',
       300: '#171717',
-
-
     },
     dark: {
       100: '#1C1D1F'
     },
+    darkGlass: {
+      100: "rgba(0,0,0, .2)",
+      200: "rgba(0,0,0, .5)"
+    }, 
+    lightGlass: {
+      100: "rgba(255,255,255, .2)",
+      200: "rgba(255,255,255, .5)"
+    }, 
     
     primaryFontColor: {
       lightMode: baseTheme.colors.gray['700'] ,

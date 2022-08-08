@@ -1,22 +1,42 @@
-import { Box, Container, Heading, Text, Image, Flex  } from "@chakra-ui/react";
-import quote from "../../resources/images/icons/quote.png"
-import Wifi from "./Wifi";
+import { Box, Container, Heading, Text, Image, Flex } from "@chakra-ui/react";
 import styled from "styled-components";
 
+import quote from "../../resources/images/icons/quote.svg";
+
+import DeveloperBandwidth from "./DeveloperBandwidth";
+import DeveloperProjects from "./DeveloperProjects";
 
 const Developer = () => {
   return (
     <Box position="relative" backgroundColor="dark.100">
-      <Box className="quote" width='70vw' maxWidth={'1400px'} marginX='auto' paddingTop={'100px'}>
-        <Text color={'light'} marginLeft='20%'>My GOAL</Text>
-        <Flex width={'50vw'} marginX='auto' marginY='50px' alignItems={'center'} gap='20px' justifyContent='center'>
-          <Image  src={quote} alt="quote"/>
-          <Text fontSize='3xl' color={'light'}>Broaden the bandwidth of communication</Text>
-          <Image src={quote} alt="quote" transform={'rotate(180deg)'}/>
+      <Box width="60vw" maxWidth={"1400px"} marginX="auto" py={"120px"} position='relative'>
+        <Text color={"light"} marginLeft="20%">
+          My GOAL as a Web Developer
+        </Text>
+        <Flex
+          marginX="auto"
+          marginY="50px"
+          alignItems={"center"}
+          gap="20px"
+          justifyContent="center"
+          position={'relative'}
+          zIndex='1'
+        >
+          <Image src={quote} alt="quote" transform={"rotate(180deg)"} />
+          <Text fontSize="3xl" color={"white"}>
+            Broaden the bandwidth of communication
+          </Text>
+          <Image src={quote} alt="quote" />
         </Flex>
-        <Box>
-          <Wifi />
+        <Box position={"absolute"} right="0" bottom="0" zIndex={'0'}>
+          <DeveloperBandwidth />
         </Box>
+      </Box>
+      <Box mt='100px'>
+        <Heading color={"white"} width={"70%"} margin="auto">
+          Portfolio
+        </Heading>
+        <DeveloperProjects />
       </Box>
     </Box>
   );

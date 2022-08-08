@@ -13,8 +13,8 @@ interface propType {
 }
 const LandingDesc = (props: propType) => {
   return (
-    <Box position={"relative"} filter='blur(5px)'>
-      <Grid templateColumns={"1fr 1fr"} templateRows="380px">
+    <Box position={"relative"} >
+      <Grid templateColumns={"1fr 1fr"} templateRows="380px" height={'390px'} overflow='hidden'>
         <Image src={PhotographerMe} alt="PhotographerMe" />
         <Image src={BloggerMe} alt="BloggerMe" />
       </Grid>
@@ -26,10 +26,9 @@ const LandingDesc = (props: propType) => {
         backgroundColor="light.300" 
         display={'block'}
         transform='translate(-50%, -50%)'
-        
       >
         <Text display={'inline-block'} fontSize="xl" color="brandYellow.200" padding={'10px'} borderRadius='3px'>
-          I also like to Photograpg & Blog
+          I also like to <br/>Photograph & Blog
         </Text>
       </Box>
     </Box>

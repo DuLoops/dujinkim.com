@@ -2,6 +2,7 @@ import { Box, Text } from "@chakra-ui/react";
 import WordWave from "../UI/TextAnimation/WordWave";
 import LetterWave from "../UI/TextAnimation/LetterWave";
 import { motion } from "framer-motion";
+import styled from "styled-components";
 
 const LandingTitle = () => {
   const placeholderText = [
@@ -24,17 +25,32 @@ const LandingTitle = () => {
     },
   };
 
+  const Dialog = styled(Box)`
+    &:after {
+      @include transform(skewX(-15deg));
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 25px;
+      border-width: 30px 30px 0 0;
+      border-style: solid;
+      border-color: #1C1D1F transparent;
+    }
+  `;
+
   return (
-    <Box>
-      <Text fontSize="3xl" alignItems={"center"} color="brandOrange.200" mt='20px'>
-        <WordWave
-          isArray={true}
-          wordArray={["Hi!"]}
-          delay={0}
-          duration={1}
-        />
+    <Dialog
+      backgroundColor={'dark.100'}
+      p="20px"
+      borderRadius={"10px"}
+      top="250px"
+      right={"0"}
+      position="absolute"
+    >
+      <Text fontSize="3xl" alignItems={"center"} color='white'>
+        <WordWave isArray={true} wordArray={["Hi!"]} delay={0} duration={1} />
       </Text>
-      <Text fontSize="xl" alignItems={"center"} color='brandOrange.300' marginTop='50px'>
+      <Text fontSize="xl" alignItems={"center"} color="white" marginTop="50px">
         <motion.div
           className="App"
           initial="hidden"
@@ -43,16 +59,13 @@ const LandingTitle = () => {
         >
           <div className="container">
             {placeholderText.map((item, index) => {
-                setTimeout(() => {
-  
-                }, 3000*index )
+              setTimeout(() => {}, 3000 * index);
               return <LetterWave {...item} key={index} />;
             })}
           </div>
         </motion.div>
       </Text>
-
-    </Box>
+    </Dialog>
   );
 };
 
