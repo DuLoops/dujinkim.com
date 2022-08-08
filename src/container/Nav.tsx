@@ -1,5 +1,5 @@
-import Connect from "./Connect";
-import Hamberger from "./Hamberger";
+import Connect from "../components/Nav/Connect";
+import Hamberger from "../components/Nav/Hamberger";
 
 import {
   Box,
@@ -7,9 +7,10 @@ import {
   HStack,
   useColorModeValue,
   Link,
+  Image
 } from "@chakra-ui/react";
 import { ReactNode, useState } from "react";
-
+import { logo } from "../resources/images/logo";
 const Links = ["Home", "Gallery", "Blog", "About"];
 
 const NavLink = ({ children }: { children: ReactNode }) => (
@@ -34,6 +35,7 @@ const Nav = () => {
     <Box backgroundColor="white">
       <Flex alignItems={"center"} justifyContent="space-between">
         <Connect />
+        <Image src={logo} alt='logo' boxSize='50px' position={'absolute'} top='10px' left={'50%'} transform='translate(-50%, 0)'/>
         <HStack spacing={8} alignItems={"center"}>
           {isOpen && (
             <HStack

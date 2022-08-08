@@ -4,8 +4,8 @@ import WordWave from "../../UI/TextAnimation/WordWave";
 const Blog = (props: any) => {
   return (
     <Box>
-      <Heading size="4xl">Blog</Heading>
-      <Heading size="2xl" mt='1rem'>
+      <Heading size="4xl" color={'white'}>Blog</Heading>
+      <Heading size="2xl" mt='1rem' color='white.100'>
         {props.play ? (
           <WordWave
             isArray={false}
@@ -14,7 +14,7 @@ const Blog = (props: any) => {
             delay={0}
           />
         ) : (
-          `Sharing My Passion`
+          <p>Sharing My Passion</p>
         )}
       </Heading>
     </Box>

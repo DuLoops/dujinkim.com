@@ -4,8 +4,8 @@ import WordWave from "../../UI/TextAnimation/WordWave";
 const GalleryPreview = (props: any) => {
   return (
     <Box>
-      <Heading size="4xl">Gallery</Heading>
-      <Heading size="2xl" mt='1rem'>
+      <Heading size="4xl" color={'white'}>Gallery</Heading>
+      <Heading size="2xl" mt='1rem' color={'light.100'}>
         {props.play ? (
           <WordWave
             isArray={false}
