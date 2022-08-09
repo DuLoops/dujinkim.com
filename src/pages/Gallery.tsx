@@ -27,7 +27,7 @@ const cards = [
 const Gallery = () => {
   return (
     <main>
-      <Carousel cards={cards}/>
+      {/* <Carousel cards={cards}/> */}
     </main>
   )
 };
