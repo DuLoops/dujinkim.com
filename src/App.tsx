@@ -4,7 +4,7 @@ import Home from "./pages/Home"
 import Gallery from "./pages/Gallery"
 import About from "./pages/About"
 import Blog from "./pages/Blog"
-import Connect from "./pages/Connect"
+import Connect from "./container/Contact"
 
 
 const App = () => {

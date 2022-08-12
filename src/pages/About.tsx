@@ -5,6 +5,7 @@ import { Box, Image } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { logo, logoTop, logoBottom } from "../resources/images/logo";
 import { useEffect, useState } from "react";
+import Contact from "../container/Contact";
 
 const About = () => {
   const [isLanding, setIsLanding] = useState(true);
@@ -48,6 +49,7 @@ const About = () => {
             <Landing />
             
             <Content />
+            <Contact />
           </motion.div>
         )}
       </AnimatePresence>

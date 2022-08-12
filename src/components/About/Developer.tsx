@@ -32,8 +32,8 @@ const Developer = () => {
           <DeveloperBandwidth />
         </Box>
       </Box>
-      <Box mt='100px'>
-        <Heading color={"white"} width={"70%"} margin="auto">
+      <Box mt='100px' textAlign={'center'}>
+        <Heading color={"white"} width={"70%"} margin="auto" borderBottom={'3px solid white'} pb='5px'>
           Portfolio
         </Heading>
         <DeveloperProjects />
