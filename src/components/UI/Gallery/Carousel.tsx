@@ -47,7 +47,7 @@ export default function Carousel(props: props) {
       // height={'600px'}
       pb='20px'
       width={'full'}
-      // overflow={'hidden'}
+      overflow={'hidden'}
       >
       {/* CSS files for react-slick */}
       <link
@@ -62,9 +62,9 @@ export default function Carousel(props: props) {
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
       />
       {/* Left Icon */}
-      {/* <IconButton
+      <IconButton
         aria-label="left-arrow"
-        colorScheme="messenger"
+        colorScheme='whiteAlpha'
         borderRadius="full"
         position="absolute"
         left={side}
@@ -73,11 +73,11 @@ export default function Carousel(props: props) {
         zIndex={2}
         onClick={() => slider?.slickPrev()}>
         <BiLeftArrowAlt />
-      </IconButton> */}
+      </IconButton>
       {/* Right Icon */}
-      {/* <IconButton
+      <IconButton
         aria-label="right-arrow"
-        colorScheme="messenger"
+        colorScheme='whiteAlpha'
         borderRadius="full"
         position="absolute"
         right={side}
@@ -86,7 +86,7 @@ export default function Carousel(props: props) {
         zIndex={2}
         onClick={() => slider?.slickNext()}>
         <BiRightArrowAlt />
-      </IconButton> */}
+      </IconButton>
       {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {props.cards.map((img, index) => (

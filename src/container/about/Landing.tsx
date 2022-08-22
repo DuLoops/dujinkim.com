@@ -33,7 +33,7 @@ const Landing = () => {
     >
       <Box textAlign="center" mt="100px">
         <Text color={"black"} fontSize="2xl">
-          Web developer / Photographer / Blogger
+          Software developer / Photographer / Blogger
         </Text>
       </Box>
       {/* <Flex

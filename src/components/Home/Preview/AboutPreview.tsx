@@ -1,5 +1,5 @@
 import { Box, Heading } from "@chakra-ui/react";
-import WordWave from "../../UI/TextAnimation/WordWave";
+import WordWave from "../../UI/textAnimation/WordWave";
 
 const AboutPreview = (props: any) => {
   return (
@@ -25,7 +25,7 @@ const AboutPreview = (props: any) => {
         </Heading>
       ) : (
         <Heading size="2xl" color={'light.100'}>
-          UI/UX Designer
+          Software Developer
           <br />
           &
           <br />

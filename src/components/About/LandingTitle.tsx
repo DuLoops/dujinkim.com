@@ -1,6 +1,6 @@
 import { Box, Text } from "@chakra-ui/react";
-import WordWave from "../UI/TextAnimation/WordWave";
-import LetterWave from "../UI/TextAnimation/LetterWave";
+import WordWave from "../UI/textAnimation/WordWave";
+import LetterWave from "../UI/textAnimation/LetterWave";
 import { motion } from "framer-motion";
 import styled from "styled-components";
 

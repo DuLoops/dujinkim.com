@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Box, Heading, Text } from "@chakra-ui/react";
 
-import GalleryPreview from "./Preview/GalleryPreview";
-import BlogPreview from "./Preview/BlogPreview";
-import AboutPreview from "./Preview/AboutPreview";
+import GalleryPreview from "./preview/GalleryPreview";
+import BlogPreview from "./preview/BlogPreview";
+import AboutPreview from "./preview/AboutPreview";
 
 interface props {
   isHover: boolean;

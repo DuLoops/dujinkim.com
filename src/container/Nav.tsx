@@ -1,5 +1,5 @@
-import Connect from "../components/Nav/Connect";
-import Hamberger from "../components/Nav/Hamberger";
+import Connect from "../components/nav/Connect";
+import Hamberger from "../components/nav/Hamberger";
 
 import {
   Box,

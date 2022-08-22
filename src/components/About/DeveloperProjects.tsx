@@ -15,11 +15,25 @@ const cards = [
     desc: "Pender Harbour Tourism",
     tech: "Vue.js",
     image: pender,
+    modal: {
+      images: [pender, pender2],
+      detail: "The website provides information and guide for the tourists vising the islands in Sunshine Coast. The newly designed & developed website is responsive and intuitive. ",
+      tech: ['Vue.js '],
+      link: "https://penderharbourdemo.web.app/",
+      git: "https://github.com/DuLoops/PenderHarbourSpirit"
+    }
   },
   {
-    title: "D&D game analytics",
+    title: "Oculus Party Viewer",
+    desc: "D&D game analytics",
     tech: "C#",
     image: dnd,
+    modal: {
+      images: [dnd, dnd2],
+      detail: "Oculus Party Viewer for Dungeons and Dragons games helps to keep track of the game and generates boss statistics.",
+      tech: ['C#', 'WPF'],
+      git: "https://github.com/DuLoops/Oculus-Party-Viewer"
+    }
   },
 ];
 

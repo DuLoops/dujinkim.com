@@ -23,7 +23,7 @@ const colors = {
       500: "#DAF1DE", //light green
     },
     brandBlue: {
-      100: "#83A7AF", //dark green
+      100: "#83A7AF", //
     },
     brandYellow: {
       100: "#EDB25A", //yellow

@@ -1,5 +1,5 @@
 import Carousel from '../components/UI/Gallery/Carousel'
-
+// import Gallery from '../container/Gallery';
 const cards = [
   {
     title: 'Design Projects 1',
@@ -27,7 +27,7 @@ const cards = [
 const Gallery = () => {
   return (
     <main>
-      {/* <Carousel cards={cards}/> */}
+      <Gallery />
     </main>
   )
 };
