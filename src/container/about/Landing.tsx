@@ -52,7 +52,6 @@ const Landing = () => {
         float="left"
       />
       <LandingTitle />
-      {/* </Flex> */}
       <Clear />
       <LandingDesc isScroll={false} />
     </Box>
