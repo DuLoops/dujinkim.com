@@ -33,7 +33,14 @@ import {
   MdFacebook,
   MdOutlineEmail,
 } from "react-icons/md";
-import { BsGithub, BsDiscord, BsPerson } from "react-icons/bs";
+import {
+  BsGithub,
+  BsDiscord,
+  BsPerson,
+  BsLinkedin,
+  BsStrava,
+  BsInstagram,
+} from "react-icons/bs";
 
 import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
@@ -159,32 +166,53 @@ export default function Contact() {
 
   const SnsForm = () => {
     return (
-      <Box bg={"lightGlass.100"} borderRadius="5px" p={"5px"}>
-        <Text>Connect</Text>
-        <Flex direction={'row'} justifyContent={'space-around'}>
+      <Box bg={"darkGlass.200"} p={"5px"} borderRadius='0px 0px 10px 10px'>
+        <Flex direction={"row"} justifyContent={"space-around"}>
           <IconButton
-            aria-label="facebook"
+            aria-label="linkedin"
             variant="ghost"
             size="lg"
             isRound={true}
-            _hover={{ bg: "#0D74FF" }}
-            icon={<MdFacebook size="28px" />}
+            _hover={{ bg: "#0077b5" }}
+            icon={<BsLinkedin size="28px" />}
+            onClick={() =>
+              window.open("https://www.linkedin.com/in/dujin-kim/", "_blank")
+            }
           />
           <IconButton
             aria-label="github"
             variant="ghost"
             size="lg"
             isRound={true}
-            _hover={{ bg: "#0D74FF" }}
+            _hover={{ bg: "#000" }}
             icon={<BsGithub size="28px" />}
+            onClick={() =>
+              window.open("https://www.instagram.com/dujinkim_/", "_blank")
+            }
           />
           <IconButton
-            aria-label="discord"
+            aria-label="instagram"
             variant="ghost"
             size="lg"
             isRound={true}
-            _hover={{ bg: "#0D74FF" }}
-            icon={<BsDiscord size="28px" />}
+            _hover={{ bg: "#EA185A" }}
+
+            icon={<BsInstagram size="28px" />}
+            onClick={() =>
+              window.open("https://www.instagram.com/dujinkim_/", "_blank")
+            }
+          />
+          <IconButton
+            aria-label="strava"
+            variant="ghost"
+            size="lg"
+            isRound={true}
+            _hover={{ bg: "#fc4c02" }}
+
+            icon={<BsStrava size="28px" />}
+            onClick={() =>
+              window.open("https://www.strava.com/athletes/66308223", "_blank")
+            }
           />
         </Flex>
       </Box>
@@ -204,52 +232,44 @@ export default function Contact() {
   const ContactForm = () => {
     return (
       <form onSubmit={handleSubmit}>
-        <Box
-          bg="darkGlass.200"
-          color="dark.100"
-          borderRadius="lg"
-          // m={{ sm: 4, md: 16, lg: 10 }}
-
-          p={{ sm: 5, md: 5, lg: 13 }}
-        >
+        <Box bg="darkGlass.200" color="dark.100" borderRadius="10px">
           <Box
             className="left"
             w={{ md: "50%" }}
             float={{ md: "left" }}
-            p="10px"
+            p="0 10px"
           >
-            <Heading color={"gray.100"}>Contact</Heading>
-            <Text my="10px">
-              Email:
-              <br />
+            <Heading>Contact</Heading>
+            <Text>
+              Email:&nbsp;
               <Link href="mailto:contact@dujinkim.com">
                 contact@dujinkim.com
               </Link>
             </Text>
             <RadioForm />
           </Box>
-          <Flex direction={"column"} gap="5px">
-            <SnsForm />
+          <Flex direction={"column"} gap="5px" p="10px" >
             <InputForm />
-            <Button
-              type="submit"
-              variant="solid"
-              // bg="#0D74FF"
-              colorScheme={"teal"}
-              // color="white"
-            >
+            <Button type="submit" variant="solid" colorScheme={"teal"}>
               {!loading ? "Send Message" : <Spinner />}
             </Button>
           </Flex>
           <Clear />
+
           {alert && <ErrorAlert />}
+          <SnsForm />
+
         </Box>
       </form>
     );
   };
 
   return (
-    <Container bg="neutralGreen.100" maxW="full" p={"50px"}>
+    <Container
+      bg="neutralGreen.100"
+      maxW="full"
+      p={{ sm: "15px", md: "50px", lg: "100px" }}
+    >
       {submitted ? (
         <Box m="50px">
           <Text>

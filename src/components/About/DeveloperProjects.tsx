@@ -39,7 +39,7 @@ const cards = [
 
 export default function DeveloperProjects() {
   return (
-    <Flex flexDir="row" justifyContent={'space-around'}>
+    <Flex flexDir={{sm: 'column', md:'row'}} justifyContent={'space-evenly'} gap='10px' p='10px'>
       {/* {cards.map((card) => {
         return (<DeveloperProjectCard card={card}/>)
       })} */}

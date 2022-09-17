@@ -33,26 +33,19 @@ const Landing = () => {
     >
       <Box textAlign="center" mt="100px">
         <Text color={"black"} fontSize="2xl">
-          Software developer / Photographer / Blogger
+          Software Developer / Photographer / Blogger
         </Text>
       </Box>
-      {/* <Flex
-        marginY="50px"
-        justifyContent={"space-evenly"}
-        marginBottom={"300px"}
-        marginTop="100px"
-      > */}
-      <Image
-        marginY="130px"
-        src={laptop}
-        alt="laptop"
-        w="60%"
-        maxWidth="1400px"
-        zIndex={"0"}
-        float="left"
-      />
-      <LandingTitle />
-      <Clear />
+      <Box position={'relative'} marginY="130px">
+        <Image
+          src={laptop}
+          alt="laptop"
+          w="60%"
+          maxWidth="1400px"
+          zIndex={"0"}
+        />
+        <LandingTitle />
+      </Box>
       <LandingDesc isScroll={false} />
     </Box>
   );
