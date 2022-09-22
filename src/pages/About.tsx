@@ -5,7 +5,7 @@ import { Box, Image } from "@chakra-ui/react";
 import { AnimatePresence, motion } from "framer-motion";
 import { logo, logoTop, logoBottom } from "../resources/images/logo";
 import { useEffect, useState } from "react";
-import Contact from "../container/Contact";
+import Contact from "../container/ContactForm";
 
 const About = () => {
   const [isLanding, setIsLanding] = useState(true);

@@ -1,4 +1,5 @@
 import Carousel from '../components/UI/Gallery/Carousel'
+import { Text } from '@chakra-ui/react';
 // import Gallery from '../container/Gallery';
 const cards = [
   {
@@ -28,6 +29,7 @@ const Gallery = () => {
   return (
     <main>
       <Gallery />
+      <Text>Building gallery</Text>
     </main>
   )
 };

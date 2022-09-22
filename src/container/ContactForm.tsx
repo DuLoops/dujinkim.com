@@ -63,11 +63,11 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [alert, setAlert] = useState(false);
 
-  const handleChange = (event) => {
+  const handleChange = (event: any) => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
 
-  const handleRadio = (radioValue) => {
+  const handleRadio = (radioValue: string) => {
     setForm({ ...form, about: radioValue });
   };
 
@@ -75,34 +75,34 @@ export default function Contact() {
     setForm({ ...form, about: "other" });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: any) => {
     event.preventDefault();
     setLoading(true);
     console.log(form);
-    emailjs
-      .send("service_kgsfubg", "template_ofm6cnc", form, "82G2kc4aCnqBmcQit")
-      .then(
-        (result) => {
-          console.log(result.text);
-          setLoading(false);
-          setSubmitted(true);
-        },
-        (error) => {
-          console.log("try again");
-          console.log(error.text);
-          setLoading(false);
-          setAlert(true);
-        }
-      )
-      .then(
-        setForm({
-          about: "web-development",
-          other: "",
-          name: "",
-          email: "",
-          text: "",
-        })
-      );
+    // emailjs
+    //   .send("service_kgsfubg", "template_ofm6cnc", form, "82G2kc4aCnqBmcQit")
+    //   .then(
+    //     (result) => {
+    //       console.log(result.text);
+    //       setLoading(false);
+    //       setSubmitted(true);
+    //     },
+    //     (error) => {
+    //       console.log("try again");
+    //       console.log(error.text);
+    //       setLoading(false);
+    //       setAlert(true);
+    //     }
+    //   )
+    //   .then(() => {
+    //     setForm({
+    //       about: "web-development",
+    //       other: "",
+    //       subject: "",
+    //       email: "",
+    //       text: "",
+    //     });
+    //   });
   };
 
   const RadioForm = () => {
@@ -166,7 +166,7 @@ export default function Contact() {
 
   const SnsForm = () => {
     return (
-      <Box bg={"darkGlass.200"} p={"5px"} borderRadius='0px 0px 10px 10px'>
+      <Box bg={"darkGlass.200"} p={"5px"} borderRadius="0px 0px 10px 10px">
         <Flex direction={"row"} justifyContent={"space-around"}>
           <IconButton
             aria-label="linkedin"
@@ -196,7 +196,6 @@ export default function Contact() {
             size="lg"
             isRound={true}
             _hover={{ bg: "#EA185A" }}
-
             icon={<BsInstagram size="28px" />}
             onClick={() =>
               window.open("https://www.instagram.com/dujinkim_/", "_blank")
@@ -208,7 +207,6 @@ export default function Contact() {
             size="lg"
             isRound={true}
             _hover={{ bg: "#fc4c02" }}
-
             icon={<BsStrava size="28px" />}
             onClick={() =>
               window.open("https://www.strava.com/athletes/66308223", "_blank")
@@ -248,7 +246,7 @@ export default function Contact() {
             </Text>
             <RadioForm />
           </Box>
-          <Flex direction={"column"} gap="5px" p="10px" >
+          <Flex direction={"column"} gap="5px" p="10px">
             <InputForm />
             <Button type="submit" variant="solid" colorScheme={"teal"}>
               {!loading ? "Send Message" : <Spinner />}
@@ -258,7 +256,6 @@ export default function Contact() {
 
           {alert && <ErrorAlert />}
           <SnsForm />
-
         </Box>
       </form>
     );
@@ -278,7 +275,148 @@ export default function Contact() {
           <SnsForm />
         </Box>
       ) : (
-        <ContactForm />
+        <form onSubmit={handleSubmit}>
+          <Box bg="darkGlass.200" color="dark.100" borderRadius="10px">
+            <Box
+              className="left"
+              w={{ md: "50%" }}
+              float={{ md: "left" }}
+              p="0 10px"
+            >
+              <Heading fontSize='2xl' pt='5px'>Contact</Heading>
+              <Text>
+                Email:&nbsp;
+                <Link href="mailto:contact@dujinkim.com">
+                  contact@dujinkim.com
+                </Link>
+              </Text>
+              <RadioGroup
+                onChange={handleRadio}
+                value={form.about}
+                name="about"
+              >
+                <Text fontSize='sm'>Select One</Text>
+                <Stack>
+                  <Radio value="web-development">Web Development</Radio>
+                  <Radio value="photography">Photography</Radio>
+                  <Radio value="blog">Blog</Radio>
+                  <Flex gap={"10px"}>
+                    <Radio value={"other"} />
+                    <Input
+                      type="text"
+                      onChange={handleChange}
+                      onClick={handleOther}
+                      value={form.other}
+                      placeholder="Other"
+                      name="other"
+                    />
+                  </Flex>
+                </Stack>
+              </RadioGroup>{" "}
+            </Box>
+            <Flex direction={"column"} gap="5px" p="10px" justifyContent={'space-evenly'}>
+                <FormControl isRequired>
+                  <Input
+                    value={form.email}
+                    onChange={handleChange}
+                    placeholder="*email"
+                    size="sm"
+                    name="email"
+                    type="email"
+                  />
+                </FormControl>
+                <FormControl isRequired>
+                  <Input
+                    value={form.subject}
+                    onChange={handleChange}
+                    placeholder="*subject"
+                    size="sm"
+                    name="subject"
+                    type="text"
+                  />
+                </FormControl>
+                <FormControl isRequired>
+                  <Textarea
+                    value={form.text}
+                    onChange={handleChange}
+                    placeholder="*message"
+                    size="sm"
+                    name="text"
+                  />
+                </FormControl>
+              <Button type="submit" variant="solid" colorScheme={"teal"}>
+                {!loading ? "Send Message" : <Spinner />}
+              </Button>
+            </Flex>
+            <Clear />
+            {alert && <ErrorAlert />}
+            <Box
+              bg={"darkGlass.200"}
+              p={"5px"}
+              borderRadius="0px 0px 10px 10px"
+              mt='10px'
+            >
+              <Flex direction={"row"} justifyContent={"space-around"}>
+                <IconButton
+                  aria-label="linkedin"
+                  variant="ghost"
+                  size="lg"
+                  isRound={true}
+                  _hover={{ bg: "#0077b5" }}
+                  icon={<BsLinkedin size="28px" />}
+                  onClick={() =>
+                    window.open(
+                      "https://www.linkedin.com/in/dujin-kim/",
+                      "_blank"
+                    )
+                  }
+                />
+                <IconButton
+                  aria-label="github"
+                  variant="ghost"
+                  size="lg"
+                  isRound={true}
+                  _hover={{ bg: "#000" }}
+                  icon={<BsGithub size="28px" />}
+                  onClick={() =>
+                    window.open(
+                      "https://github.com/DuLoops",
+                      "_blank"
+                    )
+                  }
+                />
+                <IconButton
+                  aria-label="instagram"
+                  variant="ghost"
+                  size="lg"
+                  isRound={true}
+                  _hover={{ bg: "#EA185A" }}
+                  icon={<BsInstagram size="28px" />}
+                  onClick={() =>
+                    window.open(
+                      "https://www.instagram.com/dujinkim_/",
+                      "_blank"
+                    )
+                  }
+                />
+                <IconButton
+                  aria-label="strava"
+                  variant="ghost"
+                  size="lg"
+                  isRound={true}
+                  _hover={{ bg: "#fc4c02" }}
+                  icon={<BsStrava size="28px" />}
+                  onClick={() =>
+                    window.open(
+                      "https://www.strava.com/athletes/66308223",
+                      "_blank"
+                    )
+                  }
+                />
+              </Flex>
+            </Box>{" "}
+          </Box>
+        </form>
       )}
     </Container>
   );

@@ -7,8 +7,10 @@ import {
   HStack,
   useColorModeValue,
   Link,
-  Image
+  Image,
 } from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
+
 import { ReactNode, useState } from "react";
 import { logo } from "../resources/images/logo";
 const Links = ["Home", "Gallery", "Blog", "About"];
@@ -35,7 +37,17 @@ const Nav = () => {
     <Box backgroundColor="white">
       <Flex alignItems={"center"} justifyContent="space-between">
         <Connect />
-        <Image src={logo} alt='logo' boxSize='50px' position={'absolute'} top='10px' left={'50%'} transform='translate(-50%, 0)'/>
+        <RouterLink to={"/"}>
+          <Image
+            src={logo}
+            alt="logo"
+            boxSize="50px"
+            position={"absolute"}
+            top="10px"
+            left={"50%"}
+            transform="translate(-50%, 0)"
+          />
+        </RouterLink>
         <HStack spacing={8} alignItems={"center"}>
           {isOpen && (
             <HStack
@@ -49,7 +61,7 @@ const Nav = () => {
               ))}
             </HStack>
           )}
-          <Hamberger isOpen={isOpen} setOpen={setOpen}/>
+          <Hamberger isOpen={isOpen} setOpen={setOpen} />
         </HStack>
       </Flex>
     </Box>

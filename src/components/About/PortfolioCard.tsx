@@ -60,6 +60,10 @@ export default function PorfolioCard(props: props) {
         onMouseLeave={() => {
           setDisplayInfo(false);
         }}
+        onClick={() => {
+          setDisplayInfo(true);
+        }}
+
       >
         <Box bg={"gray.100"} pos={"relative"}>
           <Image src={props.card.image} fit="fill" />

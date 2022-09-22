@@ -16,7 +16,7 @@ const Connect = () => {
 
   return (
     <Link
-    to={"/connect"}
+    to={"/contact"}
     onMouseEnter={setConnectHover.on}
     onMouseLeave={setConnectHover.off}
   >
