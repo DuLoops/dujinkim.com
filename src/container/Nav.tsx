@@ -34,7 +34,7 @@ const Nav = () => {
   const [isOpen, setOpen] = useState(false);
 
   return (
-    <Box backgroundColor="white">
+    <Box >
       <Flex alignItems={"center"} justifyContent="space-between">
         <Connect />
         <RouterLink to={"/"}>
