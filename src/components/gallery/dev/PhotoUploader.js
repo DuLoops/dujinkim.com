@@ -10,9 +10,28 @@ import {
   Select,
   Stack,
   Checkbox,
+  Button,
+  useDisclosure,
+  List,
+  UnorderedList,
+  ListItem,
+  useBoolean,
 } from "@chakra-ui/react";
+import PhotoLink from "./PhotoLink";
+import PhotoLocation from "./PhotoLocation";
 
 const PhotoUploader = (props) => {
+  const [photoDet, setPhotoDet] = useState({
+    photoID: "",
+    title: props.photo.name.replace(/\.[^/.]+$/, ""),
+    desc: "",
+    date: props.photo.lastModifiedDate.toLocaleDateString("en-CA"),
+    // location: {lat:0, long:0}
+    location: null,
+    links: [],
+  });
+  const [links, setLinks] = useState([]);
+
   const categories = [
     "all",
     "adventure",
@@ -22,16 +41,6 @@ const PhotoUploader = (props) => {
     "architecture",
     "products",
   ];
-
-  const [photoDet, setPhotoDet] = useState({
-    title: props.photo.name.replace(/\.[^/.]+$/, ""),
-    desc: "",
-    date: props.photo.lastModifiedDate.toLocaleDateString("en-CA"),
-    // location: {lat:0, long:0}
-    location: {},
-    links: [],
-  });
-
   const [category, setCategory] = useState([
     true,
     false,
@@ -42,9 +51,11 @@ const PhotoUploader = (props) => {
     false,
   ]);
 
-  const handleChange = (e) => {
-    console.log(category);
+  const [isLocationOpen, setIsLocationOpen] = useBoolean();
+  const [isLinkOpen, setIsLinkOpen] = useBoolean();
 
+  const handleChange = (e) => {
+    console.log(links);
     setPhotoDet({ ...photoDet, [e.target.name]: e.target.value });
   };
 
@@ -54,7 +65,7 @@ const PhotoUploader = (props) => {
       backgroundColor="darkGlass.100"
       textSize="sm"
       color={"black"}
-      p='5px'
+      p="5px"
     >
       <Image src={URL.createObjectURL(props.photo)} alt={props.photo.name} />
       <form>
@@ -102,13 +113,40 @@ const PhotoUploader = (props) => {
           value={photoDet.location}
           onChange={handleChange}
         />
+        <Button onClick={setIsLocationOpen.on}>Set Location</Button>
+        {isLocationOpen && <PhotoLocation isOpen={isLocationOpen} setIsOpen={setIsLocationOpen}/>}
         <FormLabel>Links</FormLabel>
-        <Input
-          name="links"
-          type={"text"}
-          value={photoDet.links}
-          onChange={handleChange}
-        />
+        {links && (
+          <UnorderedList>
+            {links.map((link) => {
+              return (
+                <ListItem>
+                  {link}
+                  <Button
+                    colorScheme={"red"}
+                    size="xs"
+                    onClick={() => {
+                      setLinks((prevLinks) => {
+                        return prevLinks.filter((item) => item != link);
+                      });
+                    }}
+                  >
+                    X
+                  </Button>
+                </ListItem>
+              );
+            })}
+          </UnorderedList>
+        )}
+        <Button onClick={setIsLinkOpen.on}>Add Links</Button>
+        {isLinkOpen && (
+          <PhotoLink
+            isOpen={isLinkOpen}
+            setIsOpen={setIsLinkOpen}
+            setLinks={setLinks}
+            photoID={photoDet.photoID}
+          />
+        )}
       </form>
     </Box>
   );
