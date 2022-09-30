@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useImperativeHandle, forwardRef } from "react";
 import {
   Box,
   FormControl,
@@ -19,18 +19,29 @@ import {
 } from "@chakra-ui/react";
 import PhotoLink from "./PhotoLink";
 import PhotoLocation from "./PhotoLocation";
+import { arrayRemove, updateDoc, doc } from "firebase/firestore";
+import { db } from "../../../firebase/config";
 
-const PhotoUploader = (props) => {
+const PhotoUploader = forwardRef((props, ref) => {
   const [photoDet, setPhotoDet] = useState({
-    photoID: "",
+    photoID: encodeURI(
+      props.photo.name.replace(/\.[^/.]+$/, "").concat(props.photo.lastModified)
+    ),
     title: props.photo.name.replace(/\.[^/.]+$/, ""),
     desc: "",
     date: props.photo.lastModifiedDate.toLocaleDateString("en-CA"),
-    // location: {lat:0, long:0}
-    location: null,
-    links: [],
   });
   const [links, setLinks] = useState([]);
+  const [locationData, setLocationData] = useState();
+  const [category, setCategory] = useState({
+    all: true,
+    adventure: false,
+    landscape: false,
+    sports: false,
+    life: false,
+    architecture: false,
+    products: false,
+  });
 
   const categories = [
     "all",
@@ -41,23 +52,25 @@ const PhotoUploader = (props) => {
     "architecture",
     "products",
   ];
-  const [category, setCategory] = useState([
-    true,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
 
   const [isLocationOpen, setIsLocationOpen] = useBoolean();
   const [isLinkOpen, setIsLinkOpen] = useBoolean();
 
   const handleChange = (e) => {
-    console.log(links);
     setPhotoDet({ ...photoDet, [e.target.name]: e.target.value });
   };
+
+  const removeLinkDoc = async (link) => {
+    await updateDoc(doc(db, "links", link), {
+      linkedPhotos: arrayRemove(photoDet.photoID),
+    });
+  };
+
+  useImperativeHandle(ref, () => ({
+    upload() {
+      console.log(photoDet.photoID);
+    },
+  }));
 
   return (
     <Box
@@ -74,9 +87,9 @@ const PhotoUploader = (props) => {
           {categories.map((cat, index) => {
             return (
               <Checkbox
-                isChecked={category[index]}
+                isChecked={category[cat]}
                 onChange={(e) => {
-                  setCategory({ ...category, [index]: e.target.checked });
+                  setCategory({ ...category, [cat]: e.target.checked });
                 }}
                 key={index}
               >
@@ -107,14 +120,17 @@ const PhotoUploader = (props) => {
           onChange={handleChange}
         />
         <FormLabel>Location</FormLabel>
-        <Input
-          name="location"
-          type={"text"}
-          value={photoDet.location}
-          onChange={handleChange}
-        />
+        {locationData && <Text>{locationData.formatted_address}</Text>}
         <Button onClick={setIsLocationOpen.on}>Set Location</Button>
-        {isLocationOpen && <PhotoLocation isOpen={isLocationOpen} setIsOpen={setIsLocationOpen}/>}
+        {isLocationOpen && (
+          <PhotoLocation
+            isOpen={isLocationOpen}
+            setIsOpen={setIsLocationOpen}
+            setLocationData={setLocationData}
+            locationData={locationData}
+            photoID={photoDet.photoID}
+          />
+        )}
         <FormLabel>Links</FormLabel>
         {links && (
           <UnorderedList>
@@ -129,6 +145,7 @@ const PhotoUploader = (props) => {
                       setLinks((prevLinks) => {
                         return prevLinks.filter((item) => item != link);
                       });
+                      removeLinkDoc(link);
                     }}
                   >
                     X
@@ -150,6 +167,6 @@ const PhotoUploader = (props) => {
       </form>
     </Box>
   );
-};
+});
 
 export default PhotoUploader;

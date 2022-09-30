@@ -1,5 +1,5 @@
-import { Box, Input, Text, Flex } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { Box, Input, Text, Flex, Button } from "@chakra-ui/react";
+import { useEffect, useState, useRef } from "react";
 
 import ProgressBar from "../components/gallery/dev/ProgressBar";
 import PhotoUploader from "../components/gallery/dev/PhotoUploader";
@@ -13,15 +13,21 @@ const GalleryDev = () => {
     setPhotos(Array.from(selected));
   };
 
+
+  const childRef = useRef();
+
   return (
     <Box p="20px">
       <Input type="file" accept="image/*" multiple onChange={fileHandler} />
       {photos && (
-        <Flex gap={'10px'} m='20px'>
-          {photos.map((photo, index) => {
-            return <PhotoUploader photo={photo} key={index} />;
-          })}
-        </Flex>
+        <>
+          <Flex gap={"10px"} m="20px">
+            {photos.map((photo, index) => {
+              return <PhotoUploader photo={photo} key={index} ref={childRef}/>;
+            })}
+          </Flex>
+          <Button colorScheme={'red'} onClick={()=>{childRef.current.upload()}}>Upload</Button>
+        </>
       )}
     </Box>
   );

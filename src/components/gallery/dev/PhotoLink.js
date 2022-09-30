@@ -14,13 +14,13 @@ import {
   FormLabel,
 } from "@chakra-ui/react";
 import { db } from "../../../firebase/config";
-import { doc, getDocs, collection, setDoc } from "firebase/firestore";
+import { doc, getDocs, collection, setDoc, updateDoc, arrayUnion } from "firebase/firestore";
 import { useEffect, useState } from "react";
 
 const PhotoLink = (props) => {
   const [linkDocs, setLinkDocs] = useState([]);
   const [newLink, setNewLink] = useState({
-    docName: "",
+    docID: "",
     linkName: "",
     linkAddress: "",
     photoID: [props.photoID],
@@ -42,7 +42,7 @@ const PhotoLink = (props) => {
   };
 
   const addNewLinkDoc = async () => {
-    await setDoc(doc(db, "links", newLink.docName), {
+    await setDoc(doc(db, "links", newLink.docID), {
       linkName: newLink.linkName,
       linkAddress: newLink.linkAddress,
       availability: true,
@@ -53,16 +53,23 @@ const PhotoLink = (props) => {
   const handleNewLink = (e) => {
     e.preventDefault();
     addNewLinkDoc().then(() => {
-      props.setLinks((prevLinks) => ([...prevLinks, newLink.docName]));
+      props.setLinks((prevLinks) => [...prevLinks, newLink.docID]);
     });
     props.setIsOpen.off();
   };
 
+  const updateLinkDoc = async () => {
+    await updateDoc(doc(db, 'links', selectedLink), {
+      linkedPhotos: arrayUnion(props.photoID)
+    })
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.setLinks((prevLinks) => ([...prevLinks, selectedLink]));
+    updateLinkDoc();
+    props.setLinks((prevLinks) => [...prevLinks, selectedLink]);
     props.setIsOpen.off();
-  }
+  };
 
   return (
     <Modal isOpen={props.isOpen} onClose={props.setIsOpen.off}>
@@ -91,8 +98,8 @@ const PhotoLink = (props) => {
               <FormLabel>Doc Name</FormLabel>
               <Input
                 type={"text"}
-                name={"docName"}
-                value={newLink.docName}
+                name={"docID"}
+                value={newLink.docID}
                 onChange={handleChange}
                 required
               />
@@ -121,7 +128,9 @@ const PhotoLink = (props) => {
           <Button variant="ghost" mr={3} onClick={props.setIsOpen.off}>
             Cancel
           </Button>
-          <Button colorScheme="blue" onClick={handleSubmit}>Add Link</Button>
+          <Button colorScheme="blue" onClick={handleSubmit}>
+            Add Link
+          </Button>
         </ModalFooter>
       </ModalContent>
     </Modal>
