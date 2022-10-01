@@ -18,27 +18,19 @@ import { doc, getDocs, collection, setDoc, updateDoc, arrayUnion } from "firebas
 import { useEffect, useState } from "react";
 
 const PhotoLink = (props) => {
+  const [selectedLink, setSelectedLink] = useState("test");
   const [linkDocs, setLinkDocs] = useState([]);
+  const [createNewLink, setCreateNewLink] = useBoolean();
   const [newLink, setNewLink] = useState({
     docID: "",
     linkName: "",
     linkAddress: "",
-    photoID: [props.photoID],
+    linkedPhotos: [props.photoID],
   });
-  const [createNewLink, setCreateNewLink] = useBoolean();
-  const [selectedLink, setSelectedLink] = useState("test");
 
-  const getLinkDocs = async () => {
+  const loadLinkDocs = async () => {
     const querySnapshot = await getDocs(collection(db, "links"));
     setLinkDocs(querySnapshot.docs);
-  };
-
-  useEffect(() => {
-    getLinkDocs();
-  }, []);
-
-  const handleChange = (e) => {
-    setNewLink({ ...newLink, [e.target.name]: e.target.value });
   };
 
   const addNewLinkDoc = async () => {
@@ -46,16 +38,8 @@ const PhotoLink = (props) => {
       linkName: newLink.linkName,
       linkAddress: newLink.linkAddress,
       availability: true,
-      photoID: newLink.photoID,
+      linkedPhotos: newLink.linkedPhotos,
     });
-  };
-
-  const handleNewLink = (e) => {
-    e.preventDefault();
-    addNewLinkDoc().then(() => {
-      props.setLinks((prevLinks) => [...prevLinks, newLink.docID]);
-    });
-    props.setIsOpen.off();
   };
 
   const updateLinkDoc = async () => {
@@ -64,11 +48,38 @@ const PhotoLink = (props) => {
     })
   }
 
+  useEffect(() => {
+    loadLinkDocs();
+  }, []);
+
+  const handleNewLinkChange = (e) => {
+    setNewLink({ ...newLink, [e.target.name]: e.target.value });
+  };
+
+  const handleNewLink = (e) => {
+    e.preventDefault();
+    addNewLinkDoc().then(() => {
+      props.dispatch({
+        type: "InsertLink",
+        id: props.photoID,
+        value: newLink.docID
+      });
+    });
+    props.setIsOpen.off();
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateLinkDoc();
-    props.setLinks((prevLinks) => [...prevLinks, selectedLink]);
-    props.setIsOpen.off();
+    updateLinkDoc().then(
+      () => {
+        props.dispatch({
+          type: "InsertLink",
+          id: props.photoID,
+          value: selectedLink
+        });
+        props.setIsOpen.off();
+      }
+    );
   };
 
   return (
@@ -85,8 +96,8 @@ const PhotoLink = (props) => {
               }}
               value={selectedLink}
             >
-              {linkDocs.map((doc) => {
-                return <option value={doc.id}>{doc.id}</option>;
+              {linkDocs.map((doc, index) => {
+                return <option value={doc.id} key={index}>{doc.id}</option>;
               })}
             </Select>
           )}
@@ -100,16 +111,15 @@ const PhotoLink = (props) => {
                 type={"text"}
                 name={"docID"}
                 value={newLink.docID}
-                onChange={handleChange}
+                onChange={handleNewLinkChange}
                 required
               />
               <FormLabel>Link Name</FormLabel>
-
               <Input
                 type={"text"}
                 name={"linkName"}
                 value={newLink.linkName}
-                onChange={handleChange}
+                onChange={handleNewLinkChange}
                 required
               />
               <FormLabel>Link Address</FormLabel>
@@ -117,7 +127,7 @@ const PhotoLink = (props) => {
                 type={"text"}
                 name={"linkAddress"}
                 value={newLink.linkAddress}
-                onChange={handleChange}
+                onChange={handleNewLinkChange}
                 required
               />
               <Button type={"submit"}>Add Link</Button>

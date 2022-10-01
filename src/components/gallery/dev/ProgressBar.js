@@ -1,6 +1,6 @@
 import { Progress } from "@chakra-ui/react";
 import { useEffect } from "react";
-import useStorage from "../../../hooks/useStorage";
+import useStorage from "../../../hooks/uploadFile";
 import { dnd } from "../../../resources/images/dev/portfolio";
 
 const ProgressBar = ({file, setImgUrl}) => {

@@ -8,8 +8,6 @@ import {
   ModalBody,
   ModalFooter,
   Button,
-  Select,
-  useBoolean,
   Input,
   FormLabel,
 } from "@chakra-ui/react";
@@ -20,17 +18,17 @@ import {
   setDoc,
   updateDoc,
 } from "firebase/firestore";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { apiKey } from "../../../api/googleMapApi";
 import { db } from "../../../firebase/config";
 
 const PhotoLocation = (props) => {
-  //AIzaSyARm4u82aPsKxLZ_vpCdmsgJYTWDmgXzgI
-  const [address, setAddress] = useState("");
+  const [searchVal, setSearchVal] = useState("");
+  const [location, setLocation] = useState();
 
   const handleSearch = () => {
     fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?address=${address.replace(
+      `https://maps.googleapis.com/maps/api/geocode/json?address=${searchVal.replace(
         /\s/g,
         "+"
       )}&key=${apiKey}`
@@ -40,7 +38,7 @@ const PhotoLocation = (props) => {
         if (data.status != "OK") {
           alert(`Error: ${data.status}`);
         } else {
-          props.setLocationData({
+          setLocation({
             place_id: data.results[0].place_id,
             address_components: data.results[0].address_components,
             formatted_address: data.results[0].formatted_address,
@@ -52,29 +50,35 @@ const PhotoLocation = (props) => {
 
   const addNewLocationDoc = async () => {
     await setDoc(
-      doc(db, "locations", props.locationData.place_id),
+      doc(db, "locations", location.formatted_address),
       {
-        address_components: props.locationData.address_components,
-        formatted_address: props.locationData.formatted_address,
-        geo_point: new GeoPoint(
-          props.locationData.geo_point.lat,
-          props.locationData.geo_point.lng
-        ),
+        place_id: location.place_id,
+        address_components: location.address_components,
+        formatted_address: location.formatted_address,
+        geo_point: new GeoPoint(location.geo_point.lat, location.geo_point.lng),
       },
       { merge: true }
     ).then(() => {
-      updateDoc(doc(db, "locations", props.locationData.place_id), {
+      updateDoc(doc(db, "locations", location.formatted_address), {
         linkedPhotos: arrayUnion(props.photoID),
       });
     });
   };
 
   const handleSave = () => {
-    if (!props.locationData) {
+    if (!location) {
       alert("No location found");
       return;
     } else {
-      addNewLocationDoc().then(props.setIsOpen.off());
+      addNewLocationDoc().then(() => {
+        props.dispatch({
+          type: "SetTextInput",
+          id: props.photoID,
+          key: "location",
+          value: location.formatted_address,
+        });
+        props.setIsOpen.off();
+      });
     }
   };
 
@@ -88,15 +92,13 @@ const PhotoLocation = (props) => {
           <FormLabel>Address</FormLabel>
           <Input
             type="text"
-            value={address}
+            value={searchVal}
             onChange={(e) => {
-              setAddress(e.target.value);
+              setSearchVal(e.target.value);
             }}
           />
           <Button onClick={handleSearch}>Search</Button>
-          {props.locationData && (
-            <Text color={"grey"}>{props.locationData.formatted_address}</Text>
-          )}
+          {location && <Text color={"grey"}>{location.formatted_address}</Text>}
         </ModalBody>
         <ModalFooter>
           <Button
