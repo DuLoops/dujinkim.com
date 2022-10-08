@@ -9,8 +9,8 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useState, useReducer } from "react";
 
-import PhotoUploadInfo from "./PhotoUploadInfo";
-import uploadFile from "../../../hooks/uploadFile";
+import PhotoUploadInfo from "../../components/gallery/dev/PhotoUploadInfo";
+import uploadFile from "../../hooks/uploadFile";
 import {
   doc,
   getDocs,
@@ -19,8 +19,7 @@ import {
   updateDoc,
   arrayUnion,
 } from "firebase/firestore";
-import { db } from "../../../firebase/config";
-import { connectStorageEmulator } from "firebase/storage";
+import { db } from "../../firebase/config";
 
 const PhotoUploader = (props) => {
   const [uploading, setUploading] = useBoolean(false);
@@ -113,23 +112,26 @@ const PhotoUploader = (props) => {
 
   const handleUpload = async () => {
     setUploading.on();
-    async function uploadPhotos() {
-      photos.map(async (photo) => {
-        let filePath = await uploadFile(photo.file);
-        setDoc(doc(db, "photos", photo.id), { ...photo, file: filePath }).then(()=>{
-          console.log('hel;l');
-        })
-      });
-    }
-    // await uploadPhotos().then(() => {
-    //   props.setPhotos(null);
-    // });
+
+    const requests = photos.map(async (photo) => {
+      let filePath = await uploadFile(photo.file);
+      setDoc(doc(db, "photos", photo.id), { ...photo, file: filePath });
+    });
+
+    Promise.all(requests).then(() => {
+      props.setPhotos(null);
+      alert("Upload compleated.");
+    });
   };
 
   return (
     <Box p="20px">
       {uploading ? (
-        <Spinner color="red" />
+        <Box>
+          <Text>
+            Uploading <Spinner color="red" />
+          </Text>
+        </Box>
       ) : (
         <>
           <Flex gap={"10px"} m="20px">
@@ -143,7 +145,7 @@ const PhotoUploader = (props) => {
               );
             })}
           </Flex>
-          <Button colorScheme={"red"} onClick={handleUpload}>
+          <Button colorScheme={"green"} onClick={handleUpload}>
             Upload
           </Button>
         </>
@@ -151,31 +153,5 @@ const PhotoUploader = (props) => {
     </Box>
   );
 };
-
-// const GalleryDev = () => {
-//   const [file, setFile] = useState<any>();
-//   const [url, setUrl] = useState("");
-//   const types = ["image/png", "image/jpeg"];
-
-//   const changeHandler = (e: React.FormEvent<HTMLInputElement>) => {
-//     //Choosing the first file
-//     let selected: any = e.currentTarget.files;
-//     let firstSelected = selected[0];
-//     if (firstSelected && types.includes(firstSelected.type)) {
-//       setFile(firstSelected);
-//     } else {
-//       setFile(undefined);
-//       console.log("Wrong format");
-//     }
-//   };
-
-//   return (
-//     <form>
-//       <input type="file" onChange={changeHandler} />
-//       {file && <Text>{file.name}</Text>}
-//       {file && <ProgressBar file={file} setImgUrl={setUrl} />}
-//     </form>
-//   );
-// };
 
 export default PhotoUploader;

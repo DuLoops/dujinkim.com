@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { motion, useAnimation } from "framer-motion";
-import { Flex, Text, useBoolean, Box } from "@chakra-ui/react";
+import { Flex, Text, useBoolean, Box, useColorMode } from "@chakra-ui/react";
 
 const path01Variants = {
   open: { d: "M10 0L40 30" },
@@ -17,6 +17,7 @@ const path02Variants = {
 
 const Hamberger = (props: any) => {
   const [isHover, setHover] = useState(false);
+  const { colorMode, toggleColorMode } = useColorMode()
 
   const path01Controls = useAnimation();
   const path02Controls = useAnimation();
@@ -51,7 +52,7 @@ const Hamberger = (props: any) => {
     <button onClick={onClick} onMouseEnter={onHover} onMouseLeave={onLeave}>
       <Flex alignItems={"center"}>
         {!props.isOpen && (
-          <Text fontSize={"2xl"} color={"black"} mr="3">
+          <Text fontSize={"2xl"} color={colorMode == 'light' ? 'black' : '#A0AEC0'} mr="3">
             MENU
           </Text>
         )}
@@ -60,14 +61,14 @@ const Hamberger = (props: any) => {
             {...path01Variants.closed}
             animate={path01Controls}
             transition={{ duration: 0.2 }}
-            stroke="#000"
+            stroke={colorMode == 'light' ? 'black' : '#A0AEC0'}
             strokeWidth={"2"}
           />
           <motion.path
             {...path02Variants.closed}
             animate={path02Controls}
             transition={{ duration: 0.2 }}
-            stroke="#000"
+            stroke={colorMode == 'light' ? 'black' : '#A0AEC0'}
             strokeWidth={"2"}
           />
         </svg>

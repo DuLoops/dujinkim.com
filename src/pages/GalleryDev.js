@@ -1,10 +1,11 @@
-import { Box, Input, Text, Flex, Button } from "@chakra-ui/react";
+import { Box, Input, Text, Flex, Button, Heading, useBoolean } from "@chakra-ui/react";
 import { useEffect, useState, useRef } from "react";
 
-import PhotoUploader from "../components/gallery/dev/PhotoUploader";
-
+import PhotoUploader from "../container/gallery/PhotoUploader";
+import PhotoEditor from "../container/gallery/PhotoEditor";
 const GalleryDev = () => {
   const [photos, setPhotos] = useState();
+  const [editPhotoFlag, setEditPhotoFlag] = useBoolean()
 
   const fileHandler = (e) => {
     let selected = e.currentTarget.files;
@@ -25,7 +26,15 @@ const GalleryDev = () => {
           Cancel
         </Button>
       )}
-      {photos && <PhotoUploader photos={photos} setPhotos={setPhotos}/>}
+      {photos && <PhotoUploader photos={photos} setPhotos={setPhotos} />}
+      <Button
+        mt='100px'
+        onClick={setEditPhotoFlag.toggle}
+        colorScheme={editPhotoFlag ? 'red' : 'blue'}
+      >
+        {editPhotoFlag ? 'Close' : 'Edit Photos'}
+      </Button>
+      {editPhotoFlag && <PhotoEditor />}
     </Box>
   );
 };

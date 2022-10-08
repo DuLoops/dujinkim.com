@@ -2,8 +2,8 @@ import {
   baseStyle,
   color,
   extendTheme,
-  theme as baseTheme,
   type ThemeConfig,
+  theme as baseTheme,
 } from "@chakra-ui/react";
 
 import {
@@ -61,7 +61,9 @@ const colors = {
     100: "rgba(255,255,255, .2)",
     200: "rgba(255,255,255, .5)",
   },
-
+  darkMode: {
+    100: '#292929'
+  },
   primaryFontColor: {
     lightMode: baseTheme.colors.gray["100"],
     darkMode: baseTheme.colors.gray["700"],
@@ -75,25 +77,25 @@ const colors = {
 const styles = {
     global: (props: StyleFunctionProps) => ({
       body: {
-        bg: mode("", 'white')(props),
+        bg: mode('white', colors.dark[100])(props),
       },
     }),
 };
 
 const components = {
-    Text: {
-      baseStyle: (props: any) => ({
-        color: mode(
-          colors.primaryFontColor.lightMode,
-          colors.primaryFontColor.darkMode
-        )(props),
-      }),
-    },
-    Heading: {
-      baseStyle: {
-        color: "black",
-      },
-    },
+    // Text: {
+    //   baseStyle: (props: any) => ({
+    //     color: mode(
+    //       colors.primaryFontColor.lightMode,
+    //       colors.primaryFontColor.darkMode
+    //     )(props),
+    //   }),
+    // },
+    // Heading: {
+    //   baseStyle: {
+    //     color: "black",
+    //   },
+    // },
     variants: {
       flexCenter: {
         display: "flex",
@@ -118,6 +120,7 @@ const breakpoints = {
 };
 
 const theme = extendTheme({
+  config,
   colors,
   breakpoints,
   components,

@@ -22,7 +22,6 @@ const PhotoUploadInfo = (props) => {
   const [isLinkOpen, setIsLinkOpen] = useBoolean();
 
   const handleTextChange = (e) => {
-    console.log(props.photo.links)
     props.dispatch({
       type: "SetTextInput",
       id: props.photo.id,
@@ -32,7 +31,7 @@ const PhotoUploadInfo = (props) => {
   };
 
   return (
-    <Box w="200px" backgroundColor="darkGlass.100" color={"black"} p="5px">
+    <Box w="200px" backgroundColor="darkGlass.100" p="5px">
       <Image
         src={URL.createObjectURL(props.photo.file)}
         alt={props.photo.name}

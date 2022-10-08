@@ -1,8 +1,11 @@
+import { Box, Heading } from "@chakra-ui/react";
+import Nav from "../container/Nav";
 const Blog = () => {
   return (
-    <main>
-      <h1>Blog</h1>
-    </main>
+    <Box>
+      <Nav/>
+      <Heading m='100px'>Coming Soon</Heading>
+    </Box>
   )
 };
 
