@@ -5,15 +5,14 @@ import { Flex, Text, useBoolean, useColorMode } from "@chakra-ui/react";
 
 
 
+const ConnectIcon = styled(motion.div)`
+height: 2px;
+background-color: ${props=>props.colormode == 'light' ? 'black' : '#A0AEC0'};
+width: 40px;
+`;
 
 const Connect = () => {
   const { colorMode, toggleColorMode } = useColorMode()
-
-  const ConnectIcon = styled(motion.div)`
-  height: 2px;
-  background-color: ${colorMode == 'light' ? 'black' : '#A0AEC0'};
-  width: 40px;
-`;
 
   const [connectHover, setConnectHover] = useBoolean();
 
@@ -29,6 +28,7 @@ const Connect = () => {
         layout
         animate={{ width: connectHover ? "60px" : "40px" }}
         transition={{ type: "Inertia" }}
+        colormode={colorMode}
       />
       <Text fontSize={"2xl"} ml="3" color={colorMode == 'light' ? 'black' : 'gray.400'}>
         CONNECT

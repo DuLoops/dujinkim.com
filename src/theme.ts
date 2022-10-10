@@ -14,7 +14,7 @@ import {
 import { readBuilderProgram } from "typescript";
 
 const config: ThemeConfig = {
-  initialColorMode: "light",
+  initialColorMode: "dark",
   useSystemColorMode: false,
 };
 
@@ -52,6 +52,8 @@ const colors = {
   },
   dark: {
     100: "#1C1D1F",
+    200: '#161718'
+
   },
   darkGlass: {
     100: "rgba(0,0,0, .2)",
@@ -62,7 +64,7 @@ const colors = {
     200: "rgba(255,255,255, .5)",
   },
   darkMode: {
-    100: '#292929'
+    100: '#292929',
   },
   primaryFontColor: {
     lightMode: baseTheme.colors.gray["100"],

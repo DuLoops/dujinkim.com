@@ -7,19 +7,16 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase/config";
 import {
   Box,
-  useColorMode,
   Button,
   Modal,
   useDisclosure,
   ModalOverlay,
   ModalContent,
 } from "@chakra-ui/react";
-
 const Gallery = () => {
   const [photos, setPhotos] = useState([]);
   const [filter, setFilter] = useState("all");
   const [filteredPhotos, setFilteredPhotos] = useState(null);
-  const { colorMode, toggleColorMode } = useColorMode();
   const [lightBox, setLigthBox] = useState(null);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -29,6 +26,7 @@ const Gallery = () => {
       setPhotos((prevPhotos) => [...prevPhotos, doc.data()]);
     });
   };
+
 
   useEffect(() => {
     getImages();
@@ -45,9 +43,6 @@ const Gallery = () => {
   return (
     <Box>
       <Nav />
-      <Button onClick={toggleColorMode}>
-        Toggle {colorMode === "light" ? "Dark" : "Light"}
-      </Button>
       <Box>
         <Filter />
         {filteredPhotos && (
@@ -58,14 +53,13 @@ const Gallery = () => {
           />
         )}
       </Box>
-      <Button onClick={onOpen}>Open Modal</Button>
-      {lightBox && (
+      
+      {/* {lightBox && (
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent>{lightBox.title}</ModalContent>
         </Modal>
-      )}
-
+      )} */}
       {/* <GalleryDev/> */}
     </Box>
   );
