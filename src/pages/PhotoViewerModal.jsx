@@ -1,43 +1,105 @@
-import { Box, Button, Image, CloseButton } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Image,
+  CloseButton,
+  Center,
+  Icon,
+  Modal,
+} from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import ViewerControler from "../components/gallery/ViewerControler";
+import {
+  MdNavigateNext,
+  MdNavigateBefore,
+  MdClose,
+  MdInfoOutline,
+  MdInfo,
+} from "react-icons/md";
+import { BiDownload, BiShare } from "react-icons/bi";
+import Remote from "../components/gallery/Remote";
+import Gallery from "./Gallery";
 const PhotoViewerModal = (props) => {
   const [photo, setPhoto] = useState(props.photos[props.showIndex]);
   let navigate = useNavigate();
 
   const back = () => {
-    console.log("back");
-    navigate(-1, { replace: true });
+    navigate("/gallery", { replace: false });
     props.setModal.off();
   };
 
   useEffect(() => {
     setPhoto(props.photos[props.showIndex]);
   }, [props.showIndex]);
-  // console.log(props.photos[props.showIndex]);
+
+  const iconStyle = {
+    width: "60px",
+    height: "60px",
+    zIndex: 100,
+    color: "gray",
+  };
+
+  const hoverStyle = {
+    color: "white !important",
+  };
+
+  const preventDragHandler = (e) => {
+    e.preventDefault();
+  };
 
   return (
-    <Box
+    <Modal
       position={"absolute"}
       w="100vw"
       h="100vh"
       top="0"
       left="0"
       backgroundColor={"dark.200"}
+      zIndex="10"
     >
-      <Box position={"relative"}>
+      <Icon
+        as={MdClose}
+        position="absolute"
+        top="30px"
+        right="30px"
+        onClick={back}
+        h="30px"
+        w="30px"
+        color={"gray"}
+        zIndex={100}
+        _hover={hoverStyle}
+      />
+      <Center position={"relative"} h="100%" width={"100%"}>
         <Image
           src={photo.file}
           alt={photo.title}
-          h="80vh"
-          my="auto"
-          mx="auto"
+          h="100%"
           objectFit={"contain"}
+          draggable="true"
+          pointerEvents={"none"}
         />
-        <ViewerControler/>
-      </Box>
-    </Box>
+        <Icon
+          as={MdNavigateBefore}
+          position="absolute"
+          top="45%"
+          left="0px"
+          style={iconStyle}
+          _hover={hoverStyle}
+          onClick={() => props.swiperRef.current.slidePrev()}
+        />
+        <Icon
+          as={MdNavigateNext}
+          position="absolute"
+          top="45%"
+          right="00px"
+          style={iconStyle}
+          _hover={hoverStyle}
+          onClick={() => props.swiperRef.current.slideNext()}
+        />
+        {/* <Remote /> */}
+        <Remote photo={photo} />
+      </Center>
+    </Modal>
   );
 };
 

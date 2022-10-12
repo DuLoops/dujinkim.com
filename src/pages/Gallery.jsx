@@ -44,14 +44,14 @@ const Gallery = () => {
     <Box>
       <Nav />
       <Box>
-        <Filter />
+        {/* <Filter />
         {filteredPhotos && (
           <PhotoSlider
             photos={filteredPhotos}
             setLightBox={setLigthBox}
             openLightBox={onOpen}
           />
-        )}
+        )} */}
       </Box>
       
       {/* {lightBox && (
@@ -60,7 +60,7 @@ const Gallery = () => {
           <ModalContent>{lightBox.title}</ModalContent>
         </Modal>
       )} */}
-      {/* <GalleryDev/> */}
+      <GalleryDev/>
     </Box>
   );
 };

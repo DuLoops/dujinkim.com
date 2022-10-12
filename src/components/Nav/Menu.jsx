@@ -16,7 +16,6 @@ const DarkmodeLabel = styled.label`
     inset 0px -5px 15px rgba(255, 255, 255, 0.4);
   cursor: pointer;
   transition: 0.3s;
-
   &:after {
     content: "";
     width: 20px;
@@ -35,6 +34,7 @@ const DarkmodeInput = styled.input`
   width: 0;
   height: 0;
   visibility: hidden;
+  
   &:checked + label {
     background: #242424;
   }
@@ -93,7 +93,7 @@ const Menu = () => {
           w="20px"
           left="3px"
           top="3px"
-          zIndex={"100"}
+          zIndex={"1"}
         />
 
         <Image
@@ -103,7 +103,7 @@ const Menu = () => {
           w="23px"
           right="3px"
           top="1px"
-          zIndex={"100"}
+          zIndex={"1"}
         />
       </DarkmodeLabel>
     </HStack>

@@ -44,21 +44,22 @@ const PhotoSlider = (props) => {
     }
   };
 
+  const handleWheel = e => {
+    if (!flag) {
+      if (e.nativeEvent.deltaY > 0) {
+        swiperRef.current.slideNext();
+      } else {
+        swiperRef.current.slidePrev();
+      }
+    }
+  }
   return (
     <Box overflow="hidden">
       <Center
         mt="50px"
-        onWheel={(e) => {
-          if (!flag) {
-            if (e.nativeEvent.deltaY > 0) {
-              swiperRef.current.slideNext();
-            } else {
-              swiperRef.current.slidePrev();
-            }
-          }
-        }}
-        w={"150vw"}
-        transform="translateX(-15%)"
+        onWheel={handleWheel}
+        w={"170vw"}
+        transform="translateX(-20%)"
         background={colorMode == "light" ? "white" : "dark.100"}
       >
         <Swiper
@@ -87,7 +88,14 @@ const PhotoSlider = (props) => {
           <SwiperSlide />
         </Swiper>
       </Center>
-      {modal && <PhotoViewerModal setModal={setModal} showIndex={showIndex} setShowIndex={setShowIndex} photos={props.photos}/>}
+      {modal && (
+        <PhotoViewerModal
+          setModal={setModal}
+          showIndex={showIndex}
+          swiperRef={swiperRef}
+          photos={props.photos}
+        />
+      )}
     </Box>
   );
 };
