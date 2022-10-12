@@ -7,18 +7,21 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase/config";
 import {
   Box,
-  Button,
-  Modal,
-  useDisclosure,
-  ModalOverlay,
-  ModalContent,
+  Center,
+  Image,
+  useBoolean,
+  useColorMode,
+  Icon,
 } from "@chakra-ui/react";
+import PhotoViewerModal from "./PhotoViewerModal";
+import PhotoGrid from "../container/gallery/PhotoGrid";
+
 const Gallery = () => {
   const [photos, setPhotos] = useState([]);
   const [filter, setFilter] = useState("all");
   const [filteredPhotos, setFilteredPhotos] = useState(null);
-  const [lightBox, setLigthBox] = useState(null);
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [modal, setModal] = useBoolean(false);
+  const [showIndex, setShowIndex] = useState(0);
 
   const getImages = async () => {
     const querySnapshot = await getDocs(collection(db, "photos"));
@@ -26,7 +29,6 @@ const Gallery = () => {
       setPhotos((prevPhotos) => [...prevPhotos, doc.data()]);
     });
   };
-
 
   useEffect(() => {
     getImages();
@@ -41,26 +43,30 @@ const Gallery = () => {
   }, [filter, photos]);
 
   return (
-    <Box>
+    <Box width='100%' overflow={'hidden'} position='relative'>
       <Nav />
       <Box>
-        {/* <Filter />
-        {filteredPhotos && (
-          <PhotoSlider
-            photos={filteredPhotos}
-            setLightBox={setLigthBox}
-            openLightBox={onOpen}
-          />
+        <Filter />
+        {/* {filteredPhotos && (
+          <PhotoSlider photos={filteredPhotos} showIndex={showIndex} setShowIndex={setShowIndex} setModal={setModal}/>
         )} */}
+        {filteredPhotos && (
+          <PhotoGrid
+            photos={filteredPhotos}
+            setShowIndex={setShowIndex}
+            setModal={setModal}
+          />
+        )}
       </Box>
-      
-      {/* {lightBox && (
-        <Modal isOpen={isOpen} onClose={onClose}>
-          <ModalOverlay />
-          <ModalContent>{lightBox.title}</ModalContent>
-        </Modal>
-      )} */}
-      <GalleryDev/>
+      {modal && (
+        <PhotoViewerModal
+          isOpen={modal}
+          setModal={setModal}
+          showIndex={showIndex}
+          photos={filteredPhotos}
+        />
+      )}
+      {/* <GalleryDev/> */}
     </Box>
   );
 };
