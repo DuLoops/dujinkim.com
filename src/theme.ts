@@ -58,6 +58,7 @@ const colors = {
   darkGlass: {
     100: "rgba(0,0,0, .2)",
     200: "rgba(0,0,0, .5)",
+    300: "rgba(0,0,0, .7)",
   },
   lightGlass: {
     100: "rgba(255,255,255, .2)",

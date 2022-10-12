@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 import PhotoViewerModal from "./PhotoViewerModal";
 import PhotoGrid from "../container/gallery/PhotoGrid";
-
+import ScrollToTopBtn from "../components/ScrollToTopBtn";
 const Gallery = () => {
   const [photos, setPhotos] = useState([]);
   const [filter, setFilter] = useState("all");
@@ -31,7 +31,9 @@ const Gallery = () => {
   };
 
   useEffect(() => {
-    getImages();
+    if (photos.length == 0) {
+      getImages();
+    }
   }, []);
 
   useEffect(() => {
@@ -43,8 +45,9 @@ const Gallery = () => {
   }, [filter, photos]);
 
   return (
-    <Box width='100%' overflow={'hidden'} position='relative'>
+    <Box width="100%" overflow={"hidden"} position="relative">
       <Nav />
+      <ScrollToTopBtn />
       <Box>
         <Filter />
         {/* {filteredPhotos && (
@@ -63,10 +66,10 @@ const Gallery = () => {
           isOpen={modal}
           setModal={setModal}
           showIndex={showIndex}
+          setShowIndex={setShowIndex}
           photos={filteredPhotos}
         />
       )}
-      {/* <GalleryDev/> */}
     </Box>
   );
 };

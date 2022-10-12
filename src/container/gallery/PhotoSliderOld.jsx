@@ -26,6 +26,8 @@ const PhotoSlider = (props) => {
   const [flag, setFlag] = useBoolean();
   const { colorMode, toggleColorMode } = useColorMode();
   const swiperRef = useRef();
+  let navigate = useNavigate();
+  let location = useLocation();
 
   useEffect(() => {
     setFlag.on();
@@ -33,6 +35,17 @@ const PhotoSlider = (props) => {
       setFlag.off();
     }, 100);
   }, [props.showIndex]);
+
+  const handleClick = (index) => {
+    if(index < props.showIndex - 1 || index > props.showIndex+1) return;
+    if (index < props.showIndex) {
+      swiperRef.current.slidePrev(false);
+    } else if (index > props.showIndex) {
+      swiperRef.current.slideNext(false);
+    }
+    props.setModal.on();
+
+  };
 
   const handleWheel = (e) => {
     if (!flag) {
@@ -46,21 +59,24 @@ const PhotoSlider = (props) => {
   return (
     <Box overflow="hidden">
       <Center
+        mt="50px"
+        mx='5px'
         onWheel={handleWheel}
         position='relative'
         background={colorMode == "light" ? "white" : "dark.100"}
       >
         <Swiper
           modules={[A11y]}
-          slidesPerView={1}
+          slidesPerView={3}
           onSlideChange={(e) => 
             props.setShowIndex(e.activeIndex )
+            // console.log(e.activeIndex)
           }
           onSwiper={(swiper) => {
             swiperRef.current = swiper;
           }}
-          initialSlide={props.showIndex}
         >
+          <SwiperSlide />
           {props.photos.map((photo, index) => (
             <SwiperSlide key={index}>
               <Image
@@ -69,12 +85,16 @@ const PhotoSlider = (props) => {
                 alt={photo.id}
                 objectFit={"contain"}
                 loading="lazy"
+                onClick={()=>handleClick(index)}
+                maxH="70vh"
+                maxW="33vw"
                 m="auto"
                 draggable="true"
-                h='100vh'
+                
               />
             </SwiperSlide>
           ))}
+          <SwiperSlide />
         </Swiper>
         <Icon
           as={MdNavigateBefore}
@@ -82,12 +102,9 @@ const PhotoSlider = (props) => {
           left="0"
           top='0'
           zIndex="1"
-          h="100px"
-          mt='50vh'
-          transform='translate(0%, -50%)'
+          h="45vh"
           w="40px"
           color="gray"
-          _hover={{color:'white'}}
           onClick={() => swiperRef.current.slidePrev()}
         />
         <Icon
@@ -96,12 +113,9 @@ const PhotoSlider = (props) => {
           right='0'
           top='0'
           zIndex="1"
-          h="100px"
-          mt='50vh'
-          transform='translate(0%, -50%)'
+          h="45vh"
           w="40px"
           color={"gray"}
-          _hover={{color:'white'}}
           onClick={() => swiperRef.current.slideNext()}
 
         />

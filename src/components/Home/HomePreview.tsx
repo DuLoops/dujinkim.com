@@ -68,9 +68,9 @@ const HomePreview = (props: props) => {
           <Box
             margin="10rem auto"
             width="60vw"
-            height="50vh"
+            // height="40vh"
             zIndex="1"
-            backgroundColor="rgba(0,0,0, .5)"
+            backgroundColor="darkGlass.300"
             borderRadius="1rem"
             backdrop-filter="blur(5px)"
             padding="2rem"

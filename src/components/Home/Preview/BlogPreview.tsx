@@ -2,19 +2,21 @@ import { Box, Heading } from "@chakra-ui/react";
 import WordWave from "../../UI/textAnimation/WordWave";
 
 const Blog = (props: any) => {
+
+  const desc = 'Sharing my passion';
   return (
     <Box>
-      <Heading size="4xl" color={'white'}>Blog</Heading>
-      <Heading size="2xl" mt='1rem' color='white.100'>
+      <Heading size="2xl" color={'white'}>Blog</Heading>
+      <Heading size="xl" mt='1rem' color='light.100'>
         {props.play ? (
           <WordWave
             isArray={false}
-            text={"Sharing My Passion"}
+            text={desc}
             duration={0.3}
-            delay={0}
+            delay={0.2}
           />
         ) : (
-          <p>Sharing My Passion</p>
+          <p>{desc}</p>
         )}
       </Heading>
     </Box>

@@ -27,12 +27,12 @@ const Home = () => {
   const [previewAddress, setPreviewAddress] = useState("");
 
   return (
-    <Box className="home" overflow="hidden">
+    <Box className="home" overflow="hidden" w='100vw' h='100vh'>
       <ScrollableBackground />
       <HomePreview isHover={isHover} previewAddress={previewAddress} />
       <Box
         position="fixed"
-        bottom="80px"
+        bottom="2rem"
         left="50%"
         transform="translate(-50%, 0%)"
         onMouseEnter={() => {

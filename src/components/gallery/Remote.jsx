@@ -49,7 +49,7 @@ const PhotoshowDetail = (props) => {
   };
 
   async function handleDownload() {
-    const image = await fetch(props.photo.file);
+    const image = await fetch(props.file);
     const imageBlog = await image.blob();
     const imageURL = URL.createObjectURL(imageBlog);
 

@@ -21,6 +21,7 @@ import { BiDownload, BiShare } from "react-icons/bi";
 import Remote from "../components/gallery/Remote";
 import Gallery from "./Gallery";
 import { motion, AnimatePresence } from "framer-motion";
+import PhotoSlider from "../container/gallery/PhotoSlider";
 
 const PhotoViewerModal = (props) => {
   const [photo, setPhoto] = useState(props.photos[props.showIndex]);
@@ -47,8 +48,14 @@ const PhotoViewerModal = (props) => {
   };
 
   return (
-    <Modal isOpen={props.isOpen}zIndex="10">
-      <ModalContent backgroundColor={"dark.200"} maxW='100vw' maxH={'100vh'} m='0'>
+    <Modal isOpen={props.isOpen} zIndex="10">
+      <ModalContent
+        backgroundColor={"dark.200"}
+        maxW="100vw"
+        maxH={"100vh"}
+        overflow='hidden'
+        m="0"
+      >
         <Icon
           as={MdClose}
           position="absolute"
@@ -61,8 +68,7 @@ const PhotoViewerModal = (props) => {
           zIndex={100}
           _hover={hoverStyle}
         />
-        <Center position={"relative"} width={"100%"}>
-          <AnimatePresence>
+        {/* <AnimatePresence>
             {photo && (
               <motion.div
                 initial={{ opacity: 0 }}
@@ -79,9 +85,13 @@ const PhotoViewerModal = (props) => {
                 />
               </motion.div>
             )}
-          </AnimatePresence>
-
-          <Icon
+          </AnimatePresence> */}
+        <PhotoSlider
+          photos={props.photos}
+          showIndex={props.showIndex}
+          setShowIndex={props.setShowIndex}
+        />
+        {/* <Icon
             as={MdNavigateBefore}
             position="absolute"
             top="45%"
@@ -98,10 +108,8 @@ const PhotoViewerModal = (props) => {
             style={iconStyle}
             _hover={hoverStyle}
             onClick={() => props.swiperRef.current.slideNext()}
-          />
-          {/* <Remote /> */}
-          <Remote photo={photo} />
-        </Center>
+          /> */}
+        <Remote photo={photo.file} />
       </ModalContent>
     </Modal>
   );
