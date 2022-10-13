@@ -102,6 +102,8 @@ const PhotoUploader = (props) => {
             return photo;
           }
         });
+      case "Remove":
+        return state.filter((photo) => photo.id !== action.id);
 
       default:
         return state;
@@ -134,7 +136,7 @@ const PhotoUploader = (props) => {
         </Box>
       ) : (
         <>
-          <Flex gap={"10px"} m="20px">
+          <Flex gap={"10px"} m="0">
             {photos.map((photo, index) => {
               return (
                 <PhotoUploadInfo

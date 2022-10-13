@@ -1,30 +1,20 @@
-import PhotoViewerModal from "../../pages/PhotoViewerModal";
 
 import {
   Box,
   Center,
   Image,
   useBoolean,
-  useColorMode,
   Icon,
 } from "@chakra-ui/react";
-import { useState, useEffect, useRef, useCallback } from "react";
-import { Scrollbar, A11y, Parallax } from "swiper";
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { useEffect, useRef } from "react";
+import { A11y } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 import { MdNavigateNext, MdNavigateBefore } from "react-icons/md";
 import "swiper/css";
 import "swiper/css/navigation";
-import {
-  useLocation,
-  useNavigate,
-  Link,
-  Routes,
-  Route,
-} from "react-router-dom";
 
 const PhotoSlider = (props) => {
   const [flag, setFlag] = useBoolean();
-  const { colorMode, toggleColorMode } = useColorMode();
   const swiperRef = useRef();
 
   useEffect(() => {
@@ -48,7 +38,6 @@ const PhotoSlider = (props) => {
       <Center
         onWheel={handleWheel}
         position='relative'
-        background={colorMode == "light" ? "white" : "dark.100"}
       >
         <Swiper
           modules={[A11y]}
@@ -71,7 +60,7 @@ const PhotoSlider = (props) => {
                 loading="lazy"
                 m="auto"
                 draggable="true"
-                h='100vh'
+                h={props.showDetail ? '85vh' : '100vh'}
               />
             </SwiperSlide>
           ))}

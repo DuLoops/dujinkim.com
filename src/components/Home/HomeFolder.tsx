@@ -17,12 +17,7 @@ interface HomeFolderProps {
 
 const HomeFolder = (props: HomeFolderProps) => {
   return (
-    <Box
-      backgroundColor="darkGlass.100
-    "
-      p="1rem"
-      borderRadius="1rem"
-    >
+    <Box backgroundColor="darkGlass.100" p="1rem" borderRadius="1rem">
       <Flex
         flexDir={{ base: "column", md: "row" }}
         align={{ base: "center", md: "end" }}

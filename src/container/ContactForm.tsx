@@ -78,31 +78,30 @@ export default function Contact() {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     setLoading(true);
-    console.log(form);
-    // emailjs
-    //   .send("service_kgsfubg", "template_ofm6cnc", form, "82G2kc4aCnqBmcQit")
-    //   .then(
-    //     (result) => {
-    //       console.log(result.text);
-    //       setLoading(false);
-    //       setSubmitted(true);
-    //     },
-    //     (error) => {
-    //       console.log("try again");
-    //       console.log(error.text);
-    //       setLoading(false);
-    //       setAlert(true);
-    //     }
-    //   )
-    //   .then(() => {
-    //     setForm({
-    //       about: "web-development",
-    //       other: "",
-    //       subject: "",
-    //       email: "",
-    //       text: "",
-    //     });
-    //   });
+    emailjs
+      .send("service_kgsfubg", "template_ofm6cnc", form, "82G2kc4aCnqBmcQit")
+      .then(
+        (result) => {
+          console.log(result.text);
+          setLoading(false);
+          setSubmitted(true);
+        },
+        (error) => {
+          console.log("try again");
+          console.log(error.text);
+          setLoading(false);
+          setAlert(true);
+        }
+      )
+      .then(() => {
+        setForm({
+          about: "web-development",
+          other: "",
+          subject: "",
+          email: "",
+          text: "",
+        });
+      });
   };
 
   const RadioForm = () => {

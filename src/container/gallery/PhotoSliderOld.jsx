@@ -37,14 +37,13 @@ const PhotoSlider = (props) => {
   }, [props.showIndex]);
 
   const handleClick = (index) => {
-    if(index < props.showIndex - 1 || index > props.showIndex+1) return;
+    if (index < props.showIndex - 1 || index > props.showIndex + 1) return;
     if (index < props.showIndex) {
       swiperRef.current.slidePrev(false);
     } else if (index > props.showIndex) {
       swiperRef.current.slideNext(false);
     }
     props.setModal.on();
-
   };
 
   const handleWheel = (e) => {
@@ -60,16 +59,16 @@ const PhotoSlider = (props) => {
     <Box overflow="hidden">
       <Center
         mt="50px"
-        mx='5px'
+        mx="5px"
         onWheel={handleWheel}
-        position='relative'
+        position="relative"
         background={colorMode == "light" ? "white" : "dark.100"}
       >
         <Swiper
           modules={[A11y]}
           slidesPerView={3}
-          onSlideChange={(e) => 
-            props.setShowIndex(e.activeIndex )
+          onSlideChange={
+            (e) => props.setShowIndex(e.activeIndex)
             // console.log(e.activeIndex)
           }
           onSwiper={(swiper) => {
@@ -85,12 +84,11 @@ const PhotoSlider = (props) => {
                 alt={photo.id}
                 objectFit={"contain"}
                 loading="lazy"
-                onClick={()=>handleClick(index)}
+                onClick={() => handleClick(index)}
                 maxH="70vh"
                 maxW="33vw"
                 m="auto"
                 draggable="true"
-                
               />
             </SwiperSlide>
           ))}
@@ -100,7 +98,7 @@ const PhotoSlider = (props) => {
           as={MdNavigateBefore}
           position="absolute"
           left="0"
-          top='0'
+          top="0"
           zIndex="1"
           h="45vh"
           w="40px"
@@ -110,17 +108,15 @@ const PhotoSlider = (props) => {
         <Icon
           as={MdNavigateNext}
           position="absolute"
-          right='0'
-          top='0'
+          right="0"
+          top="0"
           zIndex="1"
           h="45vh"
           w="40px"
           color={"gray"}
           onClick={() => swiperRef.current.slideNext()}
-
         />
       </Center>
-
     </Box>
   );
 };

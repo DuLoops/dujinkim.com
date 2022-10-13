@@ -1,30 +1,16 @@
-import {
-  Box,
-  Button,
-  Image,
-  CloseButton,
-  Center,
-  Icon,
-  Modal,
-  ModalContent,
-} from "@chakra-ui/react";
+import { Icon, Modal, ModalContent, useBoolean } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  MdNavigateNext,
-  MdNavigateBefore,
-  MdClose,
-  MdInfoOutline,
-  MdInfo,
-} from "react-icons/md";
-import { BiDownload, BiShare } from "react-icons/bi";
-import Remote from "../components/gallery/Remote";
-import Gallery from "./Gallery";
-import { motion, AnimatePresence } from "framer-motion";
+import { MdClose } from "react-icons/md";
+import Remote from "../container/Remote";
 import PhotoSlider from "../container/gallery/PhotoSlider";
 
 const PhotoViewerModal = (props) => {
-  const [photo, setPhoto] = useState(props.photos[props.showIndex]);
+  const [showDetail, setShowDetail] = useBoolean(true);
+  const [url, setUrl] = useState(
+    `https://dujinkim.com/gallery/${props.photos[props.showIndex].id}`
+  );
+
   let navigate = useNavigate();
 
   const back = () => {
@@ -33,15 +19,11 @@ const PhotoViewerModal = (props) => {
   };
 
   useEffect(() => {
-    setPhoto(props.photos[props.showIndex]);
+    let urlPath = props.photos[props.showIndex].id;
+    setUrl(`https://dujinkim.com/gallery/${urlPath}`);
+    // navigate(`/gallery/${urlPath}`,{state:{modal:true}})
+    window.history.replaceState(null, "New photo url", `/gallery/${urlPath}`);
   }, [props.showIndex]);
-
-  const iconStyle = {
-    width: "60px",
-    height: "60px",
-    zIndex: 100,
-    color: "gray",
-  };
 
   const hoverStyle = {
     color: "white !important",
@@ -53,8 +35,10 @@ const PhotoViewerModal = (props) => {
         backgroundColor={"dark.200"}
         maxW="100vw"
         maxH={"100vh"}
-        overflow='hidden'
+        h="100vh"
+        overflow="hidden"
         m="0"
+        borderRadius={0}
       >
         <Icon
           as={MdClose}
@@ -68,48 +52,18 @@ const PhotoViewerModal = (props) => {
           zIndex={100}
           _hover={hoverStyle}
         />
-        {/* <AnimatePresence>
-            {photo && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
-                <Image
-                  src={photo.file}
-                  alt={photo.title}
-                  h="100vh"
-                  objectFit={"contain"}
-                  draggable="true"
-                  pointerEvents={"none"}
-                />
-              </motion.div>
-            )}
-          </AnimatePresence> */}
         <PhotoSlider
           photos={props.photos}
           showIndex={props.showIndex}
           setShowIndex={props.setShowIndex}
+          showDetail={showDetail}
         />
-        {/* <Icon
-            as={MdNavigateBefore}
-            position="absolute"
-            top="45%"
-            left="0px"
-            style={iconStyle}
-            _hover={hoverStyle}
-            onClick={() => props.swiperRef.current.slidePrev()}
-          />
-          <Icon
-            as={MdNavigateNext}
-            position="absolute"
-            top="45%"
-            right="00px"
-            style={iconStyle}
-            _hover={hoverStyle}
-            onClick={() => props.swiperRef.current.slideNext()}
-          /> */}
-        <Remote photo={photo.file} />
+        <Remote
+          photo={props.photos[props.showIndex]}
+          showDetail={showDetail}
+          setShowDetail={setShowDetail}
+          url={url}
+        />
       </ModalContent>
     </Modal>
   );

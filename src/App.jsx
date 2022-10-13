@@ -8,38 +8,25 @@ import Contact from "./pages/Contact";
 import PhotoViewer from "./pages/PhotoViewer";
 import Admin from "./pages/Admin";
 const App = () => {
-  let location = useLocation();
-  let background = location.state && location.state.background;
+  // let location = useLocation();
+  // let modal = location.state && location.state.modal;
   return (
     <div className="app">
-      {/* <Routes location={background || location}>
+      <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/gallery/:photoID" element={<PhotoViewer />} />
-
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-      {background && (
-        <Routes>
-          <Route path="/gallery/:photoID" element={<PhotoViewerModal />} />
-        </Routes>
-      )} */}
-      <Routes location={background || location}>
-        <Route path="/" element={<Home />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/gallery/:photoID" element={<PhotoViewer />} />
+        <Route path="/gallery/" element={<Gallery />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/gallery/:photoID" element={<PhotoViewer />} />
+        {/* {modal ? (
+          <Route path="/gallery/:photoID" element={<Gallery />} />
+        ) : (
+          <Route path="/gallery/:photoID" element={<PhotoViewer />} />
+        )} */}
       </Routes>
-      {/* {background && (
-        <Routes>
-          <Route path="/gallery/:photoID" element={<PhotoViewerModal />} />
-        </Routes>
-      )} */}
+
     </div>
   );
 };

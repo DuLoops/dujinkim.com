@@ -1,4 +1,4 @@
-import GalleryDev from "./GalleryDev";
+import GalleryDev from "../container/gallery/GalleryDev";
 import { Box, Heading } from "@chakra-ui/react";
 const Admin = () => {
   return (

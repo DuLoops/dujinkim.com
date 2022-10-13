@@ -10,6 +10,7 @@ import {
   Button,
   Input,
   FormLabel,
+  Box,
 } from "@chakra-ui/react";
 import {
   arrayUnion,
@@ -25,6 +26,7 @@ import { db } from "../../../firebase/config";
 const PhotoLocation = (props) => {
   const [searchVal, setSearchVal] = useState("");
   const [location, setLocation] = useState();
+  const [docID, setDocID] = useState();
 
   const handleSearch = () => {
     fetch(
@@ -38,11 +40,13 @@ const PhotoLocation = (props) => {
         if (data.status != "OK") {
           alert(`Error: ${data.status}`);
         } else {
+          let formattedAddress = data.results[0].formatted_address;
           setLocation({
             place_id: data.results[0].place_id,
             address_components: data.results[0].address_components,
-            formatted_address: data.results[0].formatted_address,
+            formatted_address: formattedAddress,
             geo_point: data.results[0].geometry.location,
+            title: formattedAddress.substr(0, formattedAddress.indexOf(",")),
           });
         }
       });
@@ -56,27 +60,47 @@ const PhotoLocation = (props) => {
         address_components: location.address_components,
         formatted_address: location.formatted_address,
         geo_point: new GeoPoint(location.geo_point.lat, location.geo_point.lng),
+        title: location.title,
       },
       { merge: true }
     ).then(() => {
       updateDoc(doc(db, "locations", location.formatted_address), {
         linkedPhotos: arrayUnion(props.photoID),
       });
-    });
+    }).then(() => {
+      props.dispatch({
+        type: "SetTextInput",
+        id: props.photoID,
+        key: "location",
+        value: location.formatted_address,
+      });
+    })
   };
 
+  const addToExisitingDoc = async() => {
+    updateDoc(doc(db, 'locaitons', docID), {
+      linkedPhotos: arrayUnion(props.photoID),
+    }).then(()=> {
+      props.dispatch({
+        type: "SetTextInput",
+        id: props.photoID,
+        key: "location",
+        value: docID,
+      });
+    })
+  }
+
+
   const handleSave = () => {
-    if (!location) {
+    if (!location && !docID) {
       alert("No location found");
       return;
+    } else if (!location) {
+      addToExisitingDoc().then(()=> {
+        props.setIsOpen.off();
+      })
     } else {
       addNewLocationDoc().then(() => {
-        props.dispatch({
-          type: "SetTextInput",
-          id: props.photoID,
-          key: "location",
-          value: location.formatted_address,
-        });
         props.setIsOpen.off();
       });
     }
@@ -98,7 +122,27 @@ const PhotoLocation = (props) => {
             }}
           />
           <Button onClick={handleSearch}>Search</Button>
-          {location && <Text color={"grey"}>{location.formatted_address}</Text>}
+          {location && (
+            <Box>
+              <Text color={"grey"}>docID: {location.formatted_address}</Text>
+              <Input
+                type="text"
+                value={location.title}
+                onChange={(e) =>
+                  setLocation((prevLocation) => ({
+                    ...prevLocation,
+                    title: e.target.value,
+                  }))
+                }
+              />
+            </Box>
+          )}
+          <Text>DOC ID</Text>
+          <Input
+            type="text"
+            value={docID}
+            onChange={(e) => setDocID(e.target.value)}
+          />
         </ModalBody>
         <ModalFooter>
           <Button

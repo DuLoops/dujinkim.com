@@ -22,7 +22,7 @@ const File = (props: fileProps) => {
   return (
     <motion.div
       whileHover={{
-        scale: 1.1,
+        scale: 1.2,
         backgroundColor: "rgba(255,255,255, 0.3)",
         borderRadius: "1rem",
       }}
@@ -33,19 +33,24 @@ const File = (props: fileProps) => {
         onMouseEnter={(event) => {
           props.setViewAddress(props.link);
         }}
-
-        paddingX="1rem"
+        marginX="1rem"
+        w="150px"
+        h={"180px"}
+        position='relative'
       >
         <Link to={props.link} className="link">
           <Image
             src={props.img}
             alt={props.alt}
             margin="auto"
-            w={{ base: 150, xl: 200 }}
-            height={{ base: 150, xl: 200 }}
-            objectFit='scale-down'
-          />
-          <Text fontSize="4xl" color='white'>{props.title}</Text>
+            marginY="auto"
+            objectFit="fill"
+            maxW="150px"
+            maxH={"130px"}
+          />{" "}
+          <Text fontSize="2xl" color={"white"} position='absolute' left='50%' bottom='-5px' transform={'translate(-50%, 0)'}>
+            {props.title}
+          </Text>
         </Link>
       </Center>
     </motion.div>

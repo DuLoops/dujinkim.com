@@ -11,6 +11,7 @@ import {
   UnorderedList,
   ListItem,
   useBoolean,
+  CloseButton,
 } from "@chakra-ui/react";
 import PhotoLink from "./PhotoLink";
 import PhotoLocation from "./PhotoLocation";
@@ -30,8 +31,15 @@ const PhotoUploadInfo = (props) => {
     });
   };
 
+  const handleRemove = () => {
+    props.dispatch({
+      type: "Remove",
+      id: props.photo.id,
+    });
+  }
+
   return (
-    <Box w="200px" backgroundColor="darkGlass.100" p="5px">
+    <Box w="200px" backgroundColor="darkGlass.100" p="5px" position={'relative'}>
       <Image
         src={URL.createObjectURL(props.photo.file)}
         alt={props.photo.name}
@@ -107,6 +115,7 @@ const PhotoUploadInfo = (props) => {
             dispatch={props.dispatch}
           />
         )}
+        <Button onClick={handleRemove} color='red' position={'absolute'} right='0' bottom='0' size='sm'>Remove</Button>
       </form>
     </Box>
   );

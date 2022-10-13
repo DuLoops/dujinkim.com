@@ -1,21 +1,15 @@
 import Nav from "../container/Nav";
 import Filter from "../components/gallery/Filter";
-import PhotoSlider from "../container/gallery/PhotoSlider";
-import GalleryDev from "./GalleryDev";
 import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase/config";
 import {
   Box,
-  Center,
-  Image,
   useBoolean,
-  useColorMode,
-  Icon,
 } from "@chakra-ui/react";
 import PhotoViewerModal from "./PhotoViewerModal";
 import PhotoGrid from "../container/gallery/PhotoGrid";
-import ScrollToTopBtn from "../components/ScrollToTopBtn";
+import ScrollToTopBtn from "../components/UI/ScrollToTopBtn";
 const Gallery = () => {
   const [photos, setPhotos] = useState([]);
   const [filter, setFilter] = useState("all");
@@ -33,7 +27,8 @@ const Gallery = () => {
   useEffect(() => {
     if (photos.length == 0) {
       getImages();
-    }
+      window.history.replaceState(null, "New photo url", `/gallery`);
+    } 
   }, []);
 
   useEffect(() => {
