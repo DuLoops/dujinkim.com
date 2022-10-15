@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { MdClose } from "react-icons/md";
 import Remote from "../container/Remote";
 import PhotoSlider from "../container/gallery/PhotoSlider";
+import PhotoDetail from "../components/gallery/PhotoDetail";
+
 
 const PhotoViewerModal = (props) => {
   const [showDetail, setShowDetail] = useBoolean(true);
@@ -64,6 +66,7 @@ const PhotoViewerModal = (props) => {
           setShowDetail={setShowDetail}
           url={url}
         />
+        <PhotoDetail photo={props.photos[props.showIndex]} close={setShowDetail.off}/>
       </ModalContent>
     </Modal>
   );

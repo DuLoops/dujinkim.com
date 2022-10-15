@@ -20,19 +20,38 @@ import {
   arrayUnion,
 } from "firebase/firestore";
 import { db } from "../../firebase/config";
-
+import EXIF from "exif-js";
 const PhotoUploader = (props) => {
   const [uploading, setUploading] = useBoolean(false);
 
   const InitialPhotos = props.photos.map((photo) => {
-    return {
+    // console.log(EXIF.getData(photo));
+    // EXIF.getData(photo,(data)=>{console.log(EXIF.getAllTags(data))})
+    let cameraInfo = {};
+    function parseDate(s) {
+      var b = s.split(/\D/);
+      return new Date(b[0],b[1]-1,b[2],b[3],b[4],b[5]);
+    }
+    EXIF.getData(photo, function () {
+      let data = EXIF.getAllTags(this);
+      if(!data.DateTimeOriginal) return;
+      cameraInfo.date = parseDate(data.DateTimeOriginal);
+      cameraInfo.aperature = Math.round(data.FNumber*10)/10;
+      cameraInfo.exposure = [data.ExposureTime.numerator, data.ExposureTime.denominator ]; 
+      cameraInfo.iso = data.ISOSpeedRatings
+      cameraInfo.focalLength = data.FocalLength.numerator /data.FocalLength.denominator;
+      cameraInfo.camera =
+        data.Model == "ILCE-6000"
+          ? "Sony Alpha-6000"
+          : data.Model;
+        });
+    return ({
       file: photo,
       id: encodeURI(
         photo.name.replace(/\.[^/.]+$/, "").concat(photo.lastModified)
       ),
       title: photo.name.replace(/\.[^/.]+$/, ""),
       desc: "",
-      date: photo.lastModifiedDate.toLocaleDateString("en-CA"),
       links: [],
       location: null,
       categories: {
@@ -44,7 +63,8 @@ const PhotoUploader = (props) => {
         architecture: false,
         products: false,
       },
-    };
+      cameraInfo: cameraInfo,
+    })
   });
 
   const reducer = (state, action) => {

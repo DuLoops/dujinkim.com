@@ -37,7 +37,7 @@ const PhotoSlider = (props) => {
     <Box overflow="hidden">
       <Center
         onWheel={handleWheel}
-        position='relative'
+     description ui design   position='relative'
       >
         <Swiper
           modules={[A11y]}
