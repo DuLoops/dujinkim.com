@@ -1,18 +1,14 @@
-import { useEffect, useState } from "react";
 import {
   Box,
-  Container,
-  Heading,
   Text,
   Image,
   useMediaQuery,
-  Flex,
+  Heading
 } from "@chakra-ui/react";
 import styled from "styled-components";
-import { motion, AnimatePresence } from "framer-motion";
 
-import LandingTitle from "../../components/About/LandingTitle";
-import LandingDesc from "../../components/About/LandingDesc";
+import LandingTitle from "../../components/about/LandingTitle";
+import LandingDesc from "../../components/about/LandingDesc";
 
 import { laptop } from "../../resources/images/dev/aboutPhoto";
 
@@ -36,6 +32,7 @@ const Landing = () => {
           Software Developer / Photographer / Blogger
         </Text>
       </Box>
+      <Heading>Dujin Kim</Heading>
       <Box position={'relative'} marginY="130px">
         <Image
           src={laptop}

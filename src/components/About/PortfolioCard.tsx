@@ -20,7 +20,7 @@ import {
   Link,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import Carousel from "../UI/Gallery/Carousel";
+import Carousel from "../ui/gallery/Carousel";
 import { AiFillGithub, AiOutlineLink } from "react-icons/ai";
 
 interface props {

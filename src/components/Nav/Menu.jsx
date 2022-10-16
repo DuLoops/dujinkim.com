@@ -62,6 +62,7 @@ const Menu = () => {
       spacing={5}
       color="black"
       display={{ base: "none", md: "flex" }}
+      justifySelf='right'
     >
       {links.map((link, index) => (
         <Link
@@ -85,27 +86,6 @@ const Menu = () => {
         checked={colorMode == "dark"}
         onChange={toggleColorMode}
       />
-      <DarkmodeLabel htmlFor="darkmode-toggle">
-        <Image
-          src={sun}
-          alt="sun"
-          position={"absolute"}
-          w="20px"
-          left="3px"
-          top="3px"
-          zIndex={"1"}
-        />
-
-        <Image
-          src={moon2}
-          alt="moon"
-          position={"absolute"}
-          w="23px"
-          right="3px"
-          top="1px"
-          zIndex={"1"}
-        />
-      </DarkmodeLabel>
     </HStack>
   );
 };

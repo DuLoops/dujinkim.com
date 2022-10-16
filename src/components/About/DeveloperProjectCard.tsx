@@ -1,6 +1,6 @@
 import { Box, Center, Flex, Grid, Image, Text } from "@chakra-ui/react";
 import { createAdd } from "typescript";
-import Carousel from "../UI/Gallery/Carousel";
+import Carousel from "../ui/gallery/Carousel";
 
 interface props {
   card: {
