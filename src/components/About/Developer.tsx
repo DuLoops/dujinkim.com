@@ -1,5 +1,4 @@
 import { Box, Container, Heading, Text, Image, Flex } from "@chakra-ui/react";
-import styled from "styled-components";
 
 import quote from "../../resources/images/icons/quote.svg";
 

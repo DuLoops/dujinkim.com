@@ -9,13 +9,13 @@ import {
 import {
   mode,
   StyleFunctionProps,
-  createBreakpoints,
 } from "@chakra-ui/theme-tools";
-import { readBuilderProgram } from "typescript";
+
+
 
 const config: ThemeConfig = {
   initialColorMode: "light",
-  useSystemColorMode: false,
+  useSystemColorMode: true,
 };
 
 const colors = {
@@ -86,19 +86,6 @@ const styles = {
 };
 
 const components = {
-    // Text: {
-    //   baseStyle: (props: any) => ({
-    //     color: mode(
-    //       colors.primaryFontColor.lightMode,
-    //       colors.primaryFontColor.darkMode
-    //     )(props),
-    //   }),
-    // },
-    // Heading: {
-    //   baseStyle: {
-    //     color: "black",
-    //   },
-    // },
     variants: {
       flexCenter: {
         display: "flex",

@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 
-import About from './pages/About'
+import About from './pages/Main'
 import Contact from "./pages/Contact";
 import PhotoViewer from "./pages/PhotoViewer";
 const App = () => {
