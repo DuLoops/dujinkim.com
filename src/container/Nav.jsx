@@ -12,12 +12,12 @@ const Nav = (props) => {
       position="absolute"
       zIndex={"1"}
       backgroundColor={
-        props.colorMode == "light" ? "rgba(35, 83, 71,0.9)" : "blackAlpha.800"
+        props.colorMode == "light" ? "rgba(136, 164, 129, 0.9)" : "blackAlpha.900"
       }
-      boxShadow={
+      boxShadow={      
         props.colorMode == "light"
-          ? "0px 5px 4px rgba(35, 83, 71,0.9)"
-          : "0px 5px 5px rgba(0,0,0,0.8)"
+          ? "0px 5px 20px rgba(161, 189, 154, 0.7)"
+          : "0px 5px 20px rgba(0,0,0,0.7)"
       }
     >
       {!props.isMobile && (

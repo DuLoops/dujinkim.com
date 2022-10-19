@@ -275,7 +275,7 @@ export default function Contact() {
         </Box>
       ) : (
         <form onSubmit={handleSubmit}>
-          <Box bg="darkGlass.200" color="dark.100" borderRadius="10px">
+          <Box bg="darkGlass.200" borderRadius="10px">
             <Box
               className="left"
               w={{ md: "50%" }}

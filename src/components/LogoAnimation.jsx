@@ -2,7 +2,7 @@ import { Image, Center, useColorMode } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "../resources/images/LandingAnimation/logo.png";
 const LandingAnimation = () => {
-  const { colorMode} = useColorMode()
+  const { colorMode} = useColorMode();
 
   return (
       <Center m="auto" position="relative" h="100%" w="100%">

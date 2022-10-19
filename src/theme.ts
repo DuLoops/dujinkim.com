@@ -1,5 +1,4 @@
 import {
-  baseStyle,
   color,
   extendTheme,
   type ThemeConfig,
@@ -13,13 +12,15 @@ import {
 
 
 
+
 const config: ThemeConfig = {
-  initialColorMode: "light",
+  initialColorMode: "dark",
   useSystemColorMode: true,
 };
 
 const colors = {
   brandGreen: {
+    10: "#66ff00 ",
     50: "#031112", //black green
     100: "#051F20", //dark green
     200: "#163832", //medium green
@@ -35,6 +36,7 @@ const colors = {
     200: "#E19820", //mustard
   },
   brandOrange: {
+    10: "#ff6600",
     100: "#F7893B", //light orange
     200: "#DB6320", //orange
     300: "#ED4F05", //dark orange
@@ -66,6 +68,7 @@ const colors = {
   },
   darkMode: {
     100: '#292929',
+
   },
   primaryFontColor: {
     lightMode: baseTheme.colors.gray["100"],
@@ -109,12 +112,18 @@ const breakpoints = {
   "2xl": "4096px",
 };
 
+const fonts = {
+  heading: 'Montserrat',
+  body: 'Montserrat'
+}
+
 const theme = extendTheme({
   config,
   colors,
   breakpoints,
   components,
-  styles
+  styles,
+  fonts
 });
 
 

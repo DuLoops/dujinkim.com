@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'Minipax';
+  font-style: normal;
+  src: url('./resources/fonts/Minipax/Minipax-Regular.woff2') format('woff2')
+}
+@font-face {
+  font-family: 'Minipax';
+  font-style: bold;
+  src: url('./resources/fonts/Minipax/Minipax-Bold.woff2') format('woff2')
+}
+/* Victorianna*/
+
+@font-face {
+  font-family: 'Victorianna';
+  src: url('./resources/fonts/Victorianna/vtf_victorianna_thin_talic-webfont.eot?#iefix') format('embedded-opentype'),
+       url('./resources/fonts/Victorianna/vtf_victorianna_thin_talic-webfont.woff') format('woff'),
+       url('./resources/fonts/Victorianna/vtf_victorianna_thin_talic-webfont.ttf') format('truetype'),
+       url('./resources/fonts/Victorianna/vtf_victorianna_thin_talic-webfont.svg#vtf_victoriannaitalic') format('svg');
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Victorianna';
+  src: url('./resources/fonts/Victorianna/vtf_victorianna_thin-webfont.eot?#iefix') format('embedded-opentype'),
+       url('./resources/fonts/Victorianna/vtf_victorianna_thin-webfont.woff') format('woff'),
+       url('./resources/fonts/Victorianna/vtf_victorianna_thin-webfont.ttf') format('truetype'),
+       url('./resources/fonts/Victorianna/vtf_victorianna_thin-webfont.svg#vtf_victoriannathin') format('svg');
+  font-style: normal;
+
+}
+@font-face {
+  font-family: 'Lithops';
+  src: url('./resources/fonts/Lithops/Lithops-Regular.woff2') format('woff2')
+}
+@font-face {
+  font-family: 'Format';
+  src: url('./resources/fonts/Format/Format_1452.woff2') format('woff2')
+}
