@@ -2,7 +2,6 @@ import { Box, Heading, Highlight, Text, Link, Tooltip } from "@chakra-ui/react";
 import styled from "styled-components";
 import { laptop } from "../resources/images/dev/aboutPhoto";
 import { motion } from "framer-motion";
-import "../styles/style.sass";
 import { MdSdCardAlert } from "react-icons/md";
 const colors = {
   lightGlass: "rgba(255,255,255, .5)",
@@ -14,8 +13,8 @@ const colors = {
 const Title = styled(Heading)`
   position: absolute;
   top: 30%;
-  left: 40%;
-  max-width: 50%;
+  right: 10%;
+  max-width: 600px;
   transform: translatey(0px);
   animation: float 5s ease-in-out 3s;
   text-align: center;
@@ -108,7 +107,7 @@ const LandingDesktop = (props) => {
           animate={{
             opacity: 1,
           }}
-          transition={{ duration: 1, delay: 1.5 }}
+          transition={{ duration: 1, delay: 1 }}
         >
           <Title
             colorMode={props.colorMode}
@@ -117,49 +116,51 @@ const LandingDesktop = (props) => {
             fontFamily="Montserrat "
             fontWeight="400"
           >
-            Hi! I’m a software developer based in
+            Hi! I’m a software developer based in<br/>
             <Highlight
               query={"Beautiful"}
               styles={{
-                color:
-                  'green.400',
+                color: "green.400",
                 m: "5px",
                 fontSize: "2xl",
                 fontWeight: "600",
-                fontFamily:'Montserrat Alternates'
+                fontFamily: "Montserrat Alternates",
               }}
             >
               Beautiful
             </Highlight>
-            British Columbia, <Tooltip hasArrow label='Canada'>🍁</Tooltip>
+            British Columbia,{" "}
+            <Tooltip hasArrow label="Canada">
+              🍁
+            </Tooltip>
             <br />I like to share my
             <Highlight
               query={"passion"}
               styles={{
-                color:
-                  props.colorMode == "light" ? "red.300" : "orange.400",
+                color: props.colorMode == "light" ? "red.300" : "orange.400",
                 fontWeight: "600",
                 fontSize: "2xl",
                 mx: "5px",
-                fontFamily:'Montserrat Alternates'
+                fontFamily: "Montserrat Alternates",
               }}
             >
               passion
             </Highlight>
-            on my blog,{" "}
+            on my blog,<br/>
             <Link
-              color={props.colorMode == "light" ? "cyan.500" : "cyan.400"}
-              textDecor={"underline"}
+              color={props.colorMode == "light" ? "cyan.600" : "cyan.400"}
+              textDecor="underline"
               _hover={{
+                textDecor: "none",
+                fontWeight: "600",
                 color: props.colorMode == "light" ? "blue.500" : "blue.400",
-                fontWeight:'900'
               }}
-              fontFamily='Montserrat Alternates'
+              fontFamily="Montserrat "
               lineHeight={"1.5"}
               fontSize="2xl"
-              fontWeight={'600'}
-              href='https://duloops.com/'
-              target='_blank'
+              fontWeight={"400"}
+              href="https://duloops.com/"
+              target="_blank"
             >
               DuLoops.com
             </Link>

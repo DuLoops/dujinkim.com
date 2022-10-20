@@ -15,7 +15,7 @@ import {
 
 const config: ThemeConfig = {
   initialColorMode: "dark",
-  useSystemColorMode: true,
+  useSystemColorMode: false,
 };
 
 const colors = {
@@ -69,6 +69,12 @@ const colors = {
   darkMode: {
     100: '#292929',
 
+  },
+  analogous: {
+    1: '#0FF075',
+    2: '#0FF0E5',
+    3: '#1AF00F',
+    100: '#1AF00F'
   },
   primaryFontColor: {
     lightMode: baseTheme.colors.gray["100"],

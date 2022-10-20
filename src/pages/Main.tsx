@@ -6,6 +6,11 @@ import LandingDesktop from "../container/LandingDesktop";
 import LandingMobile from "../container/LandingMobile";
 import Content from "../container/Content";
 import Contact from "../container/ContactForm";
+import "../styles/style.scss";
+import Projects from "../container/Projects";
+import Posts from '../container/Posts'
+import Footer from "../container/Footer";
+import Passion from "../components/Passion";
 const About = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const [isLanding, setIsLanding] = useState(true);
@@ -35,12 +40,16 @@ const About = () => {
       {isLanding && <LandingAnimation />}
       <Nav colorMode={colorMode} toggleColorMode={toggleColorMode} isMobile={isMobile}/>
       {isMobile ? (
-        <LandingMobile />
+        <LandingMobile showTitle={!isLanding}/>
       ) : (
         <LandingDesktop colorMode={colorMode} showTitle={!isLanding} />
       )}
-      <Content />
+      {/* <Content /> */}
+      <Passion isMobile={isMobile}/>
+      <Projects />
+      <Posts />
       <Contact />
+      <Footer/>
     </Box>
   );
 };

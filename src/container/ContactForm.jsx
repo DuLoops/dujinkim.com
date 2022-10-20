@@ -25,6 +25,7 @@ import {
   AlertIcon,
   AlertTitle,
   AlertDescription,
+  Tooltip,
 } from "@chakra-ui/react";
 import {
   MdPhone,
@@ -54,7 +55,6 @@ export default function Contact() {
   const [form, setForm] = useState({
     about: "web-development",
     other: "",
-    subject: "",
     email: "",
     text: "",
   });
@@ -97,7 +97,6 @@ export default function Contact() {
         setForm({
           about: "web-development",
           other: "",
-          subject: "",
           email: "",
           text: "",
         });
@@ -110,7 +109,7 @@ export default function Contact() {
         <Stack>
           <Radio value="web-development">Web Development</Radio>
           <Radio value="photography">Photography</Radio>
-          <Radio value="blog">Blog</Radio>
+          <Radio value="duLoops.com">duLoops.com</Radio>
           <Flex gap={"10px"}>
             <Radio value={"other"} />
             <Input
@@ -140,16 +139,7 @@ export default function Contact() {
             type="email"
           />
         </FormControl>
-        <FormControl isRequired>
-          <Input
-            value={form.subject}
-            onChange={handleChange}
-            placeholder="*subject"
-            size="sm"
-            name="subject"
-            type="text"
-          />
-        </FormControl>
+
         <FormControl isRequired>
           <Textarea
             value={form.text}
@@ -264,8 +254,19 @@ export default function Contact() {
     <Container
       bg="neutralGreen.100"
       maxW="full"
-      p={{ sm: "15px", md: "50px", lg: "100px" }}
+      p={{ sm: "15px", md: "100px" }}
     >
+      <Heading
+        textAlign="center"
+        // color={"black"}
+        width={"70%"}
+        margin="auto"
+        borderBottom={"3px solid"}
+        pb="5px"
+        mb="3rem"
+      >
+        Contact
+      </Heading>
       {submitted ? (
         <Box m="50px">
           <Text>
@@ -275,30 +276,33 @@ export default function Contact() {
         </Box>
       ) : (
         <form onSubmit={handleSubmit}>
-          <Box bg="darkGlass.200" borderRadius="10px">
+          <Box bg="darkGlass.200" borderRadius="10px" >
             <Box
               className="left"
               w={{ md: "50%" }}
               float={{ md: "left" }}
-              p="0 10px"
+              p="5px"
+              
             >
-              <Heading fontSize='2xl' pt='5px'>Contact</Heading>
-              <Text>
+              <Text my="10px" textAlign={"center"}>
                 Email:&nbsp;
-                <Link href="mailto:contact@dujinkim.com">
+                <Link href="mailto:contact@dujinkim.com" color="blue.300">
                   contact@dujinkim.com
                 </Link>
               </Text>
+              <FormLabel>Select a Title</FormLabel>
               <RadioGroup
                 onChange={handleRadio}
                 value={form.about}
                 name="about"
+                px='10px'
               >
-                <Text fontSize='sm'>Select One</Text>
                 <Stack>
-                  <Radio value="web-development">Web Development</Radio>
+                  <Radio value="web-development">
+                    Software(Web) Development
+                  </Radio>
                   <Radio value="photography">Photography</Radio>
-                  <Radio value="blog">Blog</Radio>
+                  <Radio value="blog">DuLoops.com Blog</Radio>
                   <Flex gap={"10px"}>
                     <Radio value={"other"} />
                     <Input
@@ -311,38 +315,34 @@ export default function Contact() {
                     />
                   </Flex>
                 </Stack>
-              </RadioGroup>{" "}
+              </RadioGroup>
             </Box>
-            <Flex direction={"column"} gap="5px" p="10px" justifyContent={'space-evenly'}>
-                <FormControl isRequired>
-                  <Input
-                    value={form.email}
-                    onChange={handleChange}
-                    placeholder="*email"
-                    size="sm"
-                    name="email"
-                    type="email"
-                  />
-                </FormControl>
-                <FormControl isRequired>
-                  <Input
-                    value={form.subject}
-                    onChange={handleChange}
-                    placeholder="*subject"
-                    size="sm"
-                    name="subject"
-                    type="text"
-                  />
-                </FormControl>
-                <FormControl isRequired>
-                  <Textarea
-                    value={form.text}
-                    onChange={handleChange}
-                    placeholder="*message"
-                    size="sm"
-                    name="text"
-                  />
-                </FormControl>
+            <Flex
+              direction={"column"}
+              gap="5px"
+              p={{ sm: "5px", md: "10px" }}
+              justifyContent={"space-evenly"}
+            >
+              <FormControl isRequired>
+                <FormLabel m="0">Email</FormLabel>
+                <Input
+                  value={form.email}
+                  onChange={handleChange}
+                  size="sm"
+                  name="email"
+                  type="email"
+                />
+              </FormControl>
+              <FormControl isRequired>
+                <FormLabel m="0">Message</FormLabel>
+                <Textarea
+                  value={form.text}
+                  onChange={handleChange}
+                  size="sm"
+                  name="text"
+                  // height={'110px'}
+                />
+              </FormControl>
               <Button type="submit" variant="solid" colorScheme={"teal"}>
                 {!loading ? "Send Message" : <Spinner />}
               </Button>
@@ -353,67 +353,72 @@ export default function Contact() {
               bg={"darkGlass.200"}
               p={"5px"}
               borderRadius="0px 0px 10px 10px"
-              mt='10px'
+              mt="10px"
             >
               <Flex direction={"row"} justifyContent={"space-around"}>
-                <IconButton
-                  aria-label="linkedin"
-                  variant="ghost"
-                  size="lg"
-                  isRound={true}
-                  _hover={{ bg: "#0077b5" }}
-                  icon={<BsLinkedin size="28px" />}
-                  onClick={() =>
-                    window.open(
-                      "https://www.linkedin.com/in/dujin-kim/",
-                      "_blank"
-                    )
-                  }
-                />
-                <IconButton
-                  aria-label="github"
-                  variant="ghost"
-                  size="lg"
-                  isRound={true}
-                  _hover={{ bg: "#000" }}
-                  icon={<BsGithub size="28px" />}
-                  onClick={() =>
-                    window.open(
-                      "https://github.com/DuLoops",
-                      "_blank"
-                    )
-                  }
-                />
-                <IconButton
-                  aria-label="instagram"
-                  variant="ghost"
-                  size="lg"
-                  isRound={true}
-                  _hover={{ bg: "#EA185A" }}
-                  icon={<BsInstagram size="28px" />}
-                  onClick={() =>
-                    window.open(
-                      "https://www.instagram.com/dujinkim_/",
-                      "_blank"
-                    )
-                  }
-                />
-                <IconButton
-                  aria-label="strava"
-                  variant="ghost"
-                  size="lg"
-                  isRound={true}
-                  _hover={{ bg: "#fc4c02" }}
-                  icon={<BsStrava size="28px" />}
-                  onClick={() =>
-                    window.open(
-                      "https://www.strava.com/athletes/66308223",
-                      "_blank"
-                    )
-                  }
-                />
+                <Tooltip label="Connect on LinkedIn">
+                  <IconButton
+                    aria-label="linkedin"
+                    variant="ghost"
+                    size="lg"
+                    isRound={true}
+                    _hover={{ bg: "#0077b5" }}
+                    icon={<BsLinkedin size="28px" />}
+                    onClick={() =>
+                      window.open(
+                        "https://www.linkedin.com/in/dujin-kim/",
+                        "_blank"
+                      )
+                    }
+                  />
+                </Tooltip>
+                <Tooltip label="View source code">
+                  <IconButton
+                    aria-label="github"
+                    variant="ghost"
+                    size="lg"
+                    isRound={true}
+                    _hover={{ bg: "#000" }}
+                    icon={<BsGithub size="28px" />}
+                    onClick={() =>
+                      window.open("https://github.com/DuLoops", "_blank")
+                    }
+                  />
+                </Tooltip>
+                <Tooltip label="Connect on Instagram">
+                  <IconButton
+                    aria-label="instagram"
+                    variant="ghost"
+                    size="lg"
+                    isRound={true}
+                    _hover={{ bg: "#EA185A" }}
+                    icon={<BsInstagram size="28px" />}
+                    onClick={() =>
+                      window.open(
+                        "https://www.instagram.com/dujinkim_/",
+                        "_blank"
+                      )
+                    }
+                  />
+                </Tooltip>
+                <Tooltip label="Venture with me on Strava">
+                  <IconButton
+                    aria-label="strava"
+                    variant="ghost"
+                    size="lg"
+                    isRound={true}
+                    _hover={{ bg: "#fc4c02" }}
+                    icon={<BsStrava size="28px" />}
+                    onClick={() =>
+                      window.open(
+                        "https://www.strava.com/athletes/66308223",
+                        "_blank"
+                      )
+                    }
+                  />
+                </Tooltip>
               </Flex>
-            </Box>{" "}
+            </Box>
           </Box>
         </form>
       )}

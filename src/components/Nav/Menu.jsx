@@ -25,11 +25,11 @@ const Menu = () => {
           key={index}
           rounded={"md"}
           _hover={{
-            fontSize:'xl',
-            color: colorMode == "light" ? "red.400" : "brandOrange.100",
+            textDecor:'underline',
+            color: colorMode == "light" ? "red.500" : "brandOrange.100",
           }}
           href={link[1]}
-          color={colorMode == "light" ? "red.500" : "brandYellow.200"}
+          color={colorMode == "light" ? "red.300" : "brandYellow.200"}
           fontSize={'lg'}
           fontWeight='500'
         >

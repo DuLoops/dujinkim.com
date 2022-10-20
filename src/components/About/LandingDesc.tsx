@@ -22,12 +22,11 @@ const LandingDesc = (props: propType) => {
       {/* </Grid> */}
       <Box
         position={"absolute"}
-        top={"50%"}
-        left="50%"
+        className='center'
         textAlign="center"
         backgroundColor="light.300"
         display={"block"}
-        transform="translate(-50%, -50%)"
+
       >
         <Text
           display={"inline-block"}
