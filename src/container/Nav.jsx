@@ -1,7 +1,7 @@
 import DarkmodeToggle from "../components/nav/DarkmodeToggle";
 import Menu from "../components/nav/Menu";
 import { Box, Image, Grid, useColorMode } from "@chakra-ui/react";
-import { logo } from "../resources/images/logo";
+import logo from "../resources/images/logo.png";
 import MobileMenu from "../components/nav/MobileMenu";
 const Nav = (props) => {
   return (
@@ -36,7 +36,11 @@ const Nav = (props) => {
       <Box justifySelf={"center"} gridColumnStart="2">
         <Image src={logo} alt="logo" boxSize="60px" p="5px" />
       </Box>
-      {props.isMobile ? <MobileMenu /> : <Menu />}
+      {props.isMobile ? (
+        <MobileMenu parallax={props.parallax} />
+      ) : (
+        <Menu parallax={props.parallax}/>
+      )}
     </Grid>
   );
 };

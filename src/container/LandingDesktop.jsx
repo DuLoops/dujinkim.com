@@ -1,6 +1,6 @@
 import { Box, Heading, Highlight, Text, Link, Tooltip } from "@chakra-ui/react";
 import styled from "styled-components";
-import { laptop } from "../resources/images/dev/aboutPhoto";
+import { laptop } from "../resources/images/aboutPhoto";
 import { motion } from "framer-motion";
 import { MdSdCardAlert } from "react-icons/md";
 const colors = {

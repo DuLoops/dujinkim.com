@@ -47,7 +47,7 @@ import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import styled from "styled-components";
 
-export default function Contact() {
+export default function Contact(props) {
   const Clear = styled.div`
     clear: both;
   `;
@@ -102,105 +102,70 @@ export default function Contact() {
         });
       });
   };
-
-  const RadioForm = () => {
-    return (
-      <RadioGroup onChange={handleRadio} value={form.about} name="about">
-        <Stack>
-          <Radio value="web-development">Web Development</Radio>
-          <Radio value="photography">Photography</Radio>
-          <Radio value="duLoops.com">duLoops.com</Radio>
-          <Flex gap={"10px"}>
-            <Radio value={"other"} />
-            <Input
-              type="text"
-              onChange={handleChange}
-              onClick={handleOther}
-              value={form.other}
-              placeholder="Other"
-              name="other"
-            />
-          </Flex>
-        </Stack>
-      </RadioGroup>
-    );
-  };
-
-  const InputForm = () => {
-    return (
-      <Flex direction={"column"} gap="5px">
-        <FormControl isRequired>
-          <Input
-            value={form.email}
-            onChange={handleChange}
-            placeholder="*email"
-            size="sm"
-            name="email"
-            type="email"
-          />
-        </FormControl>
-
-        <FormControl isRequired>
-          <Textarea
-            value={form.text}
-            onChange={handleChange}
-            placeholder="*message"
-            size="sm"
-            name="text"
-          />
-        </FormControl>
-      </Flex>
-    );
-  };
-
   const SnsForm = () => {
     return (
-      <Box bg={"darkGlass.200"} p={"5px"} borderRadius="0px 0px 10px 10px">
+      <Box
+        bg={"lightGlass.100"}
+        p={"5px"}
+        borderRadius="0px 0px 10px 10px"
+        mt="10px"
+      >
         <Flex direction={"row"} justifyContent={"space-around"}>
-          <IconButton
-            aria-label="linkedin"
-            variant="ghost"
-            size="lg"
-            isRound={true}
-            _hover={{ bg: "#0077b5" }}
-            icon={<BsLinkedin size="28px" />}
-            onClick={() =>
-              window.open("https://www.linkedin.com/in/dujin-kim/", "_blank")
-            }
-          />
-          <IconButton
-            aria-label="github"
-            variant="ghost"
-            size="lg"
-            isRound={true}
-            _hover={{ bg: "#000" }}
-            icon={<BsGithub size="28px" />}
-            onClick={() =>
-              window.open("https://www.instagram.com/dujinkim_/", "_blank")
-            }
-          />
-          <IconButton
-            aria-label="instagram"
-            variant="ghost"
-            size="lg"
-            isRound={true}
-            _hover={{ bg: "#EA185A" }}
-            icon={<BsInstagram size="28px" />}
-            onClick={() =>
-              window.open("https://www.instagram.com/dujinkim_/", "_blank")
-            }
-          />
-          <IconButton
-            aria-label="strava"
-            variant="ghost"
-            size="lg"
-            isRound={true}
-            _hover={{ bg: "#fc4c02" }}
-            icon={<BsStrava size="28px" />}
-            onClick={() =>
-              window.open("https://www.strava.com/athletes/66308223", "_blank")
-            }
-          />
+          <Tooltip label="Connect on LinkedIn" hasArrow >
+            <IconButton
+              aria-label="linkedin"
+              variant="ghost"
+              size="lg"
+              isRound={true}
+              _hover={{ bg: "#0077b5" }}
+              icon={<BsLinkedin size="28px" />}
+              onClick={() =>
+                window.open("https://www.linkedin.com/in/dujin-kim/", "_blank")
+              }
+            />
+          </Tooltip>
+          <Tooltip label="View source code" hasArrow >
+            <IconButton
+              aria-label="github"
+              variant="ghost"
+              size="lg"
+              isRound={true}
+              _hover={{ bg: "#000", color:'white' }}
+              icon={<BsGithub size="28px" />}
+              onClick={() =>
+                window.open("https://github.com/DuLoops", "_blank")
+              }
+            />
+          </Tooltip>
+          <Tooltip label="Connect on Instagram" hasArrow > 
+            <IconButton
+              aria-label="instagram"
+              variant="ghost"
+              size="lg"
+              isRound={true}
+              _hover={{ bg: "#EA185A" }}
+              icon={<BsInstagram size="28px" />}
+              onClick={() =>
+                window.open("https://www.instagram.com/dujinkim_/", "_blank")
+              }
+            />
+          </Tooltip>
+          <Tooltip label="Venture together on Strava" hasArrow >
+            <IconButton
+              aria-label="strava"
+              variant="ghost"
+              size="lg"
+              isRound={true}
+              _hover={{ bg: "#fc4c02" }}
+              icon={<BsStrava size="28px" />}
+              onClick={() =>
+                window.open(
+                  "https://www.strava.com/athletes/66308223",
+                  "_blank"
+                )
+              }
+            />
+          </Tooltip>
         </Flex>
       </Box>
     );
@@ -216,49 +181,14 @@ export default function Contact() {
     );
   };
 
-  const ContactForm = () => {
-    return (
-      <form onSubmit={handleSubmit}>
-        <Box bg="darkGlass.200" color="dark.100" borderRadius="10px">
-          <Box
-            className="left"
-            w={{ md: "50%" }}
-            float={{ md: "left" }}
-            p="0 10px"
-          >
-            <Heading>Contact</Heading>
-            <Text>
-              Email:&nbsp;
-              <Link href="mailto:contact@dujinkim.com">
-                contact@dujinkim.com
-              </Link>
-            </Text>
-            <RadioForm />
-          </Box>
-          <Flex direction={"column"} gap="5px" p="10px">
-            <InputForm />
-            <Button type="submit" variant="solid" colorScheme={"teal"}>
-              {!loading ? "Send Message" : <Spinner />}
-            </Button>
-          </Flex>
-          <Clear />
-
-          {alert && <ErrorAlert />}
-          <SnsForm />
-        </Box>
-      </form>
-    );
-  };
-
   return (
     <Container
-      bg="neutralGreen.100"
+      bg={props.colorMode == "light" ? "neutralGreen.100" : ""}
       maxW="full"
-      p={{ sm: "15px", md: "100px" }}
+      p='15px'
     >
       <Heading
         textAlign="center"
-        // color={"black"}
         width={"70%"}
         margin="auto"
         borderBottom={"3px solid"}
@@ -268,21 +198,33 @@ export default function Contact() {
         Contact
       </Heading>
       {submitted ? (
-        <Box m="50px">
-          <Text>
-            Thank you for reaching me! You can also connect with me via
+        <Box
+          m="20px"
+          borderRadius={"xl"}
+          bg='whiteAlpha.100'
+        >
+          <Text fontSize="xl" textAlign={"center"} fontWeight={"500"} py="20px">
+            Thank you for reaching me!
+            <br />
+            I'll get back to you shortly!
           </Text>
           <SnsForm />
         </Box>
       ) : (
         <form onSubmit={handleSubmit}>
-          <Box bg="darkGlass.200" borderRadius="10px" >
+          <Box
+            bg={
+              props.colorMode == "light" ? "blackAlpha.400" : "whiteAlpha.100"
+            }
+            borderRadius="10px"
+            maxW='900px'
+            m='auto'
+          >
             <Box
               className="left"
               w={{ md: "50%" }}
               float={{ md: "left" }}
-              p="5px"
-              
+              p="10px"
             >
               <Text my="10px" textAlign={"center"}>
                 Email:&nbsp;
@@ -295,7 +237,7 @@ export default function Contact() {
                 onChange={handleRadio}
                 value={form.about}
                 name="about"
-                px='10px'
+                px="10px"
               >
                 <Stack>
                   <Radio value="web-development">
@@ -320,7 +262,7 @@ export default function Contact() {
             <Flex
               direction={"column"}
               gap="5px"
-              p={{ sm: "5px", md: "10px" }}
+              p="10px"
               justifyContent={"space-evenly"}
             >
               <FormControl isRequired>
@@ -343,82 +285,18 @@ export default function Contact() {
                   // height={'110px'}
                 />
               </FormControl>
-              <Button type="submit" variant="solid" colorScheme={"teal"}>
+              <Button
+                type="submit"
+                variant="solid"
+                colorScheme={"green"}
+                mt="1rem"
+              >
                 {!loading ? "Send Message" : <Spinner />}
               </Button>
             </Flex>
             <Clear />
             {alert && <ErrorAlert />}
-            <Box
-              bg={"darkGlass.200"}
-              p={"5px"}
-              borderRadius="0px 0px 10px 10px"
-              mt="10px"
-            >
-              <Flex direction={"row"} justifyContent={"space-around"}>
-                <Tooltip label="Connect on LinkedIn">
-                  <IconButton
-                    aria-label="linkedin"
-                    variant="ghost"
-                    size="lg"
-                    isRound={true}
-                    _hover={{ bg: "#0077b5" }}
-                    icon={<BsLinkedin size="28px" />}
-                    onClick={() =>
-                      window.open(
-                        "https://www.linkedin.com/in/dujin-kim/",
-                        "_blank"
-                      )
-                    }
-                  />
-                </Tooltip>
-                <Tooltip label="View source code">
-                  <IconButton
-                    aria-label="github"
-                    variant="ghost"
-                    size="lg"
-                    isRound={true}
-                    _hover={{ bg: "#000" }}
-                    icon={<BsGithub size="28px" />}
-                    onClick={() =>
-                      window.open("https://github.com/DuLoops", "_blank")
-                    }
-                  />
-                </Tooltip>
-                <Tooltip label="Connect on Instagram">
-                  <IconButton
-                    aria-label="instagram"
-                    variant="ghost"
-                    size="lg"
-                    isRound={true}
-                    _hover={{ bg: "#EA185A" }}
-                    icon={<BsInstagram size="28px" />}
-                    onClick={() =>
-                      window.open(
-                        "https://www.instagram.com/dujinkim_/",
-                        "_blank"
-                      )
-                    }
-                  />
-                </Tooltip>
-                <Tooltip label="Venture with me on Strava">
-                  <IconButton
-                    aria-label="strava"
-                    variant="ghost"
-                    size="lg"
-                    isRound={true}
-                    _hover={{ bg: "#fc4c02" }}
-                    icon={<BsStrava size="28px" />}
-                    onClick={() =>
-                      window.open(
-                        "https://www.strava.com/athletes/66308223",
-                        "_blank"
-                      )
-                    }
-                  />
-                </Tooltip>
-              </Flex>
-            </Box>
+            <SnsForm />
           </Box>
         </form>
       )}

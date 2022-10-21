@@ -1,6 +1,6 @@
 import { Image, Center, useColorMode } from "@chakra-ui/react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "../resources/images/LandingAnimation/logo.png";
+import logo from "../resources/images/logo.png";
 const LandingAnimation = () => {
   const { colorMode} = useColorMode();
 
@@ -19,15 +19,15 @@ const LandingAnimation = () => {
           animate={{
             width: "0",
           }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8}}
         />
         <motion.div
           style={{
             position: "absolute",
             backgroundColor: colorMode== 'light' ? "white" : "#1C1D1F",
             width: "100%",
-            height: "30%",
-            bottom: "60%",
+            height: "31%",
+            bottom: "59%",
             right: 0,
           }}
           animate={{

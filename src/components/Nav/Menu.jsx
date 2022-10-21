@@ -3,13 +3,13 @@ import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 
-const Menu = () => {
+const Menu = (props) => {
   const { colorMode } = useColorMode();
 
   const links = [
-    ["Projects", "/"],
-    ["Posts", "/gallery"],
-    ["Contact", "/blog"],
+    ["Projects", 5],
+    ["Posts", 6],
+    ["Contact", 7],
   ];
 
   return (
@@ -26,10 +26,10 @@ const Menu = () => {
           rounded={"md"}
           _hover={{
             textDecor:'underline',
-            color: colorMode == "light" ? "red.500" : "brandOrange.100",
+            color: colorMode == "light" ? "red.500" : "green.100",
           }}
-          href={link[1]}
-          color={colorMode == "light" ? "red.300" : "brandYellow.200"}
+          onClick={()=>{props.parallax.current.scrollTo(link[1])}}
+          color={colorMode == "light" ? "red.300" : "brandGreen.400"}
           fontSize={'lg'}
           fontWeight='500'
         >

@@ -10,7 +10,7 @@ import styled from "styled-components";
 import LandingTitle from "../../components/about/LandingTitle";
 import LandingDesc from "../../components/about/LandingDesc";
 
-import { laptop } from "../../resources/images/dev/aboutPhoto";
+import { laptop } from "../../resources/images/aboutPhoto";
 
 const Clear = styled.div`
   clear: both;

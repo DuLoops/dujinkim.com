@@ -7,7 +7,7 @@ import {
   pender2,
   dnd,
   dnd2,
-} from "../../resources/images/dev/portfolio";
+} from "../../resources/images/portfolio";
 
 const cards = [
   {
@@ -39,7 +39,7 @@ const cards = [
 
 export default function DeveloperProjects() {
   return (
-    <Flex flexDir={{sm: 'column', md:'row'}} justifyContent={'space-evenly'} gap='10px' p='10px'>
+    <Flex flexDir={{sm: 'column', md:'row'}} justifyContent={'space-evenly'} gap='10px' p='10px' maxW='80vw' m='auto'>
       {cards.map((card) => {
         return <PortfolioCard card={card} />;
       })}

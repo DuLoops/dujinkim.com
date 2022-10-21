@@ -2,30 +2,26 @@ import {
   Box,
   Text,
   Image,
-  useMediaQuery,
   Heading,
   Highlight,
-  Tooltip,
-  Link,
   Icon,
   Flex,
 } from "@chakra-ui/react";
-import styled from "styled-components";
-import { sky } from "../resources/images/dev/aboutPhoto";
+import { sky } from "../resources/images/aboutPhoto";
 import LandingMobileDesc from "../components/LandingMobileDesc";
 import { motion } from "framer-motion";
 import { AiOutlineCaretDown } from "react-icons/ai";
+import { ParallaxLayer } from "@react-spring/parallax";
 const LandingMobile = (props) => {
+  const textShadow = "5px 5px#051F20";
   return (
     <Box position="relative">
-      <Image
+      <motion.img
         src={sky}
         alt={"skyPicture"}
-        w="100vw"
-        h="100vh"
-        objectFit={"cover"}
-        // filter={showTitle ? "blur(4px)" : "none"}
-        filter="blur(3px)"
+        style={{ width: "100vw", height: "100vh", objectFit: "cover" }}
+        animate={{ filter: ["blur(3px)", "blur(0px)", "blur(3px)"] }}
+        transition={{ delay: 4, duration: 13, repeat: 5 }}
       />
       <Box
         textAlign={"center"}
@@ -33,24 +29,22 @@ const LandingMobile = (props) => {
         top="50vh"
         left="50%"
         transform={"translate(-50%,-50%)"}
-        background="blackAlpha.500"
-        p="10px"
-        borderRadius={"3xl"}
-        // border={'5px solid rgba(0,0,0,0.3)'}
-        boxShadow={"0px 0px 15px rgba(0,0,0,0.8)"}
-        // boxShadow='outline'
-        color="analogous.3"
+        background="rgba(150,150,150, 0.2)"
+        p="25px"
+        borderRadius={"150px"}
+        boxShadow={"0px 0px 30px rgba(150,150,150, 0.4)"}
       >
         <Heading
           fontSize="6rem"
           fontFamily={"Raleway"}
           fontWeight="500"
-          textShadow={"3px 3px #B0166A"}
+          color="analogous.3"
+          textShadow={textShadow}
         >
           Du
           <Highlight
             query={"Jin"}
-            styles={{ color: "analogous.1", textShadow: "3px 3px #B0166A" }}
+            styles={{ color: "analogous.1", textShadow: textShadow }}
           >
             Jin
           </Highlight>
@@ -60,21 +54,22 @@ const LandingMobile = (props) => {
           fontFamily={"Raleway"}
           fontWeight="500"
           color={"analogous.2"}
-          textShadow={"3px 3px #B0166A"}
+          textShadow={textShadow}
         >
           Kim
         </Heading>
       </Box>
       {props.showTitle && (
         <motion.div
-          initial={{ opacity: 0}}
-          animate={{ opacity: 1}}
-          transition={{ delay: 1.5 }}
+          initial={{ opacity: 0 }}
+          animate={{
+            opacity: 1,
+            y: ["0px", "-10px", "0px", "-10px", "0px"],
+          }}
+          transition={{ delay: 5, duration: 4 }}
+          style={{ position: "absolute", top: "90vh", left: "50%" }}
         >
           <Flex
-            position="absolute"
-            top="90vh"
-            left="50%"
             transform="translateX(-50%)"
             fontSize={"3xl"}
             direction="column"
@@ -85,7 +80,9 @@ const LandingMobile = (props) => {
           </Flex>
         </motion.div>
       )}
-      <LandingMobileDesc />
+      <ParallaxLayer offset={1} speed={0.5}>
+        <LandingMobileDesc />
+      </ParallaxLayer>
     </Box>
   );
 };

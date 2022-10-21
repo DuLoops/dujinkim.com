@@ -3,7 +3,7 @@ import DeveloperProjects from '../components/about/DeveloperProjects';
 
 const Projects = () => {
   return (
-    <Box mt="100px" textAlign={"center"}>
+    <Box textAlign={"center"} mt='100px'>
       <Heading
         width={"70%"}
         margin="auto"

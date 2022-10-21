@@ -4,5 +4,7 @@ import photography from './photography.jpg'
 import skiing from './skiing.jpg'
 import sky  from './sky.jpg'
 import softwareDevelopment from './softwareDevelopment.jpg'
+import moonwalk from './moonwalk.jpg'
+import softwareMobile from './softwareMobile.png'
 
-export {climbing, drawing, photography, skiing, sky, softwareDevelopment};
+export {climbing, drawing, photography, skiing, sky, softwareDevelopment, moonwalk, softwareMobile};

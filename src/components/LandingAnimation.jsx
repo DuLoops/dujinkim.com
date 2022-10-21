@@ -6,7 +6,7 @@ const LandingAnimation = () => {
 
   return (
     <motion.div
-      style={{ width: "100vw", height: "100vh" }}
+      style={{ width: "100vw", height: "100vh", overflow:'hidden' }}
       animate={{
         scale:0.1,
         translateY:'-50vh',

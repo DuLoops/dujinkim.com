@@ -1,19 +1,13 @@
-import { Box, Heading, Highlight, Text, Link, Tooltip } from "@chakra-ui/react";
-import styled from "styled-components";
-import { laptop } from "../resources/images/dev/aboutPhoto";
-import { motion } from "framer-motion";
-import { MdSdCardAlert } from "react-icons/md";
+import { Box, Heading, Highlight, Link, Tooltip } from "@chakra-ui/react";
 
 const LandingMobileDesc = (props) => {
   return (
-    <Box textAlign={'center'} mt='5rem'>
+    <Box textAlign={'center'} mt='7rem' mb='13rem'>
       <Heading
         colorMode={props.colorMode}
         fontSize="xl"
-        fontWeight="600"
         fontFamily="Montserrat "
-        fontWeight="400"
-        
+        fontWeight="00"
       >
         I’m a software developer based in
         <br />
@@ -29,11 +23,11 @@ const LandingMobileDesc = (props) => {
         >
           Beautiful
         </Highlight>
-        British Columbia,{" "}
+        British Columbia,
         <Tooltip hasArrow label="Canada">
           🍁
         </Tooltip>
-        <br />I like to share my
+        <br /><br/>I like to share my
         <Highlight
           query={"passion"}
           styles={{

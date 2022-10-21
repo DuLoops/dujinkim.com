@@ -3,10 +3,10 @@ import WordWave from "../ui/textAnimation/WordWave";
 import LetterWave from "../ui/textAnimation/LetterWave";
 import { motion } from "framer-motion";
 
-import {
-  PhotographerMe,
-  BloggerMe,
-} from "../../resources/images/dev/aboutPhoto";
+// import {
+//   PhotographerMe,
+//   BloggerMe,
+// } from "../../resources/images/dev/aboutPhoto";
 
 interface propType {
   isScroll: boolean;
@@ -16,8 +16,8 @@ const LandingDesc = (props: propType) => {
     <Box position={"relative"}>
       {/* <Grid templateColumns={"1fr 1fr"} templateRows="380px" height={'300px'} overflow='hidden'> */}
       <Box >
-        <Image src={PhotographerMe} alt="PhotographerMe" width={'50%'} float='left' height='300px'/>
-        <Image src={BloggerMe} alt="BloggerMe" width={'50%'} height='300px'/>
+        {/* <Image src={PhotographerMe} alt="PhotographerMe" width={'50%'} float='left' height='300px'/>
+        <Image src={BloggerMe} alt="BloggerMe" width={'50%'} height='300px'/> */}
       </Box>
       {/* </Grid> */}
       <Box
