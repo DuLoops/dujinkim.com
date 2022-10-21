@@ -162,7 +162,6 @@ const PassionMobile = () => {
         <Box className="desc" w="90%" position='absolute' left="50%" transform="translateX(-50%)">
           <Heading color={"white"}>
             Storytelling
-            <br /> from the mountains
           </Heading>
           <Button
             _hover={{ color: "red.400" }}

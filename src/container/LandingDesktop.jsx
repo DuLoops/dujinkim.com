@@ -20,21 +20,20 @@ const Title = styled(Heading)`
   text-align: center;
 
   letter-spacing: 3px;
-  font-size: 15px;
   background-color: ${(props) =>
-    props.colorMode == "dark" ? colors.darkGlass2 : colors.lightGlass2};
+    props.colormode == "dark" ? colors.darkGlass2 : colors.lightGlaMs2};
   padding: 25px;
   border-radius: 11px;
   box-shadow: 10px 10px 30px
     ${(props) =>
-      props.colorMode == "dark" ? colors.darkGlass2 : colors.lightGlass};
+      props.colormode == "dark" ? colors.darkGlass2 : colors.lightGlMss};
   &:after {
     transform: translatey(0px);
     animation: float2 5s ease-in-out 3s;
     content: ".";
     font-weight: bold;
     -webkit-text-fill-color: ${(props) =>
-      props.colorMode == "dark" ? colors.darkGlass : colors.lightGlass};
+      props.colormode == "dark" ? colors.darkGlass : colors.lightGlMss};
     text-align: left;
     font-size: 55px;
     width: 55px;
@@ -42,7 +41,7 @@ const Title = styled(Heading)`
     line-height: 30px;
     border-radius: 11px;
     background-color: ${(props) =>
-      props.colorMode == "dark" ? colors.darkGlass : colors.lightGlass};
+      props.colormode == "dark" ? colors.darkGlass : colors.lightGlMss};
     position: absolute;
     display: block;
     bottom: -25px;
@@ -54,17 +53,17 @@ const Title = styled(Heading)`
       transform: translatey(0px);
       box-shadow: 10px 10px 30px
         ${(props) =>
-          props.colorMode == "dark" ? colors.darkGlass2 : colors.lightGlass};
+          props.colormode == "dark" ? colors.darkGlass2 : colors.lightGlMss};
     }
     50% {
       transform: translatey(-10px);
-      box-shadow: 0px -10px 30px ${(props) => (props.colorMode == "dark" ? colors.darkGlass2 : colors.lightGlass)};
+      box-shadow: 0px -10px 30px ${(props) => (props.colormode == "dark" ? colors.darkGlass2 : colors.lightGlaMs)};
     }
     100% {
       transform: translatey(0px);
       box-shadow: 10px 10px 30px
         ${(props) =>
-          props.colorMode == "dark" ? colors.darkGlass2 : colors.lightGlass};
+          props.colormode == "dark" ? colors.darkGlass2 : colors.lightGlMss};
     }
   }
 
@@ -86,9 +85,6 @@ const Title = styled(Heading)`
   }
 `;
 
-const HighlightBeautiful = styled.span`
-  color: blue;
-`;
 
 const LandingDesktop = (props) => {
   return (
@@ -110,9 +106,8 @@ const LandingDesktop = (props) => {
           transition={{ duration: 1, delay: 1 }}
         >
           <Title
-            colorMode={props.colorMode}
+            colormode={props.colorMode}
             fontSize="xl"
-            fontWeight="600"
             fontFamily="Montserrat "
             fontWeight="400"
           >
@@ -129,7 +124,7 @@ const LandingDesktop = (props) => {
             >
               Beautiful
             </Highlight>
-            British Columbia,{" "}
+            British Columbia,
             <Tooltip hasArrow label="Canada">
               🍁
             </Tooltip>

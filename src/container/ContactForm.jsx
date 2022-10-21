@@ -47,10 +47,10 @@ import { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import styled from "styled-components";
 
-export default function Contact(props) {
   const Clear = styled.div`
     clear: both;
   `;
+export default function Contact(props) {
 
   const [form, setForm] = useState({
     about: "web-development",
@@ -193,7 +193,7 @@ export default function Contact(props) {
         margin="auto"
         borderBottom={"3px solid"}
         pb="5px"
-        mb="3rem"
+        mb={{sm:"3rem", md: '6rem'}}
       >
         Contact
       </Heading>

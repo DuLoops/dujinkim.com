@@ -5,16 +5,13 @@ import {
   useMediaQuery,
   Heading
 } from "@chakra-ui/react";
-import styled from "styled-components";
 
 import LandingTitle from "../../components/about/LandingTitle";
 import LandingDesc from "../../components/about/LandingDesc";
 
 import { laptop } from "../../resources/images/aboutPhoto";
 
-const Clear = styled.div`
-  clear: both;
-`;
+
 
 const Landing = () => {
   const [isLargerThan1280] = useMediaQuery("(min-width: 1280px)");

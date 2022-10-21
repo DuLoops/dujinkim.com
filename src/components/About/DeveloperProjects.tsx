@@ -40,8 +40,8 @@ const cards = [
 export default function DeveloperProjects() {
   return (
     <Flex flexDir={{sm: 'column', md:'row'}} justifyContent={'space-evenly'} gap='10px' p='10px' maxW='80vw' m='auto'>
-      {cards.map((card) => {
-        return <PortfolioCard card={card} />;
+      {cards.map((card,index) => {
+        return <PortfolioCard card={card} key={index}/>;
       })}
     </Flex>
   );

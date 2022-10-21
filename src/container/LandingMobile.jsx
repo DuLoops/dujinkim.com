@@ -66,7 +66,7 @@ const LandingMobile = (props) => {
             opacity: 1,
             y: ["0px", "-10px", "0px", "-10px", "0px"],
           }}
-          transition={{ delay: 5, duration: 4 }}
+          transition={{ delay: 1, duration: 4 }}
           style={{ position: "absolute", top: "90vh", left: "50%" }}
         >
           <Flex

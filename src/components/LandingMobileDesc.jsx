@@ -4,7 +4,6 @@ const LandingMobileDesc = (props) => {
   return (
     <Box textAlign={'center'} mt='7rem' mb='13rem'>
       <Heading
-        colorMode={props.colorMode}
         fontSize="xl"
         fontFamily="Montserrat "
         fontWeight="00"

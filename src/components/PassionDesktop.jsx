@@ -109,8 +109,8 @@ const PassionDesktop = (props) => {
           </Button>
         </Box>
       </ParallaxLayer>
-      <ParallaxLayer offset={3.3} speed="2.5">
-        <Heading fontSize="20rem" fontWeight={"300"} color="gray">
+      <ParallaxLayer offset={3.3} speed={2.5}>
+        <Heading fontSize="15rem" fontWeight={"300"} color="gray">
           &
         </Heading>
       </ParallaxLayer>
@@ -159,7 +159,6 @@ const PassionDesktop = (props) => {
           <Box className="desc center" position="absolute" p="30px">
             <Heading color={"white"}>
               Storytelling
-              <br /> from the mountains
             </Heading>
             <Button
               _hover={{ color: "red.400" }}

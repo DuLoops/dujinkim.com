@@ -1,4 +1,4 @@
-import { Box, useColorMode, Heading } from "@chakra-ui/react";
+import { Box, useColorMode, useMediaQuery } from "@chakra-ui/react";
 import { useEffect, useState, useRef } from "react";
 import LandingAnimation from "../components/LandingAnimation";
 import Nav from "../container/Nav";
@@ -17,35 +17,20 @@ import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 const About = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const [isLanding, setIsLanding] = useState(true);
-
-  const [width, setWidth] = useState(window.innerWidth);
   const parallax = useRef(null);
-
-  function handleWindowSizeChange() {
-    setWidth(window.innerWidth);
-  }
-  useEffect(() => {
-    window.addEventListener("resize", handleWindowSizeChange);
-    return () => {
-      window.removeEventListener("resize", handleWindowSizeChange);
-    };
-  }, []);
-
-  const isMobile = width <= 768;
-
+  const [isMobile] = useMediaQuery("(max-width: 980px)");
   useEffect(() => {
     setTimeout(() => {
       setIsLanding(false);
     }, 4100);
   }, []);
-
   return (
     <Box position="relative" w="100vw" h="100vh" textAlign={"center"}>
-      {/* {isLanding && <LandingAnimation />} */}
+      {isLanding && <LandingAnimation />}
       <Parallax
         pages={isMobile ? 7 : 8}
         ref={parallax}
-        // style={{ display: isLanding && "none" }}
+        style={{ display: isLanding && "none" }}
       >
         <ParallaxLayer offset={0}>
           <Nav
@@ -60,11 +45,7 @@ const About = () => {
             <LandingDesktop colorMode={colorMode} showTitle={!isLanding} />
           )}
         </ParallaxLayer>
-        {isMobile ? (
-            <PassionMobile/>
-          ) : (
-            <PassionDesktop/>
-          )}
+        {isMobile ? <PassionMobile /> : <PassionDesktop />}
         <ParallaxLayer offset={isMobile ? 4 : 5}>
           <Projects />
         </ParallaxLayer>
