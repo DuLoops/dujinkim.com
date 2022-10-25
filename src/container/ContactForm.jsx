@@ -6,15 +6,9 @@ import {
   Text,
   IconButton,
   Button,
-  VStack,
-  HStack,
-  Wrap,
-  WrapItem,
   FormControl,
   FormLabel,
   Input,
-  InputGroup,
-  InputLeftElement,
   Textarea,
   Link,
   Radio,
@@ -26,32 +20,19 @@ import {
   AlertTitle,
   AlertDescription,
   Tooltip,
+  Image,
 } from "@chakra-ui/react";
-import {
-  MdPhone,
-  MdEmail,
-  MdLocationOn,
-  MdFacebook,
-  MdOutlineEmail,
-} from "react-icons/md";
-import {
-  BsGithub,
-  BsDiscord,
-  BsPerson,
-  BsLinkedin,
-  BsStrava,
-  BsInstagram,
-} from "react-icons/bs";
-
-import { useRef, useState, useEffect } from "react";
+import { BsGithub, BsLinkedin, BsStrava, BsInstagram } from "react-icons/bs";
+import {MdOutlineFolderShared} from 'react-icons/md'
+import folderBlog from "../resources/images/icons/folder-blog.png";
+import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import styled from "styled-components";
 
-  const Clear = styled.div`
-    clear: both;
-  `;
+const Clear = styled.div`
+  clear: both;
+`;
 export default function Contact(props) {
-
   const [form, setForm] = useState({
     about: "web-development",
     other: "",
@@ -63,11 +44,11 @@ export default function Contact(props) {
   const [submitted, setSubmitted] = useState(false);
   const [alert, setAlert] = useState(false);
 
-  const handleChange = (event: any) => {
+  const handleChange = (event) => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
 
-  const handleRadio = (radioValue: string) => {
+  const handleRadio = (radioValue) => {
     setForm({ ...form, about: radioValue });
   };
 
@@ -75,7 +56,7 @@ export default function Contact(props) {
     setForm({ ...form, about: "other" });
   };
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     setLoading(true);
     emailjs
@@ -111,7 +92,7 @@ export default function Contact(props) {
         mt="10px"
       >
         <Flex direction={"row"} justifyContent={"space-around"}>
-          <Tooltip label="Connect on LinkedIn" hasArrow >
+          <Tooltip label="Connect on LinkedIn" hasArrow>
             <IconButton
               aria-label="linkedin"
               variant="ghost"
@@ -124,20 +105,34 @@ export default function Contact(props) {
               }
             />
           </Tooltip>
-          <Tooltip label="View source code" hasArrow >
+          <Tooltip label="Opensource on Github" hasArrow>
             <IconButton
               aria-label="github"
               variant="ghost"
               size="lg"
               isRound={true}
-              _hover={{ bg: "#000", color:'white' }}
-              icon={<BsGithub size="28px" />}
+              _hover={{ bg: "#000", color: "white" }}
+              icon={<BsGithub size="32px" />}
               onClick={() =>
                 window.open("https://github.com/DuLoops", "_blank")
               }
             />
           </Tooltip>
-          <Tooltip label="Connect on Instagram" hasArrow > 
+          <Tooltip label="DuLoops Blog" hasArrow>
+          <IconButton
+              aria-label="github"
+              variant="ghost"
+              size="lg"
+              isRound={true}
+              _hover={{ bg: "green.300", color: "white" }}
+              icon={<MdOutlineFolderShared size="35px" />}
+              onClick={() =>
+                window.open("https://duloops.com/", "_blank")
+              }
+            />
+            
+          </Tooltip>
+          <Tooltip label="Connect on Instagram" hasArrow>
             <IconButton
               aria-label="instagram"
               variant="ghost"
@@ -150,7 +145,7 @@ export default function Contact(props) {
               }
             />
           </Tooltip>
-          <Tooltip label="Venture together on Strava" hasArrow >
+          <Tooltip label="Let's share our adventures on Strava" hasArrow>
             <IconButton
               aria-label="strava"
               variant="ghost"
@@ -160,7 +155,7 @@ export default function Contact(props) {
               icon={<BsStrava size="28px" />}
               onClick={() =>
                 window.open(
-                  "https://www.strava.com/athletes/66308223",
+                  "https://www.strava.com/athletes/dujinkim",
                   "_blank"
                 )
               }
@@ -185,7 +180,7 @@ export default function Contact(props) {
     <Container
       bg={props.colorMode == "light" ? "neutralGreen.100" : ""}
       maxW="full"
-      p='15px'
+      p="15px"
     >
       <Heading
         textAlign="center"
@@ -193,16 +188,12 @@ export default function Contact(props) {
         margin="auto"
         borderBottom={"3px solid"}
         pb="5px"
-        mb={{sm:"3rem", md: '6rem'}}
+        mb={{ sm: "3rem", md: "6rem" }}
       >
         Contact
       </Heading>
       {submitted ? (
-        <Box
-          m="20px"
-          borderRadius={"xl"}
-          bg='whiteAlpha.100'
-        >
+        <Box m="20px" borderRadius={"xl"} bg="whiteAlpha.100">
           <Text fontSize="xl" textAlign={"center"} fontWeight={"500"} py="20px">
             Thank you for reaching me!
             <br />
@@ -217,8 +208,8 @@ export default function Contact(props) {
               props.colorMode == "light" ? "blackAlpha.400" : "whiteAlpha.100"
             }
             borderRadius="10px"
-            maxW='900px'
-            m='auto'
+            maxW="900px"
+            m="auto"
           >
             <Box
               className="left"
