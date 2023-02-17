@@ -2,7 +2,8 @@ import { Box, Heading, Highlight, Text, Link, Tooltip } from "@chakra-ui/react";
 import styled from "styled-components";
 import { laptop } from "../resources/images/aboutPhoto";
 import { motion } from "framer-motion";
-import { MdSdCardAlert } from "react-icons/md";
+import useAnalyticsEventTracker from "../hooks/useAnalyticsEventTracker";
+
 const colors = {
   lightGlass: "rgba(255,255,255, .5)",
   lightGlass2: "rgba(255,255,255, .9)",

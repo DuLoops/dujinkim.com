@@ -24,9 +24,11 @@ import "../styles/passion.scss";
 import { folderGallery, folderBlog } from "../resources/images/icons";
 import { ParallaxLayer } from "@react-spring/parallax";
 import React from "react";
+import useAnalyticsEventTracker from "../hooks/useAnalyticsEventTracker";
 
 const PassionMobile = () => {
   let zIndex = 1;
+  const gaEventTracker = useAnalyticsEventTracker("passion");
 
   const handleImageClick = (e) => {
     e.target.style.zIndex = zIndex++;
@@ -59,7 +61,14 @@ const PassionMobile = () => {
       <ParallaxLayer offset={1.9} speed={1}>
         <Box className={"center desc"} boxShadow="dark-lg" color="white">
           <Heading>Software Development</Heading>
-          <Button _hover={{ color: "blue.400" }} mt="10px" colorScheme={"cyan"}>
+          <Button
+            _hover={{ color: "blue.400" }}
+            mt="10px"
+            colorScheme={"cyan"}
+            onClick={() => {
+              gaEventTracker("software-development");
+            }}
+          >
             <Link href="https://github.com/DuLoops" target="_blank">
               <Center>
                 View Code <Icon as={AiFillGithub} className="iconStyle" />
@@ -101,6 +110,9 @@ const PassionMobile = () => {
             p="25px 10px"
             colorScheme="green"
             mt="10px"
+            onClick={() => {
+              gaEventTracker("gallery");
+            }}
           >
             <Link href="https://duloops.com/gallery" target="_blank">
               <Center>
@@ -120,7 +132,7 @@ const PassionMobile = () => {
           &
         </Heading>
       </ParallaxLayer>
-      <ParallaxLayer  offset={3} speed="1.3" style={{top:'-500px'}}>
+      <ParallaxLayer offset={3} speed="1.3" style={{ top: "-500px" }}>
         <Image
           src={climbing}
           position="absolute"
@@ -130,7 +142,7 @@ const PassionMobile = () => {
           onClick={handleImageClick}
         />
       </ParallaxLayer>
-      <ParallaxLayer offset={3} speed="1.1" style={{top:'-100px'}}>
+      <ParallaxLayer offset={3} speed="1.1" style={{ top: "-100px" }}>
         <Image
           src={skiing}
           alt="skiing"
@@ -159,17 +171,24 @@ const PassionMobile = () => {
         />
       </ParallaxLayer>
       <ParallaxLayer offset={3.4} speed="0.8">
-        <Box className="desc" w="90%" position='absolute' left="50%" transform="translateX(-50%)">
-          <Heading color={"white"}>
-            Storytelling
-          </Heading>
+        <Box
+          className="desc"
+          w="90%"
+          position="absolute"
+          left="50%"
+          transform="translateX(-50%)"
+        >
+          <Heading color={"white"}>Blogging</Heading>
           <Button
             _hover={{ color: "red.400" }}
             p="25px 10px"
             colorScheme="orange"
             mt="10px"
+            onClick={() => {
+              gaEventTracker("blog");
+            }}
           >
-            <Link href="https://duloops.com/blog" target="_blank">
+            <Link href="https://duloops.com" target="_blank">
               <Center>
                 View Blog
                 <Image

@@ -49,9 +49,9 @@ const About = () => {
         <ParallaxLayer offset={isMobile ? 4 : 5}>
           <Projects />
         </ParallaxLayer>
-        <ParallaxLayer offset={isMobile ? 5 : 6}>
+        {/* <ParallaxLayer offset={isMobile ? 5 : 6}>
           <Posts />
-        </ParallaxLayer>
+        </ParallaxLayer> */}
         <ParallaxLayer offset={isMobile ? 6 : 7}>
           <Contact colorMode={colorMode} />
         </ParallaxLayer>
@@ -62,20 +62,3 @@ const About = () => {
 };
 
 export default About;
-{
-  /* <Nav
-        colorMode={colorMode}
-        toggleColorMode={toggleColorMode}
-        isMobile={isMobile}
-      />
-      {isMobile ? (
-        <LandingMobile showTitle={!isLanding} />
-      ) : (
-        <LandingDesktop colorMode={colorMode} showTitle={!isLanding} />
-      )}
-      <Passion isMobile={isMobile} />
-      <Projects />
-      <Posts />
-      <Contact colorMode={colorMode} />
-      <Footer /> */
-}

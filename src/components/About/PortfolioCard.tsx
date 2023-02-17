@@ -44,7 +44,7 @@ export default function PorfolioCard(props: props) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Center py={6} color='black'>
+    <Center py={6} color="black">
       <Box
         maxW={"445px"}
         w={"full"}
@@ -63,10 +63,16 @@ export default function PorfolioCard(props: props) {
         onClick={() => {
           setDisplayInfo(true);
         }}
-
       >
         <Box bg={"gray.100"} pos={"relative"}>
-          <Image src={props.card.image} fit="fill" />
+          <Image
+            src={props.card.image}
+            fit="fill"
+            w="400px"
+            h="240px"
+            objectFit={"contain"}
+          />
+          <Heading size='md'>{props.card.title}</Heading>
         </Box>
         {displayInfo && (
           <Flex
@@ -100,9 +106,9 @@ export default function PorfolioCard(props: props) {
         )}
       </Box>
 
-      <Modal isOpen={isOpen} onClose={onClose} isCentered >
+      <Modal isOpen={isOpen} onClose={onClose} isCentered>
         <ModalOverlay />
-        <ModalContent pb='10px'>
+        <ModalContent pb="10px">
           <Flex>
             <Carousel cards={props.card.modal.images} />
           </Flex>

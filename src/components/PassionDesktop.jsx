@@ -24,8 +24,9 @@ import "../styles/passion.scss";
 import { folderGallery, folderBlog } from "../resources/images/icons";
 import { ParallaxLayer } from "@react-spring/parallax";
 import React from "react";
-
+import useAnalyticsEventTracker from "../hooks/useAnalyticsEventTracker";
 const PassionDesktop = (props) => {
+  const gaEventTracker = useAnalyticsEventTracker("passion");
   return (
     <React.Fragment>
       <ParallaxLayer offset={props.isMobile ? 1.5 : 1.1}>
@@ -46,14 +47,19 @@ const PassionDesktop = (props) => {
           className="containedImage"
           h="120vh"
           boxShadow={"0 0 200px #6A96BB"}
-
         />
       </ParallaxLayer>
       <ParallaxLayer offset={1.3} speed={0.1}>
         <Box className={"center desc"} boxShadow="dark-lg" color="white">
           <Heading>Software Development</Heading>
           <Button _hover={{ color: "blue.400" }} mt="10px" colorScheme={"cyan"}>
-            <Link href="https://github.com/DuLoops" target="_blank">
+            <Link
+              href="https://github.com/DuLoops"
+              target="_blank"
+              onClick={() => {
+                gaEventTracker("software-development");
+              }}
+            >
               <Center>
                 View Code <Icon as={AiFillGithub} className="iconStyle" />
               </Center>
@@ -69,7 +75,6 @@ const PassionDesktop = (props) => {
           h="180vh"
           filter="blur(1px)"
           boxShadow={"0 0 100px #ADC272"}
-
         />
       </ParallaxLayer>
       <ParallaxLayer offset={2.3} speed={0.3}>
@@ -95,6 +100,9 @@ const PassionDesktop = (props) => {
             p="25px 10px"
             colorScheme="green"
             mt="10px"
+            onClick={() => {
+              gaEventTracker("gallery");
+            }}
           >
             <Link href="https://duloops.com/gallery" target="_blank">
               <Center>
@@ -157,16 +165,17 @@ const PassionDesktop = (props) => {
         </ParallaxLayer>
         <ParallaxLayer offset={3.9} speed={0.5}>
           <Box className="desc center" position="absolute" p="30px">
-            <Heading color={"white"}>
-              Storytelling
-            </Heading>
+            <Heading color={"white"}>Blogging</Heading>
             <Button
               _hover={{ color: "red.400" }}
               p="25px 10px"
               colorScheme="orange"
               mt="10px"
+              onClick={() => {
+                gaEventTracker("blog");
+              }}
             >
-              <Link href="https://duloops.com/blog" target="_blank">
+              <Link href="https://duloops.com/" target="_blank">
                 <Center>
                   View Blog
                   <Image

@@ -37,7 +37,7 @@ const LandingMobile = (props) => {
         <Heading
           fontSize="6rem"
           fontFamily={"Raleway"}
-          fontWeight="500"
+          fontWeight="800"
           color="analogous.3"
           textShadow={textShadow}
         >
@@ -52,7 +52,7 @@ const LandingMobile = (props) => {
         <Heading
           fontSize="6rem"
           fontFamily={"Raleway"}
-          fontWeight="500"
+          fontWeight="800"
           color={"analogous.2"}
           textShadow={textShadow}
         >

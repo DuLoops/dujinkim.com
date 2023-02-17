@@ -51,11 +51,11 @@ export default function Carousel(props: props) {
       {/* Left Icon */}
       <IconButton
         aria-label="left-arrow"
-        colorScheme='blackAlpha'
+        colorScheme="blackAlpha"
         borderRadius="full"
         position="absolute"
         left={0}
-        top={'50%'}
+        top={"50%"}
         transform={"translate(0%, -50%)"}
         zIndex={2}
         onClick={() => slider?.slickPrev()}
@@ -69,7 +69,7 @@ export default function Carousel(props: props) {
         borderRadius="full"
         position="absolute"
         right={0}
-        top={'50%'}
+        top={"50%"}
         transform={"translate(0%, -50%)"}
         zIndex={2}
         onClick={() => slider?.slickNext()}
@@ -87,7 +87,7 @@ export default function Carousel(props: props) {
             // backgroundSize="auto"
             // backgroundImage={img}
           >
-            <Image src={img} alt={img} />
+            <Image src={img} alt={img} maxH='60vh' m='auto'/>
           </Box>
         ))}
       </Slider>

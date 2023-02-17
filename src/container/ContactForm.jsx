@@ -28,11 +28,14 @@ import folderBlog from "../resources/images/icons/folder-blog.png";
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
 import styled from "styled-components";
+import useAnalyticsEventTracker from "../hooks/useAnalyticsEventTracker";
 
 const Clear = styled.div`
   clear: both;
 `;
 export default function Contact(props) {
+  const gaEventTracker = useAnalyticsEventTracker("contact");
+
   const [form, setForm] = useState({
     about: "web-development",
     other: "",
@@ -81,6 +84,8 @@ export default function Contact(props) {
           email: "",
           text: "",
         });
+        gaEventTracker("submit");
+
       });
   };
   const SnsForm = () => {
@@ -118,20 +123,7 @@ export default function Contact(props) {
               }
             />
           </Tooltip>
-          <Tooltip label="DuLoops Blog" hasArrow>
-          <IconButton
-              aria-label="github"
-              variant="ghost"
-              size="lg"
-              isRound={true}
-              _hover={{ bg: "green.300", color: "white" }}
-              icon={<MdOutlineFolderShared size="35px" />}
-              onClick={() =>
-                window.open("https://duloops.com/", "_blank")
-              }
-            />
-            
-          </Tooltip>
+              
           <Tooltip label="Connect on Instagram" hasArrow>
             <IconButton
               aria-label="instagram"

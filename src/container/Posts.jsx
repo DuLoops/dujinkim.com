@@ -1,21 +1,16 @@
-import {Box, Heading} from '@chakra-ui/react'
-import DeveloperProjects from '../components/about/DeveloperProjects';
+import { Box, Heading, Link, Button } from "@chakra-ui/react";
 
 const Projects = () => {
   return (
-    <Box textAlign={"center"} mt='100px'>
-      <Heading
-        width={"70%"}
-        margin="auto"
-        borderBottom={"3px solid"}
-        pb="5px"
-      >
+    <Box textAlign={"center"} mt="100px">
+      <Heading width={"70%"} margin="auto" borderBottom={"3px solid"} pb="5px">
         Posts
       </Heading>
-      <Heading my={'200px'}>Coming Soon!</Heading>
+      <Button colorScheme="teal" variant="outline" mt="10px">
+        <Link href="https://duloops.com">View Blog</Link>
+      </Button>
     </Box>
   );
 };
-
 
 export default Projects;
