@@ -4,21 +4,20 @@ import "../styles/style.scss";
 import LandingAnimation from "../components/LandingAnimation";
 import Nav from "../container/Nav";
 import LandingDesktop from "../container/LandingDesktop";
-import LandingMobile from "../container/LandingMobile";
 import BottomNav from "../container/BottomNav";
-
 import { laptop } from "../resources/images/aboutPhoto";
 import logo from "../resources/images/logo.png";
 import { CustomCursorContext } from "../hooks/CustomCursorContext";
 import StarParticles from "../components/ui/StarParticles";
+import Mobile from "../container/Mobile";
 const About = () => {
   const animationPlayed = sessionStorage.getItem("animationPlayed");
-
   const { setCursor } = useContext(CustomCursorContext);
   const [isLanding, setIsLanding] = useState(!animationPlayed);
   const [isMobile] = useMediaQuery("(max-width: 980px)");
   useEffect(() => {
-    setCursor("default");
+
+      setCursor("default");
 
     if (isLanding) {
       sessionStorage.setItem("animationPlayed", "true");
@@ -29,6 +28,10 @@ const About = () => {
       return () => clearTimeout(loadingTimeout);
     }
   }, []);
+
+  if (isMobile) {
+    return <Mobile isLanding={isLanding} />;
+  }
 
   return (
     <Box

@@ -137,7 +137,7 @@ export default function About() {
   return (
     <Box w="100vw" h="100vh" overflow={"hidden"}>
       <Parallax
-        pages={isMobile ? 7 : 8}
+        pages={8}
         ref={parallax}
         style={{
           top: 0,
@@ -149,14 +149,10 @@ export default function About() {
       >
         <ParallaxLayer offset={0}>
           <Nav />
-          {isMobile ? (
-            <LandingMobile showTitle={!isLanding} />
-          ) : (
-            <AboutIntro setCursor={setCursor} />
-          )}
+          <AboutIntro setCursor={setCursor} />
         </ParallaxLayer>
-        {isMobile ? <PassionMobile /> : <PassionDesktop />}
-        <ParallaxLayer offset={isMobile ? 6 : 7}>
+        <PassionDesktop />
+        <ParallaxLayer offset={7}>
           <Contact />
         </ParallaxLayer>
 

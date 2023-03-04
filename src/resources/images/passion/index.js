@@ -6,7 +6,7 @@ import blog from "./blog.png";
 import gallery from "./gallery.png";
 import mobile from "./mobile.png";
 import monitor from "./monitor.png";
-
+import portal from "./portal.png";
 export {
   photography,
   sky,
@@ -16,4 +16,5 @@ export {
   gallery,
   mobile,
   monitor,
+  portal
 };

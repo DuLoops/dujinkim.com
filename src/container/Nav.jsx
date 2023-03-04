@@ -18,7 +18,7 @@ const links = [
   ["Contact", "/contact"],
 ];
 
-const Nav = () => {
+const Nav = (props) => {
   const [isMobile] = useMediaQuery("(max-width: 980px)");
   const { colorMode, toggleColorMode } = useColorMode();
 
@@ -53,7 +53,7 @@ const Nav = () => {
           <Image src={logo} alt="logo" boxSize="60px" p="5px" />
         </Link>
       </Box>
-      {isMobile ? <MobileMenu links={links} /> : <Menu links={links} />}
+      {isMobile ? <MobileMenu parallax={props.parallax} /> : <Menu links={links} />}
     </Grid>
   );
 };

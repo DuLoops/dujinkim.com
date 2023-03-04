@@ -18,6 +18,11 @@ import {
 import { IoPaperPlaneOutline } from "react-icons/io5";
 import DarkmodeToggle from "./DarkmodeToggle";
 import { useState } from "react";
+const links = [
+  ["About", 1],
+  ["Projects", 4],
+  ["Contact", 7],
+];
 const MobileMenu = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
@@ -46,7 +51,7 @@ const MobileMenu = (props) => {
               justifyContent="flex-end"
               gap="50px"
             >
-              {props.links.map((link, index) => (
+              {links.map((link, index) => (
                 <Link
                   key={index}
                   rounded={"md"}

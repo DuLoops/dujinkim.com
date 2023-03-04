@@ -58,10 +58,17 @@ const cursorData = {
     color: "white",
     icon: null,
   },
+  none: {
+    variants: "none",
+    style: { display: "none", backgroundColor: "transparent" },
+    color: "white",
+    icon: null,
+  },
 };
 
 export default function CustomCursor() {
   const { cursor } = useContext(CustomCursorContext);
+  console.log(cursor);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const cursorInfo = cursorData[cursor];
   useEffect(() => {
@@ -100,6 +107,9 @@ export default function CustomCursor() {
       height: 100,
       x: mousePosition.x - 50,
       y: mousePosition.y - 50,
+    },
+    none: {
+      display: "none",
     },
   };
 

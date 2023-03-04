@@ -8,12 +8,12 @@ import {
   dnd,
   dnd2,
   WimHofTimer,
-  
+  WimHofTimer2,
   TankGame,
   duloops,
   duloops2,
   duloops3,
-  AudioMorpher
+  AudioMorpher,
 } from "../../resources/images/portfolio";
 
 const cards = [
@@ -21,25 +21,25 @@ const cards = [
     title: "Wim Hof Timer",
     desc: "Timer app for Wim Hof Breathing Method",
     tech: "React.js, Framer Motion",
-    // image: 
+    image: WimHofTimer2,
     modal: {
-      images: [WimHofTimer],
+      images: [WimHofTimer, WimHofTimer2],
       detail:
         "Wim Hof Timer is a timer app for Wim Hof Breathing Method. It is a simple and intuitive timer app that helps you to keep track of your breathing.",
-      tech: ["React.js"],
+      tech: ["React.js "],
       link: "https://duloops.com/timer/wim-hof-timer",
     },
   },
   {
     title: "DuLoops.com",
     desc: "Blog & Photo Gallery",
-    tech: "Next.js",
+    tech: "React.js",
     image: duloops3,
     modal: {
       images: [duloops, duloops2, duloops3],
       detail:
         "DuLoops.com is my blog and photo gallery website. It is developed in React.js and uses Chakra UI for styling.",
-      tech: ["Next.js", "React.js"],
+      tech: ["React.js "],
       link: "https://duloops.com/",
     },
   },
@@ -65,7 +65,7 @@ const cards = [
     modal: {
       images: [AudioMorpher],
       detail:
-        "Utilize Fourier Transformation, JPEG Compression, and image morphing.",
+        "Audio and Image editor utilizing various digital processing techniques such as Fourier Transform, JPEG Compression, and image morphing.",
       tech: ["C#", ".NET", "WPF"],
       git: "https://github.com/DuLoops/Audio-Image_editor",
     },
@@ -101,16 +101,20 @@ const cards = [
 export default function DeveloperProjects() {
   return (
     <Grid
-      gridTemplateColumns={{lg: "repeat(3, 1fr)", md: "repeat(2,1fr)", sm: "1fr"}}
+      gridTemplateColumns={{
+        lg: "repeat(3, 1fr)",
+        md: "repeat(2,1fr)",
+        sm: "1fr",
+      }}
       justifyContent={"space-evenly"}
       gap="10px"
       p="10px"
       maxW="80vw"
       m="auto"
     >
-      {/* {cards.map((card, index) => {
+      {cards.map((card, index) => {
         return <PortfolioCard card={card} key={index} />;
-      })} */}
+      })}
     </Grid>
   );
 }
