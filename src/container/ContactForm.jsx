@@ -23,17 +23,18 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { BsGithub, BsLinkedin, BsStrava, BsInstagram } from "react-icons/bs";
-import {MdOutlineFolderShared} from 'react-icons/md'
-import folderBlog from "../resources/images/icons/folder-blog.png";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import emailjs from "@emailjs/browser";
 import styled from "styled-components";
 import useAnalyticsEventTracker from "../hooks/useAnalyticsEventTracker";
-
+import { useColorMode } from "@chakra-ui/react";
+import { CustomCursorContext } from "../hooks/CustomCursorContext";
 const Clear = styled.div`
   clear: both;
 `;
 export default function Contact(props) {
+  const { setCursor } = useContext(CustomCursorContext);
+  const { colorMode } = useColorMode();
   const gaEventTracker = useAnalyticsEventTracker("contact");
 
   const [form, setForm] = useState({
@@ -85,7 +86,6 @@ export default function Contact(props) {
           text: "",
         });
         gaEventTracker("submit");
-
       });
   };
   const SnsForm = () => {
@@ -95,6 +95,8 @@ export default function Contact(props) {
         p={"5px"}
         borderRadius="0px 0px 10px 10px"
         mt="10px"
+        onMouseEnter={() => setCursor("contactLink")}
+        onMouseLeave={() => setCursor("default")}
       >
         <Flex direction={"row"} justifyContent={"space-around"}>
           <Tooltip label="Connect on LinkedIn" hasArrow>
@@ -123,7 +125,7 @@ export default function Contact(props) {
               }
             />
           </Tooltip>
-              
+
           <Tooltip label="Connect on Instagram" hasArrow>
             <IconButton
               aria-label="instagram"
@@ -169,11 +171,7 @@ export default function Contact(props) {
   };
 
   return (
-    <Container
-      bg={props.colorMode == "light" ? "neutralGreen.100" : ""}
-      maxW="full"
-      p="15px"
-    >
+    <Container maxW="full" p="15px">
       <Heading
         textAlign="center"
         width={"70%"}
@@ -196,9 +194,7 @@ export default function Contact(props) {
       ) : (
         <form onSubmit={handleSubmit}>
           <Box
-            bg={
-              props.colorMode == "light" ? "blackAlpha.400" : "whiteAlpha.100"
-            }
+            bg={colorMode == "light" ? "blackAlpha.400" : "whiteAlpha.100"}
             borderRadius="10px"
             maxW="900px"
             m="auto"
@@ -211,7 +207,7 @@ export default function Contact(props) {
             >
               <Text my="10px" textAlign={"center"}>
                 Email:&nbsp;
-                <Link href="mailto:contact@dujinkim.com" color="blue.300">
+                <Link href="mailto:contact@dujinkim.com" color="blue.500">
                   contact@dujinkim.com
                 </Link>
               </Text>

@@ -1,10 +1,19 @@
-import climbing from './climbing.jpg'
-import drawing from './drawing.jpg'
-import photography from './photography.jpg'
-import skiing from './skiing.jpg'
-import sky  from './sky.jpg'
-import softwareDevelopment from './softwareDevelopment.jpg'
-import moonwalk from './moonwalk.jpg'
-import softwareMobile from './softwareMobile.png'
+import photography from "./photography.jpg";
+import sky from "./sky.jpg";
+import softwareDevelopment from "./softwareDevelopment.jpg";
+import softwareMobile from "./softwareMobile.png";
+import blog from "./blog.png";
+import gallery from "./gallery.png";
+import mobile from "./mobile.png";
+import monitor from "./monitor.png";
 
-export {climbing, drawing, photography, skiing, sky, softwareDevelopment, moonwalk, softwareMobile};
+export {
+  photography,
+  sky,
+  softwareDevelopment,
+  softwareMobile,
+  blog,
+  gallery,
+  mobile,
+  monitor,
+};

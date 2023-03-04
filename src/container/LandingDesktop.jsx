@@ -13,36 +13,30 @@ const colors = {
 
 const Title = styled(Heading)`
   position: absolute;
-  top: 30%;
-  right: 10%;
-  max-width: 600px;
+  top: 25%;
+  right: 5%;
   transform: translatey(0px);
   animation: float 5s ease-in-out 3s;
   text-align: center;
 
   letter-spacing: 3px;
-  background-color: ${(props) =>
-    props.colormode == "dark" ? colors.darkGlass2 : colors.lightGlaMs2};
+  background-color: ${colors.darkGlass2};
   padding: 25px;
   border-radius: 11px;
-  box-shadow: 10px 10px 30px
-    ${(props) =>
-      props.colormode == "dark" ? colors.darkGlass2 : colors.lightGlMss};
+  box-shadow: 10px 10px 30px ${colors.darkGlass2};
   &:after {
     transform: translatey(0px);
     animation: float2 5s ease-in-out 3s;
     content: ".";
     font-weight: bold;
-    -webkit-text-fill-color: ${(props) =>
-      props.colormode == "dark" ? colors.darkGlass : colors.lightGlMss};
+    -webkit-text-fill-color: ${colors.darkGlass};
     text-align: left;
     font-size: 55px;
     width: 55px;
     height: 11px;
     line-height: 30px;
     border-radius: 11px;
-    background-color: ${(props) =>
-      props.colormode == "dark" ? colors.darkGlass : colors.lightGlMss};
+    background-color: ${colors.darkGlass2};
     position: absolute;
     display: block;
     bottom: -25px;
@@ -52,19 +46,15 @@ const Title = styled(Heading)`
   @keyframes float {
     0% {
       transform: translatey(0px);
-      box-shadow: 10px 10px 30px
-        ${(props) =>
-          props.colormode == "dark" ? colors.darkGlass2 : colors.lightGlMss};
+      box-shadow: 10px 10px 30px ${colors.darkGlass2};
     }
     50% {
       transform: translatey(-10px);
-      box-shadow: 0px -10px 30px ${(props) => (props.colormode == "dark" ? colors.darkGlass2 : colors.lightGlaMs)};
+      box-shadow: 0px -10px 30px ${colors.darkGlass2};
     }
     100% {
       transform: translatey(0px);
-      box-shadow: 10px 10px 30px
-        ${(props) =>
-          props.colormode == "dark" ? colors.darkGlass2 : colors.lightGlMss};
+      box-shadow: 10px 10px 30px ${colors.darkGlass2};
     }
   }
 
@@ -86,84 +76,73 @@ const Title = styled(Heading)`
   }
 `;
 
-
 const LandingDesktop = (props) => {
   return (
-    <Box
-      position="relative"
-      w="100vw"
-      h="100vh"
-      backgroundImage={laptop}
-      backgroundSize={"cover"}
-      backgroundRepeat="no-repeat"
-      backgroundPosition="top"
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{
+        opacity: 1,
+      }}
+      transition={{ duration: 1, delay: 0.5 }}
+      onMouseEnter={() => {
+        props.setCursor("hi");
+      }}
+      onMouseLeave={() => {
+        props.setCursor("default");
+      }}
     >
-      {props.showTitle && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
+      <Title
+        zIndex="1"
+        cursor="none"
+        _hover={{ border: "solid 5px white" }}
+        fontSize={{ base: "1rem", lg: "1.4rem", xl: "2rem" }}
+        fontFamily="Montserrat "
+        fontWeight="2rem"
+        color="white"
+      >
+        <Highlight
+          query={"Hi!"}
+          styles={{
+            color: "blue.400",
+            fontWeight: "600",
+            fontFamily: "Montserrat Alternates",
           }}
-          transition={{ duration: 1, delay: 1 }}
+          fontSize={{ lg: "1.7rem", xl: "2.2rem" }}
         >
-          <Title
-            colormode={props.colorMode}
-            fontSize="xl"
-            fontFamily="Montserrat "
-            fontWeight="400"
-          >
-            Hi! I’m a software developer based in<br/>
-            <Highlight
-              query={"Beautiful"}
-              styles={{
-                color: "green.400",
-                m: "5px",
-                fontSize: "2xl",
-                fontWeight: "600",
-                fontFamily: "Montserrat Alternates",
-              }}
-            >
-              Beautiful
-            </Highlight>
-            British Columbia,
-            <Tooltip hasArrow label="Canada">
-              🍁
-            </Tooltip>
-            <br />I like to share my
-            <Highlight
-              query={"passion"}
-              styles={{
-                color: props.colorMode == "light" ? "red.300" : "orange.400",
-                fontWeight: "600",
-                fontSize: "2xl",
-                mx: "5px",
-                fontFamily: "Montserrat Alternates",
-              }}
-            >
-              passion
-            </Highlight>
-            on my blog,<br/>
-            <Link
-              color={props.colorMode == "light" ? "cyan.600" : "cyan.400"}
-              textDecor="underline"
-              _hover={{
-                textDecor: "none",
-                fontWeight: "600",
-                color: props.colorMode == "light" ? "blue.500" : "blue.400",
-              }}
-              fontFamily="Montserrat "
-              lineHeight={"1.5"}
-              fontSize="2xl"
-              fontWeight={"400"}
-              href="https://duloops.com/"
-              target="_blank"
-            >
-              DuLoops.com
-            </Link>
-          </Title>
-        </motion.div>
-      )}
-    </Box>
+          Hi!
+        </Highlight>{" "}
+        I’m a software developer based in
+        <br />
+        <Highlight
+          query={"Beautiful"}
+          styles={{
+            color: "green.400",
+            fontWeight: "600",
+            fontFamily: "Montserrat Alternates",
+          }}
+          fontSize={{ lg: "1.7rem", xl: "2.2rem" }}
+        >
+          Beautiful
+        </Highlight>{" "}
+        British Columbia,
+        <Tooltip hasArrow label="Canada">
+          🍁
+        </Tooltip>
+        <br />
+        <Highlight
+          query={"Welcome"}
+          styles={{
+            color: "orange.400",
+            fontWeight: "600",
+            fontFamily: "Montserrat Alternates",
+          }}
+          fontSize={{ lg: "1.7rem", xl: "2.2rem" }}
+        >
+          Welcome
+        </Highlight>{" "}
+        to my portfolio!
+      </Title>
+    </motion.div>
   );
 };
 

@@ -1,11 +1,9 @@
 import React from "react";
 import { Box, IconButton, useBreakpointValue, Image } from "@chakra-ui/react";
-// Here we have used react-icons package for the icons
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
-// And react-slick as our Carousel Lib
 import Slider from "react-slick";
+import imgE from "../../../resources/images/portfolio/duloops.jpg";
 
-// Settings for the slider
 const settings = {
   dots: true,
   arrows: true,
@@ -23,8 +21,7 @@ interface props {
 }
 
 export default function Carousel(props: props) {
-  // As we have used custom buttons, we need a reference variable to
-  // change the state
+  const filePath = "../../../resources/images/portfolio/";
   const [slider, setSlider] = React.useState<Slider | null>(null);
 
   // These are the images used in the slide
@@ -33,10 +30,9 @@ export default function Carousel(props: props) {
       position={"relative"}
       // height={'600px'}
       pb="20px"
-      width={"full"}
+      // width={"full"}
       overflow={"hidden"}
     >
-      {/* CSS files for react-slick */}
       <link
         rel="stylesheet"
         type="text/css"
@@ -48,7 +44,6 @@ export default function Carousel(props: props) {
         type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
       />
-      {/* Left Icon */}
       <IconButton
         aria-label="left-arrow"
         colorScheme="blackAlpha"
@@ -62,7 +57,6 @@ export default function Carousel(props: props) {
       >
         <BiLeftArrowAlt />
       </IconButton>
-      {/* Right Icon */}
       <IconButton
         aria-label="right-arrow"
         colorScheme="blackAlpha"
@@ -76,20 +70,22 @@ export default function Carousel(props: props) {
       >
         <BiRightArrowAlt />
       </IconButton>
-      {/* Slider */}
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
-        {props.cards.map((img, index) => (
-          <Box
-            key={index}
-            // position="relative"
-            // backgroundPosition="contain"
-            // backgroundRepeat="no-repeat"
-            // backgroundSize="auto"
-            // backgroundImage={img}
-          >
-            <Image src={img} alt={img} maxH='60vh' m='auto'/>
-          </Box>
-        ))}
+        {props.cards.map((img, index) => {
+          console.log(filePath + img);
+          return (
+            <Box
+              key={index}
+              // position="relative"
+              // backgroundPosition="contain"
+              // backgroundRepeat="no-repeat"
+              // backgroundSize="auto"
+              // backgroundImage={img}
+            >
+              <Image src={imgE} alt={img} maxH="60vh" m="auto" />
+            </Box>
+          );
+        })}
       </Slider>
     </Box>
   );

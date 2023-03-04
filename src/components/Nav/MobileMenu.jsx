@@ -17,16 +17,12 @@ import {
 } from "@chakra-ui/react";
 import { IoPaperPlaneOutline } from "react-icons/io5";
 import DarkmodeToggle from "./DarkmodeToggle";
-import {useState} from 'react'
+import { useState } from "react";
 const MobileMenu = (props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
   const [copied, setCopied] = useState();
-  const links = [
-    ["Projects", 4],
-    ["Posts", 5],
-    ["Contact", 6],
-  ];
+
   return (
     <Flex alignItems={"center"} justifySelf="right" mr="8px">
       <Icon
@@ -50,7 +46,7 @@ const MobileMenu = (props) => {
               justifyContent="flex-end"
               gap="50px"
             >
-              {links.map((link, index) => (
+              {props.links.map((link, index) => (
                 <Link
                   key={index}
                   rounded={"md"}
@@ -72,17 +68,24 @@ const MobileMenu = (props) => {
                 onClick={() => {
                   navigator.clipboard.writeText("https://dujinkim.com/");
                   setCopied(true);
-                  setTimeout(()=>{setCopied(false)}, 4000);
+                  setTimeout(() => {
+                    setCopied(false);
+                  }, 4000);
                 }}
               >
-                {copied ? "Link Copied!": <>Share Website
-                <Icon
-                  as={IoPaperPlaneOutline}
-                  boxSize="20px"
-                  color="gray.300"
-                  ml="10px"
-                /></>}
-                
+                {copied ? (
+                  "Link Copied!"
+                ) : (
+                  <>
+                    Share Website
+                    <Icon
+                      as={IoPaperPlaneOutline}
+                      boxSize="20px"
+                      color="gray.300"
+                      ml="10px"
+                    />
+                  </>
+                )}
               </Button>
             </Flex>
             <Flex position={"absolute"} bottom="10px" right="20px">

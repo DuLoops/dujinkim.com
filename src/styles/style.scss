@@ -1,3 +1,9 @@
+* {
+  cursor: none !important;
+}
+body {
+  overflow: hidden;
+}
 .containedImage {
   width: 100vw;
   height: 100vh;
@@ -12,15 +18,60 @@
   transform: translate(-50%, -50%);
 }
 
+.cursor {
+  background-color: rgba(255, 255, 255, 0.9);
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 999 !important;
+}
+
+.hideScrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.hideScrollbar::-webkit-scrollbar {
+  display: none;
+}
+
 @keyframes float {
   0% {
-    filter:blur(1px)
+    filter: blur(1px);
   }
   50% {
-    filter:blur(2px)
+    filter: blur(2px);
   }
   100% {
-    filter:blur(1px)
-
+    filter: blur(1px);
   }
+}
+
+@keyframes textTransform {
+  0% {
+    transform: translateX(0%);
+  }
+  // 50% {
+  //   transform: translateX(-100%);
+  // }
+  100% {
+    transform: translateX(-30%);
+  }
+}
+
+.transformText {
+  animation-name: textTransform;
+  animation-play-state: running;
+
+  animation-duration: 5s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+}
+
+.transform-text:hover {
+  animation-play-state: running;
 }

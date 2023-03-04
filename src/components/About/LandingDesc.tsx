@@ -15,18 +15,17 @@ const LandingDesc = (props: propType) => {
   return (
     <Box position={"relative"}>
       {/* <Grid templateColumns={"1fr 1fr"} templateRows="380px" height={'300px'} overflow='hidden'> */}
-      <Box >
+      <Box>
         {/* <Image src={PhotographerMe} alt="PhotographerMe" width={'50%'} float='left' height='300px'/>
         <Image src={BloggerMe} alt="BloggerMe" width={'50%'} height='300px'/> */}
       </Box>
       {/* </Grid> */}
       <Box
         position={"absolute"}
-        className='center'
+        className="center"
         textAlign="center"
         backgroundColor="light.300"
         display={"block"}
-
       >
         <Text
           display={"inline-block"}

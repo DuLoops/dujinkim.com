@@ -1,62 +1,62 @@
-import { Box, useColorMode, useMediaQuery } from "@chakra-ui/react";
-import { useEffect, useState, useRef } from "react";
+import { Box, useColorMode, useMediaQuery, Image } from "@chakra-ui/react";
+import { useEffect, useState, useRef, useContext } from "react";
+import "../styles/style.scss";
 import LandingAnimation from "../components/LandingAnimation";
 import Nav from "../container/Nav";
 import LandingDesktop from "../container/LandingDesktop";
 import LandingMobile from "../container/LandingMobile";
-import Content from "../container/Content";
-import Contact from "../container/ContactForm";
-import "../styles/style.scss";
-import Projects from "../container/Projects";
-import Posts from "../container/Posts";
-import Footer from "../container/Footer";
-import PassionMobile from "../components/PassionMobile";
-import PassionDesktop from "../components/PassionDesktop";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import BottomNav from "../container/BottomNav";
 
+import { laptop } from "../resources/images/aboutPhoto";
+import logo from "../resources/images/logo.png";
+import { CustomCursorContext } from "../hooks/CustomCursorContext";
+import StarParticles from "../components/ui/StarParticles";
 const About = () => {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const [isLanding, setIsLanding] = useState(true);
-  const parallax = useRef(null);
+  const animationPlayed = sessionStorage.getItem("animationPlayed");
+
+  const { setCursor } = useContext(CustomCursorContext);
+  const [isLanding, setIsLanding] = useState(!animationPlayed);
   const [isMobile] = useMediaQuery("(max-width: 980px)");
   useEffect(() => {
-    setTimeout(() => {
-      setIsLanding(false);
-    }, 4100);
+    setCursor("default");
+
+    if (isLanding) {
+      sessionStorage.setItem("animationPlayed", "true");
+
+      const loadingTimeout = setTimeout(() => {
+        setIsLanding(false);
+      }, 4100);
+      return () => clearTimeout(loadingTimeout);
+    }
   }, []);
+
   return (
-    <Box position="relative" w="100vw" h="100vh" textAlign={"center"}>
+    <Box
+      position="relative"
+      w="100vw"
+      h="100vh"
+      textAlign={"center"}
+      backgroundImage={laptop}
+      backgroundSize={"cover"}
+      backgroundRepeat="no-repeat"
+      backgroundPosition="top"
+    >
       {isLanding && <LandingAnimation />}
-      <Parallax
-        pages={isMobile ? 7 : 8}
-        ref={parallax}
-        style={{ display: isLanding && "none" }}
-      >
-        <ParallaxLayer offset={0}>
-          <Nav
-            colorMode={colorMode}
-            toggleColorMode={toggleColorMode}
-            isMobile={isMobile}
-            parallax={parallax}
-          />
-          {isMobile ? (
-            <LandingMobile showTitle={!isLanding} />
-          ) : (
-            <LandingDesktop colorMode={colorMode} showTitle={!isLanding} />
-          )}
-        </ParallaxLayer>
-        {isMobile ? <PassionMobile /> : <PassionDesktop />}
-        <ParallaxLayer offset={isMobile ? 4 : 5}>
-          <Projects />
-        </ParallaxLayer>
-        {/* <ParallaxLayer offset={isMobile ? 5 : 6}>
-          <Posts />
-        </ParallaxLayer> */}
-        <ParallaxLayer offset={isMobile ? 6 : 7}>
-          <Contact colorMode={colorMode} />
-        </ParallaxLayer>
-        <Footer parallax={parallax} />
-      </Parallax>
+      <Nav setCursor={setCursor} />
+      <Image
+        src={logo}
+        alt="logo"
+        boxSize="60px"
+        p="5px"
+        pos={"absolute"}
+        left="50%"
+        transform={"translate(-50%,0)"}
+      />
+      {!isLanding && (
+        <LandingDesktop showTitle={!isLanding} setCursor={setCursor} />
+      )}
+      {!isLanding && !isMobile && <BottomNav setCursor={setCursor} />}
+      {/* <StarParticles/> */}
     </Box>
   );
 };

@@ -1,17 +1,9 @@
-import { HStack, Button, useColorMode, Link, Image } from "@chakra-ui/react";
-import { useLocation } from "react-router-dom";
-import styled from "styled-components";
-
-
+import { HStack, useColorMode, Link as ChakraLink } from "@chakra-ui/react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 const Menu = (props) => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const { colorMode } = useColorMode();
-
-  const links = [
-    ["Projects", 5],
-    ["Posts", 6],
-    ["Contact", 7],
-  ];
-
   return (
     <HStack
       as={"nav"}
@@ -20,23 +12,26 @@ const Menu = (props) => {
       display={{ base: "none", md: "flex" }}
       justifySelf="right"
     >
-      {links.map((link, index) => (
-        <Link
+      {props.links.map((link, index) => (
+        <ChakraLink
           key={index}
+          to={link[1]}
           rounded={"md"}
           _hover={{
-            textDecor:'underline',
+            textDecor: "underline",
             color: colorMode == "light" ? "red.500" : "green.100",
           }}
-          onClick={()=>{props.parallax.current.scrollTo(link[1])}}
           color={colorMode == "light" ? "red.300" : "brandGreen.400"}
-          fontSize={'lg'}
-          fontWeight='500'
+          fontSize={"lg"}
+          fontWeight="500"
+          textDecor={location.pathname == link[1] ? "underline" : "none"}
+          onClick={() => {
+            navigate(link[1]);
+          }}
         >
           {link[0]}
-        </Link>
+        </ChakraLink>
       ))}
-
     </HStack>
   );
 };

@@ -5,13 +5,7 @@ import {
   theme as baseTheme,
 } from "@chakra-ui/react";
 
-import {
-  mode,
-  StyleFunctionProps,
-} from "@chakra-ui/theme-tools";
-
-
-
+import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
 
 const config: ThemeConfig = {
   initialColorMode: "dark",
@@ -54,8 +48,7 @@ const colors = {
   },
   dark: {
     100: "#1C1D1F",
-    200: '#161718'
-
+    200: "#161718",
   },
   darkGlass: {
     100: "rgba(0,0,0, .2)",
@@ -67,14 +60,13 @@ const colors = {
     200: "rgba(255,255,255, .5)",
   },
   darkMode: {
-    100: '#292929',
-
+    100: "#292929",
   },
   analogous: {
-    1: '#0FF075',
-    2: '#0FF0E5',
-    3: '#1AF00F',
-    100: '#1AF00F'
+    1: "#0FF075",
+    2: "#0FF0E5",
+    3: "#1AF00F",
+    100: "#1AF00F",
   },
   primaryFontColor: {
     lightMode: baseTheme.colors.gray["100"],
@@ -87,27 +79,27 @@ const colors = {
 };
 
 const styles = {
-    global: (props: StyleFunctionProps) => ({
-      body: {
-        bg: mode('white', colors.dark[100])(props),
-      },
-    }),
+  global: (props: StyleFunctionProps) => ({
+    body: {
+      bg: mode("white", colors.dark[100])(props),
+    },
+  }),
 };
 
 const components = {
-    variants: {
-      flexCenter: {
-        display: "flex",
-        align: "center",
-        textAlign: "center",
-      },
-      secondary: (props: any) => ({
-        color: mode(
-          colors.secondaryFontColor.lightMode,
-          colors.secondaryFontColor.darkMode
-        )(props),
-      }),
+  variants: {
+    flexCenter: {
+      display: "flex",
+      align: "center",
+      textAlign: "center",
     },
+    secondary: (props: any) => ({
+      color: mode(
+        colors.secondaryFontColor.lightMode,
+        colors.secondaryFontColor.darkMode
+      )(props),
+    }),
+  },
 };
 
 const breakpoints = {
@@ -119,9 +111,9 @@ const breakpoints = {
 };
 
 const fonts = {
-  heading: 'Montserrat',
-  body: 'Montserrat'
-}
+  heading: "Montserrat",
+  body: "Montserrat",
+};
 
 const theme = extendTheme({
   config,
@@ -129,8 +121,7 @@ const theme = extendTheme({
   breakpoints,
   components,
   styles,
-  fonts
+  fonts,
 });
-
 
 export default theme;

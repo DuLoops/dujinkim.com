@@ -1,35 +1,19 @@
+import { Box, Heading, Image } from "@chakra-ui/react";
 import {
-  Box,
-  Button,
-  Heading,
-  Image,
-  Icon,
-  Link,
-  Text,
-  Center,
-  Flex,
-  Grid,
-} from "@chakra-ui/react";
-import {
-  climbing,
-  drawing,
   photography,
-  skiing,
   sky,
   softwareDevelopment,
-  moonwalk,
+  blog,
+  gallery,
 } from "../resources/images/passion";
-import { AiFillGithub } from "react-icons/ai";
 import "../styles/passion.scss";
-import { folderGallery, folderBlog } from "../resources/images/icons";
 import { ParallaxLayer } from "@react-spring/parallax";
-import React from "react";
-import useAnalyticsEventTracker from "../hooks/useAnalyticsEventTracker";
+import "../styles/passion.scss";
+
 const PassionDesktop = (props) => {
-  const gaEventTracker = useAnalyticsEventTracker("passion");
   return (
-    <React.Fragment>
-      <ParallaxLayer offset={props.isMobile ? 1.5 : 1.1}>
+    <>
+      <ParallaxLayer offset={0.9}>
         <Heading
           borderBottom="5px solid"
           width={"50%"}
@@ -37,10 +21,14 @@ const PassionDesktop = (props) => {
           mb="5rem"
           p={"20px"}
         >
-          My passion is
+          My passions are
         </Heading>
       </ParallaxLayer>
-      <ParallaxLayer offset={1.3} speed={0.5}>
+      <ParallaxLayer
+        offset={1.5}
+        speed={0.5}
+        style={{ zIndex: 0, position: "relative" }}
+      >
         <Image
           src={softwareDevelopment}
           alt="softwareDevelopment"
@@ -49,25 +37,30 @@ const PassionDesktop = (props) => {
           boxShadow={"0 0 200px #6A96BB"}
         />
       </ParallaxLayer>
-      <ParallaxLayer offset={1.3} speed={0.1}>
-        <Box className={"center desc"} boxShadow="dark-lg" color="white">
-          <Heading>Software Development</Heading>
-          <Button _hover={{ color: "blue.400" }} mt="10px" colorScheme={"cyan"}>
-            <Link
-              href="https://github.com/DuLoops"
-              target="_blank"
-              onClick={() => {
-                gaEventTracker("software-development");
-              }}
-            >
-              <Center>
-                View Code <Icon as={AiFillGithub} className="iconStyle" />
-              </Center>
-            </Link>
-          </Button>
-        </Box>
+      <ParallaxLayer offset={2.8} speed={0.1} style={{ height: "500px" }}>
+        <Image
+          src={blog}
+          alt="blog"
+          position="absolute"
+          w="57vw"
+          right="2.5rem"
+          border="2px solid white"
+          p="5px"
+        />
       </ParallaxLayer>
-      <ParallaxLayer offset={2.1} speed={0.5}>
+      <ParallaxLayer offset={2.9} speed={0.3}>
+        <Image
+          // top="30%"
+          src={gallery}
+          alt="gallery"
+          position="absolute"
+          left="3.8rem"
+          w="22vw"
+          border="2px solid white"
+          p="5px"
+        />
+      </ParallaxLayer>
+      <ParallaxLayer offset={5} speed={0.4}>
         <Image
           src={sky}
           alt="sky"
@@ -77,7 +70,7 @@ const PassionDesktop = (props) => {
           boxShadow={"0 0 100px #ADC272"}
         />
       </ParallaxLayer>
-      <ParallaxLayer offset={2.3} speed={0.3}>
+      <ParallaxLayer offset={5.5} speed={0.7}>
         <Box
           className="center"
           boxShadow={"dark-lg"}
@@ -92,105 +85,57 @@ const PassionDesktop = (props) => {
           />
         </Box>
       </ParallaxLayer>
-      <ParallaxLayer offset={2.4} speed={0.1}>
-        <Box className="center desc" top={{ sm: "300px", md: "75%" }}>
-          <Heading color="white">Photography</Heading>
-          <Button
-            _hover={{ color: "green.800" }}
-            p="25px 10px"
-            colorScheme="green"
-            mt="10px"
-            onClick={() => {
-              gaEventTracker("gallery");
-            }}
-          >
-            <Link href="https://duloops.com/gallery" target="_blank">
-              <Center>
-                View Gallery
-                <Image
-                  src={folderGallery}
-                  loading="lazy"
-                  className="imageIconStyle"
-                />
-              </Center>
-            </Link>
-          </Button>
-        </Box>
-      </ParallaxLayer>
-      <ParallaxLayer offset={3.3} speed={2.5}>
-        <Heading fontSize="15rem" fontWeight={"300"} color="gray">
-          &
-        </Heading>
-      </ParallaxLayer>
-      <Box>
-        <ParallaxLayer offset={3.9} speed={1.7}>
-          <Image
-            src={skiing}
-            position="absolute"
-            alt="skiing"
-            w="40%"
-            right="10%"
-          />
-        </ParallaxLayer>
-        <ParallaxLayer offset={3.9} speed={1.5}>
-          <Image
-            top="30%"
-            src={climbing}
-            alt="climbing"
-            w="30%"
-            left="8%"
-            position="absolute"
-          />
-        </ParallaxLayer>
-        <ParallaxLayer offset={4} speed={0.8}>
-          <Image
-            position="absolute"
-            src={drawing}
-            alt="drawing"
-            width={"70%"}
-            left="10%"
-            bottom="30%"
-            // transform={"translateX(-50%)"}
-          />
-        </ParallaxLayer>
-        <ParallaxLayer offset={4} speed={1.8}>
-          <Image
-            src={moonwalk}
-            alt="moonwalk"
-            position={"absolute"}
-            w="30%"
-            right="5%"
-            bottom="120%"
-          />
-        </ParallaxLayer>
-        <ParallaxLayer offset={3.9} speed={0.5}>
-          <Box className="desc center" position="absolute" p="30px">
-            <Heading color={"white"}>Blogging</Heading>
-            <Button
-              _hover={{ color: "red.400" }}
-              p="25px 10px"
-              colorScheme="orange"
-              mt="10px"
-              onClick={() => {
-                gaEventTracker("blog");
-              }}
-            >
-              <Link href="https://duloops.com/" target="_blank">
-                <Center>
-                  View Blog
-                  <Image
-                    src={folderBlog}
-                    loading="lazy"
-                    className="imageIconStyle"
-                  />
-                </Center>
-              </Link>
-            </Button>
-          </Box>
-        </ParallaxLayer>
-      </Box>
-    </React.Fragment>
+    </>
   );
 };
 
 export default PassionDesktop;
+
+// <ParallaxLayer sticky={{ start: 2.5, end: 3.8 }}>
+//   <Box
+//     border="#1C1D1F solid"
+//     boxSizing="content-box"
+//     borderWidth={"2rem 2rem 40vh 50px"}
+//     h="61vh"
+//     w="57vw"
+//     position="absolute"
+//     top="0"
+//     right={"0"}
+//     zIndex={0}
+//   ></Box>
+// </ParallaxLayer>
+// <ParallaxLayer sticky={{ start: 2.5, end: 3.8 }}>
+//   <Image
+//     src={monitor}
+//     alt="monitor"
+//     position="absolute"
+//     h="85vh"
+//     w="60vw"
+//     right="1rem"
+//     top="1rem"
+//   />
+// </ParallaxLayer>
+// <ParallaxLayer sticky={{ start: 2.5, end: 3.8 }}>
+//   <Box
+//     border="#1C1D1F solid"
+//     boxSizing="content-box"
+//     borderWidth={"3.8rem 2rem 150px 3.8rem"}
+//     h="82vh"
+//     w="22vw"
+//     position="absolute"
+//     top="0"
+//     left={"0"}
+//     zIndex={0}
+//   ></Box>
+// </ParallaxLayer>
+// <ParallaxLayer sticky={{ start: 2.5, end: 3.8 }}>
+//   <Image
+//     src={mobile}
+//     alt="gallery"
+//     h="88vh"
+//     w="26vw"
+//     position="absolute"
+//     top="2rem"
+//     left="2rem"
+//   />
+// </ParallaxLayer>
