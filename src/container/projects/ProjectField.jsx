@@ -12,8 +12,11 @@ import {
 } from "@chakra-ui/react";
 import ProjectCarousel from "../../components/projects/ProjectCarousel";
 import { AiFillGithub, AiOutlineLink } from "react-icons/ai";
+import ReactMarkdown from "react-markdown";
+import ChakraUIRenderer from "chakra-ui-markdown-renderer";
 
 export default function ProjectField(props) {
+  console.log(props.project.detail)
   return (
     <Flex
       w="100%"
@@ -24,9 +27,11 @@ export default function ProjectField(props) {
       className="hideScrollbar"
     >
       <Heading textAlign={"center"}>{props.project.desc}</Heading>
-      <Box m="1rem" p="1rem" background={"whiteAlpha.200"} borderRadius="1rem">
-        <Text>{props.project.detail}</Text>
-        <Flex mt="1rem" justifyContent={"space-around"} alignItems="center">
+      <Box m="1rem" p="2rem" background={"whiteAlpha.200"} borderRadius="1rem">
+        <ReactMarkdown components={ChakraUIRenderer()} skipHtml>
+          {props.project.detail}
+        </ReactMarkdown>
+        <Flex mt="2rem" justifyContent={"space-around"} alignItems="center" flexDir={{sm: 'column', lg:'row'}}gap='1rem'>
           <HStack justifyContent={"center"}>
             {props.project.link && (
               <Link href={props.project.link} target="_blank">
