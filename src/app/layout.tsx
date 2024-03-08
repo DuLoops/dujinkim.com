@@ -14,9 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={ `${montserrat.variable} ${montserratAlternates.variable} ${courgette.variable} ${poiretOne.variable}`}>
+      <body className={ `${montserrat.variable} ${montserratAlternates.variable} ${courgette.variable} ${poiretOne.variable} bg-neutral-800 font-m`}>
         <HeaderNav />
-        <main className="overflow-x-hidden w-screen h-screen h-[calc(100vh-60px)] ">
+        <main className="overflow-x-hidden w-screen h-[calc(100vh-60px)] ">
           {children}
         </main>
         </body>
