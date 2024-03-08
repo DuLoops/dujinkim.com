@@ -5,17 +5,17 @@ import { Suspense } from "react"
 import BlogLoader from "../components/blog/Loading"
 import LandingGallery from "./gallery/LandingGallery"
 import GalleryLoader from "components/gallery/GalleryLoader"
-import { WavyBackground } from "components/ui/wavy-background"
+import { Meteors } from "components/ui/meteors"
 export default function page() {
   return (
     <main className="flex flex-col text-white min-h-screen">
       <div className='flex flex-col gap-6 '>
-
-        <div className='mt-[20%]' >
-          <p className="text-3xl ml-5 ">Hi, I'm DuJin</p>
-          <p className="text-2xl text-right mr-5 mt-9">Welcome to my Blog</p>
+        <div className='py-[20%] relative' >
+        <Meteors number={5} />
+          <p className="text-2xl ml-10">Hi, I'm <span className="font-ma text-4xl text-teal-200">DuJin</span></p>
+          <p className="text-2xl text-center mt-9">Welcome to my <span className="font-ma font-black text-4xl text-teal-200">Blog</span></p>
         </div>
-        <div>
+        <div className="mt-10">
           <Suspense fallback={<GalleryLoader />} >
             <LandingGallery />
           </Suspense>

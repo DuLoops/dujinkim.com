@@ -19,7 +19,7 @@ export default async function Landing() {
   
   return (
     <div>
-      <h1 className='text-center text-6xl font-ma font-light text-neutral-500'>BLOG</h1>
+      <h1 className='text-center text-5xl font-ma font-light text-neutral-500'>BLOG</h1>
       <div className='flex flex-col gap-4 p-4 '>
         {posts.map((post: DocumentData) => <BlogCard postData={post} />)}
       </div>
