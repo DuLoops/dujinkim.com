@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function SliderLoader() {
+export default function page() {
   return (
     <div>
-      loader
+      Blog Main
     </div>
   )
 }

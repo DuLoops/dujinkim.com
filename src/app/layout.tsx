@@ -3,8 +3,8 @@ import './globals.css'
 import { montserrat, montserratAlternates, courgette, poiretOne } from 'data/fonts'
 import HeaderNav from 'components/layout/HeaderNav'
 export const metadata: Metadata = {
-  title: 'DuJin Blog',
-  description: "DuJin's blog",
+  title: 'DuDream',
+  description: "DuJin's Design Blog",
 }
 
 export default function RootLayout({
@@ -14,11 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={ `${montserrat.variable} ${montserratAlternates.variable} ${courgette.variable} ${poiretOne.variable} bg-neutral-800 font-m`}>
+      <body className={ `${montserrat.variable} ${montserratAlternates.variable} ${courgette.variable} ${poiretOne.variable} 
+      bg-neutral-800 font-m overflow-x-hidden w-screen `}>
         <HeaderNav />
-        <main className="overflow-x-hidden w-screen h-[calc(100vh-60px)] ">
           {children}
-        </main>
         </body>
     </html>
   )

@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Slider() {
+export default function Running() {
   return (
     <div>
-      Slider
+      
     </div>
   )
 }

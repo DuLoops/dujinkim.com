@@ -1,10 +1,10 @@
 import SocialLinks from "components/SocialLinks"
-import Landing from "./_blog/Landing"
+import Landing from "./blog/_components/Landing"
 import Link from "next/link"
 import { Suspense } from "react"
-import BlogLoader from "../components/blog/Loading"
+import BlogLoader from "./blog/_components/Loading"
 import LandingGallery from "./gallery/LandingGallery"
-import GalleryLoader from "components/gallery/GalleryLoader"
+import GalleryLoader from "@/app/gallery/_components/GalleryLoader"
 import { Meteors } from "components/ui/meteors"
 export default function page() {
   return (
@@ -12,10 +12,13 @@ export default function page() {
       <div className='flex flex-col gap-6 '>
         <div className='py-[20%] relative' >
         <Meteors number={5} />
-          <p className="text-2xl ml-10">Hi, I'm <span className="font-ma text-4xl text-teal-200">DuJin</span></p>
-          <p className="text-2xl text-center mt-9">Welcome to my <span className="font-ma font-black text-4xl text-teal-200">Blog</span></p>
+        <div className="mx-10">
+          <p className="text-2xl font-m">DuJin Kim's Blog</p>
+          <p className="mt-4 font-ma text-4xl text-teal-200 text-right">DuDream</p>
         </div>
-        <div className="mt-10">
+
+        </div>
+        <div className="mt-9 mb-9">
           <Suspense fallback={<GalleryLoader />} >
             <LandingGallery />
           </Suspense>

@@ -7,25 +7,26 @@ import {
   CardHeader,
   CardTitle,
 } from "components/ui/card"
-import { BlogPostData } from 'types/blogPostData';
+// import { BlogPostData } from 'types/blogPostData';
 import { DocumentData } from 'firebase/firestore';
 import Image from 'next/image';
+import Link from 'next/link';
 export default function BlogCard({postData}: {postData: DocumentData}) {
 
-
-  
-
+  console.log(postData)
   return (
-    <div>
-     <Card className='shadow-md shadow-teal-200'> 
-      <CardHeader className='bg-neutral-300 mb-2 m-1 rounded-t'>
-        <CardTitle>{postData.title}</CardTitle>
-        <CardDescription>{postData.description}</CardDescription>
+
+     <Card className='shadow-md shadow-teal-900  border border-2  border-neutral-800' > 
+      <Link href={`/blog/${postData.link}`}>
+      <CardHeader className='bg-teal-300 mb-2 rounded-t shadow-white'>
+        <CardTitle className='text-xl font-m'>{postData.title}</CardTitle>
+        <CardDescription className='italic'>{postData.description}</CardDescription>
       </CardHeader>
       <CardContent className='flex justify-center items-center'>
         <Image src={postData.card.data} alt={postData.title} width={300} height={300} />
       </CardContent>
+      </Link>
       </Card> 
-    </div>
+
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import {db} from 'utils/firebase'
 import {DocumentData, collection, getDocs} from 'firebase/firestore'
-import BlogCard from 'components/blog/BlogCard';
+import BlogCard from '@/app/blog/_components/BlogCard';
 import { BlogPostData } from 'types/blogPostData';
 async function getPosts() {
   return getDocs(collection(db, 'blogPosts'))
@@ -19,7 +19,7 @@ export default async function Landing() {
   
   return (
     <div>
-      <h1 className='text-center text-5xl font-ma font-light text-neutral-500'>BLOG</h1>
+      <h1 className='text-center text-5xl font-ma font-light text-neutral-500 '>BLOG</h1>
       <div className='flex flex-col gap-4 p-4 '>
         {posts.map((post: DocumentData) => <BlogCard postData={post} />)}
       </div>
