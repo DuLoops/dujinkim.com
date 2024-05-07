@@ -1,5 +1,5 @@
 import React from 'react'
-import InfoDialog from './InfoDialog'
+import InfoDialog from './_components/InfoDialog'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
