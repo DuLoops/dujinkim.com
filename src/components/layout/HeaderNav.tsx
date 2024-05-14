@@ -11,8 +11,11 @@ import { AnimatePresence } from 'framer-motion';
 const HeaderNav = () => {
     const [isSideMenuOpen, setSideMenuOpen] = useState(false);
     return (
-        <nav className='grid grid-cols-3 w-screen p-2 bg-neutral-700 shadow-md shadow-neutral-800'>
-            <Link href={'/'} className='col-start-2 flex justify-center'><Image src='/images/dev/logo.png' alt='logo' width={40} height={40} /></Link>
+        <nav className='grid grid-cols-3 w-screen p-1 bg-neutral-700 shadow-md shadow-neutral-800'>
+            <Link href={'/'} className='col-start-1 my-auto ml-1 text-neutral-100'>
+                <span className='text-teal-200'>DuJin</span> Kim
+                {/* <Image src='/images/dev/logo.png' alt='logo' width={30} height={30} /> */}
+                </Link>
             <button className='col-start-3 row-start-1 flex justify-end items-center lg:hidden' onClick={() => setSideMenuOpen(true)}>
                 <AiOutlineMenu className='size-7' />
             </button>

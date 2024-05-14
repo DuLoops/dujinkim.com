@@ -1,10 +1,10 @@
 import SocialLinks from "components/SocialLinks"
-import Landing from "./blog/_components/Landing"
+import BlogLanding from "./blog/_components/LandingBlog"
 import Link from "next/link"
 import { Suspense } from "react"
 import BlogLoader from "./blog/_components/Loading"
-import LandingGallery from "./gallery/LandingGallery"
-import GalleryLoader from "@/app/gallery/_components/GalleryLoader"
+import LandingGallery from "./blog/gallery/LandingGallery"
+import GalleryLoader from "@/app/blog/gallery/_components/GalleryLoader"
 import { Meteors } from "components/ui/meteors"
 export default function page() {
   return (
@@ -12,19 +12,17 @@ export default function page() {
       <div className='flex flex-col gap-6 '>
         <div className='py-[20%] relative' >
         <Meteors number={5} />
-        <div className="mx-10">
-          <p className="text-2xl font-m">DuJin Kim's Blog</p>
-          <p className="mt-4 font-ma text-4xl text-teal-200 text-right">DuDream</p>
+        <div className="flex flex-row justify-center items-center bg-neutral-700 py-2">
+          <p className="mx-2 text-2xl font-m">WEB</p>
+          <p className="font-ma text-7xl text-teal-200 leading-10">D</p>
+          <div className="font-ma text-3xl text-teal-200 leading-8">
+            <p>esigner</p>
+            <p>eveloper</p>
+          </div>
         </div>
-
-        </div>
-        <div className="mt-9 mb-9">
-          <Suspense fallback={<GalleryLoader />} >
-            <LandingGallery />
-          </Suspense>
         </div>
         <Suspense fallback={<BlogLoader />}>
-          <Landing />
+          <BlogLanding />
         </Suspense>
       </div>
     </main>

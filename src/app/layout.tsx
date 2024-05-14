@@ -3,8 +3,8 @@ import './globals.css'
 import { montserrat, montserratAlternates, courgette, poiretOne } from 'data/fonts'
 import HeaderNav from 'components/layout/HeaderNav'
 export const metadata: Metadata = {
-  title: 'DuDream',
-  description: "DuJin's Design Blog",
+  title: 'Dujin Kim',
+  description: "DuJin Kim's personal website",
 }
 
 export default function RootLayout({

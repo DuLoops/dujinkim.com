@@ -7,13 +7,12 @@ import {
   CardHeader,
   CardTitle,
 } from "components/ui/card"
-// import { BlogPostData } from 'types/blogPostData';
-import { DocumentData } from 'firebase/firestore';
+import { BlogPostType } from '@/types/BlogPostType';
 import Image from 'next/image';
 import Link from 'next/link';
-export default function BlogCard({postData}: {postData: DocumentData}) {
+export default function BlogCard({postData}: {postData: BlogPostType}) {
 
-  console.log(postData)
+ 
   return (
 
      <Card className='shadow-md shadow-teal-900  border border-2  border-neutral-800' > 
