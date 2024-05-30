@@ -1,8 +1,8 @@
 const menuItems = [
-    { id: 1, name: 'Blog', link: '/' },
-    { id: 2, name: 'Gallery', link: '/gallery' },
-    { id: 3, name: 'About', link: '/about' },
-
+    { id: 1, name: 'Home', link: '/' },
+    { id: 2, name: 'Blog', link: '/blog' },
+    { id: 3, name: 'Portfolio ', link: '/portfolio' },
+    { id: 4, name: 'About', link: '/about' },
   ];
   
 const blogFilters = [

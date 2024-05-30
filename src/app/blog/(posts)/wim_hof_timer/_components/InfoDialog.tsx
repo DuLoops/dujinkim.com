@@ -14,6 +14,10 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { useMediaQuery } from 'react-responsive'
+// import { IoMdInformationCircleOutlinee } from "react-icons/ai";
+import { IoMdInformationCircleOutline } from "react-icons/io";
+
+
 
 export default function InfoDialog() {
     const isDesktop = useMediaQuery({ query: "(min-width: 768px)" })
@@ -22,7 +26,7 @@ export default function InfoDialog() {
         return (
             <Dialog>
                 <DialogTrigger asChild>
-                    <Button variant="outline">Info</Button>
+                    <Button variant="outline"><IoMdInformationCircleOutline className='size-7'/></Button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-md">
                     <DialogHeader>
@@ -46,9 +50,9 @@ export default function InfoDialog() {
     return (
         <Drawer>
             <DrawerTrigger asChild>
-                <Button variant="outline">Info</Button>
+                <Button variant="outline"><IoMdInformationCircleOutline className='size-7'/></Button>
             </DrawerTrigger>
-            <DrawerContent className='h-3/4'>
+            <DrawerContent className='h-3/4 text-sm'>
                 <DrawerHeader>
                     <DrawerTitle>Wim Hof Breathing Method</DrawerTitle>
                     <DrawerDescription>
@@ -56,9 +60,9 @@ export default function InfoDialog() {
                     </DrawerDescription>
                 </DrawerHeader>
                 <Content />
-                <DrawerFooter>
-                    <DrawerClose asChild>
-                        <Button variant="secondary">Close</Button>
+                <DrawerFooter className={'pt-2'}>
+                    <DrawerClose asChild >
+                        <Button variant="secondary" className='w-[300px] m-auto'>Close</Button>
                     </DrawerClose>
                 </DrawerFooter>
             </DrawerContent>
@@ -68,7 +72,7 @@ export default function InfoDialog() {
 
 const Content = () =>
 (
-    <Tabs defaultValue="Precautions" className="flex flex-col justify-center items-center">
+    <Tabs defaultValue="Precautions" className="flex flex-col  items-center relative h-full">
         <TabsList className='w-2/3'>
             <TabsTrigger value="Precautions">Precautions</TabsTrigger>
             <TabsTrigger value="Instructions">Instructions</TabsTrigger>
@@ -93,8 +97,8 @@ const PrecautionsContent = () => {
                     <strong>Comfort over competition: </strong> Listen to your body and take breaks when needed. Find comfort rather than fighting your ego.
                 </li>
             </ul>
-            <Button className='w-2/3 '>
-                <Link href="https://www.youtube.com/watch?v=IFSL_Qk9qKw&ab_channel=WimHof" target={"_blank"}>Safty Video </Link>
+            <Button className='w-[300px] absolute bottom-0'>
+                <Link href="https://www.youtube.com/watch?v=IFSL_Qk9qKw&ab_channel=WimHof" target={"_blank"}>Watch Safety Video </Link>
             </Button>
         </div>
     )
@@ -119,8 +123,8 @@ const InstructionsContent = () => (
             </li>
             <li>Repeat 3 to 5 sets</li>
         </ol>
-        <Button className='w-2/3'>
-            <Link href="https://www.youtube.com/watch?v=tybOi4hjZFQ&ab_channel=WimHof" target={"_blank"}>Video Guide</Link>
+        <Button className='w-[300px] absolute bottom-0'>
+            <Link href="https://www.youtube.com/watch?v=tybOi4hjZFQ&ab_channel=WimHof" target={"_blank"}>Watch Video Guide</Link>
         </Button>
     </div>
 )

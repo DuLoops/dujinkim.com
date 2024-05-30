@@ -1,36 +1,61 @@
-import {BlogType, BlogPostType} from '@/types/BlogPostType'
+// import {BlogType, BlogPostType} from '@/types/BlogPostType'
 import { Timestamp } from 'firebase/firestore'
+
+export enum BlogType {
+    Software,
+    Design,
+    Art,
+    Study
+  }
+
+  export const BlogTypeColors = {
+    [BlogType.Software]: 'bg-teal-200',
+    [BlogType.Design]: 'bg-green-200',
+    [BlogType.Art]: 'bg-red-500',
+    [BlogType.Study]: 'bg-indigo-500'
+  }
+  
+  export  interface BlogPostType {
+      card: {
+        image: string[];
+      };
+      id: string;
+      title: string;
+      description?: string;
+      tags: BlogType[];
+      link: string;
+      date: Date; // Timestampp
+    }
 
 export const homeBlogPosts:BlogPostType[] = [
     {id: 'steve',
         title: 'Steve Jobs',
-        description: 'Steven Paul Jobs was born on February 24, 1955, in San Francisco, California, to Joanne Schieble and Abdulfattah Jandali.',
-        tags: [BlogType.Design],
+        description: 'His life, design, and philosophy',
+        tags: [BlogType.Design, BlogType.Study],
         link: 'steve_jobs',
-        date: '1715598775',
+        date: new Date(1715598775),
         card: {
-            image: ['/images/dev/steve_jobs.jpg']
+            image: ['/images/dev/wht.png']
         }
+        // variant:
     },
     {id: 'photogallery',
         title: 'Photography Gallery',
-        description: 'A collection of my favorite photos',
-        tags: [BlogType.Photography],
+        tags: [BlogType.Art],
         link: 'photography_gallery',
-        date: new Date().toISOString(),
+        date: new Date(),
         card: {
-            image: ['/images/dev/photography_gallery.jpg']
+            image: ['/images/dev/photogallery.png']
         }
     },
     {id: 'wimhoftimer', 
         title: 'Wim Hof Timer',
-        description: 'A simple'
-        + ' timer to help you practice the Wim Hof breathing method',
+        description: 'Intuitive timer to help you practice the Wim Hof breathing method.',
         tags: [BlogType.Software],
         link: 'wim_hof_timer',
-        date: new Date().toISOString(),
+        date: new Date(),
         card: {
-            image: ['/images/dev/wim_hof_timer.jpg']
+            image: ['/images/dev/wht.png']
         }
     }
 ]

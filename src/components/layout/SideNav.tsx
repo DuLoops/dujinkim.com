@@ -16,7 +16,7 @@ export default function SideNav({ setSideMenuOpen }: SideNavProps) {
                 width: 0,
                 transition: { delay: 0, duration: 0.3 }
               }}
-            className="top-0 right-0 fixed h-full bg-teal-500 shadow-lg p-3"
+            className="top-0 right-0 fixed h-full bg-teal-500 shadow-lg p-3 z-50 w-[80vw]"
         >
             <button className="absolute top-0 right-0 p-2" onClick={() => {setSideMenuOpen(false)}}>
                 <AiOutlineClose className='text-4xl' />

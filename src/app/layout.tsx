@@ -5,6 +5,7 @@ import HeaderNav from 'components/layout/HeaderNav'
 export const metadata: Metadata = {
   title: 'Dujin Kim',
   description: "DuJin Kim's personal website",
+  
 }
 
 export default function RootLayout({
@@ -15,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={ `${montserrat.variable} ${montserratAlternates.variable} ${courgette.variable} ${poiretOne.variable} 
-      bg-neutral-800 font-m overflow-x-hidden w-screen `}>
+      bg-neutral-800 font-m  w-screen `}>
         <HeaderNav />
           {children}
         </body>

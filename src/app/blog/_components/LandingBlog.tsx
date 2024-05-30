@@ -2,7 +2,6 @@ import React from 'react'
 import {db} from 'utils/firebase'
 import {DocumentData, collection, getDocs} from 'firebase/firestore'
 import BlogCard from '@/app/blog/_components/BlogCard';
-import { BlogPostType } from '@/types/BlogPostType';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { homeBlogPosts } from '@/data/blogPosts';
@@ -21,12 +20,12 @@ export default async function LandingBlog() {
 
   // const posts = await getPosts  
   return (
-    <div>
+    <div className='flex flex-col items-center mb-[100px]'>
       <h1 className='text-center text-5xl font-ma font-light text-neutral-500 '>BLOG</h1>
-      <div className='flex flex-col gap-4 p-4 '>
-        {homeBlogPosts.map((post) => <BlogCard postData={post} />)}
+      <div className='flex flex-col gap-4 w-full p-5 '>
+        {homeBlogPosts.map((post, i) => <BlogCard postData={post} key={i}/>)}
       </div>
-      <Button><Link href={'/blog'}>Read More</Link></Button>
+      <Button className='w-2/3'><Link href={'/blog'}>Read More</Link></Button>
     </div>
   )
 }

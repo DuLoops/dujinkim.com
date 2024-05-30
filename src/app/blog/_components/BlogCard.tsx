@@ -3,26 +3,29 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
-  CardHeader,
+
   CardTitle,
-} from "components/ui/card"
-import { BlogPostType } from '@/types/BlogPostType';
+  CardImage,
+  CardDate
+} from "@/components/ui/card"
+import { BlogPostType } from '@/data/blogPosts';
 import Image from 'next/image';
 import Link from 'next/link';
+import { formatDate } from '@/utils/date';
+
+
 export default function BlogCard({postData}: {postData: BlogPostType}) {
 
- 
+    console.log(postData.card.image[0])
   return (
 
-     <Card className='shadow-md shadow-teal-900  border border-2  border-neutral-800' > 
+     <Card className='bg-white' > 
       <Link href={`/blog/${postData.link}`}>
-      <CardHeader className='bg-teal-300 mb-2 rounded-t shadow-white'>
-        <CardTitle className='text-xl font-m'>{postData.title}</CardTitle>
-        <CardDescription className='italic'>{postData.description}</CardDescription>
-      </CardHeader>
-      <CardContent className='flex justify-center items-center'>
-        <Image src={postData.card.data} alt={postData.title} width={300} height={300} />
+      <CardImage src={postData.card.image[0]} alt={postData.title} height={200} width={200} />  
+      <CardContent className='bg-neutral-700 h-30'>
+          <CardTitle>{postData.title}</CardTitle>
+          <CardDescription>{postData.description}</CardDescription>
+          {/* <CardDate>{formatDate(postData.date)}</CardDate> */}
       </CardContent>
       </Link>
       </Card> 
