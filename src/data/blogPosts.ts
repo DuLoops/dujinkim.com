@@ -9,11 +9,14 @@ export enum BlogType {
   }
 
   export const BlogTypeColors = {
-    [BlogType.Software]: 'bg-teal-200',
-    [BlogType.Design]: 'bg-green-200',
-    [BlogType.Art]: 'bg-red-500',
-    [BlogType.Study]: 'bg-indigo-500'
+    [BlogType.Software]: 'teal',
+    [BlogType.Design]: 'rose',
+    [BlogType.Art]: 'yellow',
+    [BlogType.Study]: 'sky'
   }
+
+export const getBlogTypeColor = (type: BlogType) => BlogTypeColors[type]
+
   
   export  interface BlogPostType {
       card: {
@@ -29,9 +32,9 @@ export enum BlogType {
 
 export const homeBlogPosts:BlogPostType[] = [
     {id: 'steve',
-        title: 'Steve Jobs',
-        description: 'His life, design, and philosophy',
-        tags: [BlogType.Design, BlogType.Study],
+        title: "Steve Jobs and his designs",
+        description: 'Study on his life, work, and design philosophy.',
+        tags: [BlogType.Study, BlogType.Design],
         link: 'steve_jobs',
         date: new Date(1715598775),
         card: {

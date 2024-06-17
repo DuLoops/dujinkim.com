@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Contact() {
   return (
-    <div>
+    <div className='h-screen mt-10'>
       Contact
     </div>
   )

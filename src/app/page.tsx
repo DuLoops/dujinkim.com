@@ -1,6 +1,6 @@
 import SocialLinks from "components/SocialLinks"
 import LandingBlog from "./blog/_components/LandingBlog"
-import LandingPorfolio from "./portfolio/_components/LandingPortfolio"
+import LandingProject from "./project/_components/LandingProject"
 import Contact from "./contact/Contact"
 import { Suspense } from "react"
 import BlogLoader from "./blog/_components/Loading"
@@ -27,7 +27,7 @@ export default function page() {
     <main className="flex flex-col text-white min-h-screen">
       <LandingHome />
       <LandingBlog />
-      <LandingPorfolio />
+      <LandingProject />
       <Contact />
     </main>
   )
