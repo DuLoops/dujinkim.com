@@ -1,6 +1,5 @@
 // import {BlogType, BlogPostType} from '@/types/BlogPostType'
 import { Timestamp } from 'firebase/firestore'
-
 export enum BlogType {
     Software,
     Design,

@@ -5,7 +5,7 @@ import HeaderNav from 'components/layout/HeaderNav'
 export const metadata: Metadata = {
   title: 'Dujin Kim',
   description: "DuJin Kim's personal website",
-  
+
 }
 
 export default function RootLayout({
@@ -15,11 +15,26 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={ `${montserrat.variable} ${montserratAlternates.variable} ${courgette.variable} ${poiretOne.variable} 
+      <head>
+        {/* <link rel="icon" href="/images/dev/favicon.ico" sizes="any" /> */}
+        <link
+          rel="icon"
+          href="/images/dev/favicon.png"
+          type="/images/dev/favicon.png"
+          sizes="32x32"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="/images/dev/favicon.png"
+          type="/images/dev/favicon.png"
+          sizes="32x32"
+        />
+      </head>
+      <body className={`${montserrat.variable} ${montserratAlternates.variable} ${courgette.variable} ${poiretOne.variable} 
       bg-neutral-800 font-m  w-screen `}>
         <HeaderNav />
-          {children}
-        </body>
+        {children}
+      </body>
     </html>
   )
 }

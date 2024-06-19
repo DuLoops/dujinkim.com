@@ -36,7 +36,7 @@ export default function BlogCard({postData}: {postData: BlogPostType}) {
       <CardImage src={postData.card.image[0]} alt={postData.title} height={200} width={200} />  
       <CardContent >
           <CardTitle>{postData.title}</CardTitle>
-          <CardDescription>{postData.description}</CardDescription>
+          <CardDescription className='min-h-12'>{postData.description}</CardDescription>
           {/* <CardDate className='justify-self-start items-center'>{formatDate(postData.date)}</CardDate> */}
           <div className='flex gap-2 text-neutral-700 mt-1 '>
             {postData.tags.map((tag, i) => <div key={i} className={cn('px-2 py-1 rounded-lg text-sm font-ma text-black',tagColors[tag])}>{BlogType[tag]}</div>)}

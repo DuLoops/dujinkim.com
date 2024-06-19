@@ -9,7 +9,7 @@ import { Meteors } from "components/ui/meteors"
 const LandingHome = () => {
   return (
     <div className="relative overflow-hidden">
-      <Meteors number={5} />
+      <Meteors/>
       <div className="flex flex-row justify-center items-center bg-neutral-700 py-2 absolute top-[100px] w-screen">
         <p className="mx-2 text-2xl font-m">WEB</p>
         <p className="font-ma text-7xl text-teal-200 leading-10">D</p>
