@@ -31,7 +31,7 @@ export default function BlogCard({postData}: {postData: BlogPostType}) {
   
   return (
 
-     <Card  className={borderColorVariants[postData.tags[0]]}> 
+     <Card  className={cn(borderColorVariants[postData.tags[0]], 'md:hover:scale-105')} > 
       <Link href={`/blog/${postData.link}`}>
       <CardImage src={postData.card.image[0]} alt={postData.title} height={200} width={200} />  
       <CardContent >
