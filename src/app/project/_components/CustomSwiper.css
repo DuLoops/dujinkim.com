@@ -1,0 +1,10 @@
+.swiper{
+    width: 98%;
+    height: 250px;
+    text-align: center;
+    
+}
+
+.swiper-pagination-{
+    bottom: 100px !important;
+}

@@ -15,7 +15,6 @@ export const Meteors = ({
   const width = useViewportWidth();
   const number = width > 768 ? 15 : 7;
   const meteors = new Array(number || 15).fill(true);
-    console.log(number)
 
   return (
     <div className="h-[300px]">

@@ -26,6 +26,18 @@ const projectData = [
     //   link: "https://duloops.com/",
     // },
     {
+        title: "  Tourism Website2",
+        background: `-webkit-linear-gradient(left, purple, #DAF1DE, purple)`,
+
+        desc: "Pender Harbour Tourism Website",
+        tech: [tech.Vue],
+        images: [portfolioImages.pender, portfolioImages.pender2],
+        detail: `# About\nThe Pender Harbour Tourism Website is a responsive and intuitive guide for tourists visiting the Pender Harbour island in the Sunshine Coast. The website provides information on local attractions, accommodations, and events to help visitors plan their trip.\n# Development Process\nThe project was developed in a team of three over with clients from the Pender Harbour Tourism Community. It is developed in Vue.js. The team worked on designing and developing the user interface and backend database, implementing responsive design elements, and integrating Firebase for efficient data storage and retrieval.
+        `,
+        link: "https://penderharbourdemo.web.app/",
+        git: "https://github.com/DuLoops/PenderHarbourSpirit",
+    },
+    {
         title: "  Tourism Website",
         background: `-webkit-linear-gradient(left, purple, #DAF1DE, purple)`,
 

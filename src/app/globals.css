@@ -74,3 +74,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+
+.swiper-pagination{
+  position: absolute !important;
+  /* bottom: -30px !important; */
+}

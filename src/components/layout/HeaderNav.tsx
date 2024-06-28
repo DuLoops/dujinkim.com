@@ -14,7 +14,7 @@ const HeaderNav = () => {
     return (
         <nav className='grid grid-cols-3 w-screen p-1 bg-neutral-700 shadow-md shadow-neutral-800 text-xl lg:px-5'>
             <Link href={'/'} className='col-start-1 my-auto ml-1 text-neutral-100 color-white fill-white'>
-                <span className='text-teal-200'>DuJin</span> Kim
+                <span className='text-teal-300'>DuJin</span> Kim
                 {/* <Image src='/images/dev/dujinlogo.svg' alt='logo' width={130} height={130} className='fill-blue-100' /> */}
                 {/* <Image src='/images/dev/logo.png' alt='logo' width={30} height={30} /> */}
                 </Link>
@@ -30,7 +30,7 @@ const HeaderNav = () => {
                 <SideSheetNav />
             </div>
             <div className='col-start-3 row-start-1 hidden lg:block'>
-                <ol className='flex flex-row gap-3 justify-end '>
+                <ol className='flex flex-row gap-3 justify-end text-white'>
                     {menuItems.map((item, index) => (
                         <li key={index}>
                             <Link href={item.link} className=' hover:underline '>{item.name}</Link>
