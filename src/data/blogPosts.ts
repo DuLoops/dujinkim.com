@@ -7,6 +7,13 @@ export enum BlogType {
     Study
   }
 
+  export const BlogTypeNames = {
+    [BlogType.Software]: 'Software',
+    [BlogType.Design]: 'Design',
+    [BlogType.Art]: 'Art',
+    [BlogType.Study]: 'Study'
+    }
+
   export const BlogTypeColors = {
     [BlogType.Software]: 'teal',
     [BlogType.Design]: 'rose',

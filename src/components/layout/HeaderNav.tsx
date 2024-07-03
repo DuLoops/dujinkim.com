@@ -7,10 +7,12 @@ import { AiOutlineMenu } from "react-icons/ai";
 import SideNav from './SideNav';
 import { AnimatePresence } from 'framer-motion';
 import SideSheetNav from './SideSheetNav';
+import { usePathname } from 'next/navigation'
 
 
 const HeaderNav = () => {
     const [isSideMenuOpen, setSideMenuOpen] = useState(false);
+    const pathname = usePathname()
     return (
         <nav className='grid grid-cols-3 w-screen p-1 bg-neutral-700 shadow-md shadow-neutral-800 text-xl lg:px-5'>
             <Link href={'/'} className='col-start-1 my-auto ml-1 text-neutral-100 color-white fill-white'>
@@ -33,7 +35,7 @@ const HeaderNav = () => {
                 <ol className='flex flex-row gap-3 justify-end text-white'>
                     {menuItems.map((item, index) => (
                         <li key={index}>
-                            <Link href={item.link} className=' hover:underline '>{item.name}</Link>
+                            <Link href={item.link} className={`${pathname == item.link ? 'text-teal-200 hover:underline' : 'hover:underline'}`}>{item.name}</Link>
                         </li>
                     ))}
                 </ol>

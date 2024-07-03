@@ -22,7 +22,7 @@ export default function BlogCard({postData}: {postData: BlogPostType}) {
     [BlogType.Study]: 'border-sky-200  hover:border-sky-400 hover:shadow-md hover:shadow-sky-600 text-sky-200'
   }
 
-  const tagColors = {
+const tagColors = {
     [BlogType.Software]: 'bg-teal-200 hover:shadow-md hover:shadow-teal-600',
     [BlogType.Design]: 'bg-rose-200',
     [BlogType.Art]: 'bg-yellow-200',

@@ -28,7 +28,7 @@ export default function page() {
       <LandingHome />
       <LandingBlog />
       <LandingProject />
-      {/* <Contact /> */}
+      <Contact />
     </main>
   )
 }
