@@ -29,7 +29,7 @@ export default function ProjectSwiper() {
       pagination={{ clickable: true }}
       scrollbar
       // draggable={true}
-      onSwiper={(swiper) => console.log(swiper)}
+
       autoplay={{ delay: 500, disableOnInteraction: false, pauseOnMouseEnter: false, stopOnLastSlide: true }}
       loop={true}
       style={{

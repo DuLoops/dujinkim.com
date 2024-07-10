@@ -5,7 +5,7 @@ import Contact from "./contact/Contact"
 import { Suspense } from "react"
 import BlogLoader from "./blog/_components/Loading"
 import { Meteors } from "components/ui/meteors"
-
+import {Toast, ToastProvider, ToastViewport} from "components/ui/toast"
 const LandingHome = () => {
   return (
     <div className="relative overflow-hidden ">
@@ -24,7 +24,8 @@ const LandingHome = () => {
 
 export default function page() {
   return (
-    <main className="flex flex-col text-white min-h-screen gap-[50px] md:gap-[150px]" >
+
+    <main className="flex flex-col text-white min-h-screen gap-[50px] md:gap-[150px] w-screen" >
       <LandingHome />
       <LandingBlog />
       <LandingProject />
