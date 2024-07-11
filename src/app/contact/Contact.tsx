@@ -4,13 +4,14 @@ import {useState} from 'react'
 import { BsGithub, BsLinkedin, BsInstagram, BsYoutube } from 'react-icons/bs';
 import Email from './Email';
 import Social from './Social';
-import Image from 'next/image';
 import DujinLogo from '@/data/DujinLogo';
+import Link from 'next/link';
 export default function Contact() {
   return (
-    <div className='w-11/12 m-auto'>
+    <div className='w-11/12 m-auto flex flex-col gap-2 items-center '>
       <Email />
-      {/* <Image src='/images/dev/dujinlogo.svg' alt={"Dujin's Logo"} width={200} height={200} className='fill-white' />  */}
+      <Link href='mailto:dujink2@gmail.com' className='underline'>Email: dujink2@gmail.com</Link>
+      <Social />
       <div className='w-3/5 m-auto'>
         
       <DujinLogo color="#99F6E4" />

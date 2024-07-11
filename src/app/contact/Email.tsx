@@ -15,7 +15,7 @@ const Email: React.FC = () => {
         process.env.EMAILJS_SERVICE_ID || 'service_kgsfubg',
         process.env.EMAILJS_TEMPLATE_ID || 'template_ofm6cnc',
         form.current,
-        // {publicKey: process.env.EMAILJS_PUBLIC_KEY || '82G2kc4aCnqBmcQit' }
+        {publicKey: process.env.EMAILJS_PUBLIC_KEY || '82G2kc4aCnqBmcQit' }
       ).then(
         () => {
           toast.toast({
@@ -37,19 +37,16 @@ const Email: React.FC = () => {
   };
 
   return (
-    <form ref={form} onSubmit={sendEmail} className='text-white flex flex-col '>
+    <form ref={form} onSubmit={sendEmail} className='text-white flex flex-col w-full'>
 
       <label htmlFor='email'>Email</label>
-      <input type="email" name="email" id='email' required placeholder='Email'className='text-black' />
+      <input className='text-black mb-1' type="email" name="email" id='email' required placeholder='Emaili' />
       <label htmlFor='subject'>Subject</label>
-      <input type="text" name="subject" id='subject' required placeholder='Subject' className='text-black'/>
+      <input className='text-black mb-1' type="text" name="subject" id='subject' required placeholder='Subject' />
       <label htmlFor='message' >Message</label>
-      <textarea name="message" id='message' required className='text-black'/>
-      <div >
-
-      <Button>
-        <input type="submit" value="Send" />
-      </Button>
+      <textarea  className='text-black mb-2' name="message" id='message' required />
+      <div className='flex justify-center'>
+        <Button><input type="submit" value="Send" /></Button>
       </div>
 
     </form>
