@@ -35,7 +35,7 @@ const CardImage = React.forwardRef<
     alt={alt}
     height={height}
     width={width}
-    className={cn("object-cover w-full", className)}
+    className={cn("object-contain w-full ", className)}
     {...props}
   />
 ))
@@ -44,7 +44,7 @@ const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("min-h-32 p-5 flex flex-col gap-2 justify-around bg-neutral-700 ", className)} {...props} />
+  <div ref={ref} className={cn(" p-4 flex flex-col gap-2 justify-around bg-neutral-700 ", className)} {...props} />
 ))
 CardContent.displayName = "CardContent"
 

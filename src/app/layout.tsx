@@ -34,12 +34,12 @@ export default function RootLayout({
         />
       </head>
       <body className={`${montserrat.variable} ${montserratAlternates.variable} ${courgette.variable} ${poiretOne.variable} 
-      bg-neutral-800 font-m  w-screen `}>
+      bg-neutral-800 font-m  w-screen overflow-x-hidden md:pt-[40px] `}>
         <HeaderNav />
-        <main>
+        <Toaster />
+
           {children}
-          </main>
-          <Toaster />
+
       </body>
     </html>
   )

@@ -21,6 +21,22 @@ export enum BlogType {
     [BlogType.Study]: 'sky'
   }
 
+  export const borderColorVariants = {
+    [BlogType.Software] : 'border-teal-200 hover:border-teal-400 hover:shadow-md hover:shadow-teal-600 text-teal-200',
+    [BlogType.Design]: 'border-rose-200 hover:border-rose-400 hover:shadow-md hover:shadow-rose-600 text-rose-200',
+    [BlogType.Art]: 'border-yellow-200 hover:border-yellow-400 hover:shadow-md hover:shadow-yellow-600 text-yellow-200',
+    [BlogType.Study]: 'border-sky-200  hover:border-sky-400 hover:shadow-md hover:shadow-sky-600 text-sky-200'
+  }
+
+
+  export const tagColors = {
+    [BlogType.Software]: 'bg-teal-200',
+    [BlogType.Design]: 'bg-rose-200',
+    [BlogType.Art]: 'bg-yellow-200',
+    [BlogType.Study]: 'bg-sky-200'
+  } 
+
+
 export const getBlogTypeColor = (type: BlogType) => BlogTypeColors[type]
 
   

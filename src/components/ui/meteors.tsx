@@ -17,7 +17,7 @@ export const Meteors = ({
   const meteors = new Array(number || 15).fill(true);
 
   return (
-    <div className="h-[300px]">
+    <div className="h-[300px] absolute md:top-[100px]">
       {meteors.map((el, idx) => (
         <span
           key={"meteor" + idx}

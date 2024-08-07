@@ -1,10 +1,12 @@
 import * as React from "react"
-const DujinLogo = ({color, ...props}:any) => (
+import { cn } from "@/utils/cn"
+const DujinLogo = ({color, className, ...props}:any) => (
 
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 112.46 111.92"
     style={{fill: color}}
+    className={cn('fill-current', className)}
     {...props}
 
   >

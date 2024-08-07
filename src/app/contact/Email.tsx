@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser';
 import { Button } from '@/components/ui/button';
 import { Toast, ToastProvider, ToastViewport } from '@/components/ui/toast';
 import { useToast } from '@/components/ui/use-toast';
-
+import Link from 'next/link';
 const Email: React.FC = () => {
   const form = useRef<HTMLFormElement | null>(null);
   const toast = useToast();
@@ -37,17 +37,18 @@ const Email: React.FC = () => {
   };
 
   return (
-    <form ref={form} onSubmit={sendEmail} className='text-white flex flex-col w-full'>
-
+    <form ref={form} onSubmit={sendEmail} className='text-white flex flex-col w-full lg:h-full justify-around '>
+      <Link href='mailto:dujink2@gmail.com' className='self-center underline text-teal-100'>To: dujink2@gmail.com</Link>
       <label htmlFor='email'>Email</label>
-      <input className='text-black mb-1' type="email" name="email" id='email' required placeholder='Emaili' />
+      <input className='text-black mb-1 lg:h-10 rounded p-1 lg:text-xl' type="email" name="email" id='email' required placeholder='Emaili' />
       <label htmlFor='subject'>Subject</label>
-      <input className='text-black mb-1' type="text" name="subject" id='subject' required placeholder='Subject' />
+      <input className='text-black mb-1 lg:h-10 rounded p-1 lg:text-xl' type="text" name="subject" id='subject' required placeholder='Subject' />
       <label htmlFor='message' >Message</label>
-      <textarea  className='text-black mb-2' name="message" id='message' required />
-      <div className='flex justify-center'>
-        <Button><input type="submit" value="Send" /></Button>
-      </div>
+      <textarea  className='text-black mb-2 h-20 rounded lg:h-[200px] lg:text-xl p-1' name="message" id='message' required />
+      {/* <div className='flex flex-row items-center justify-around'> */}
+        <Button className='self-center'><input type="submit" value="Send" /></Button>
+
+      {/* </div> */}
 
     </form>
     
