@@ -9,7 +9,10 @@ import {InfiniteMovingImg} from 'components/ui/infiniteMovingImg'
 
 async function fetchHomeGallery(){
     return getDocs(collection(db, 'homeGallery'))
-    .then(querySnapshot => querySnapshot.docs.map(doc => doc.data()))
+    .then(querySnapshot => querySnapshot.docs.map(doc => {
+        const data = doc.data();
+        return { image: data.image }; // Ensure each object has an image property
+    }))
     .catch(error => {
       console.error("Error fetching homeGallery:", error);
       return []; 

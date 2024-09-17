@@ -6,7 +6,7 @@ import BlogCard from '@/app/blog/_components/Card_Blog';
 import Filter from './_components/Filter';
 import { BlogPostType, BlogType } from '@/data/blogPosts';
 import { FaFilter } from "react-icons/fa";
-export default function page() {
+export default function Page() {
 
   const [filteredPosts, setFilteredPosts] = useState<BlogPostType[]>(homeBlogPosts)
  const [selectedType, setSelectedType] = useState<BlogType | null>(null)

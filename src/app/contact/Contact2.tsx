@@ -78,7 +78,7 @@ export default function Contact() {
         <svg className="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
           <path d="M10 15a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM10 6a1.5 1.5 0 00-1 2.65V12a1 1 0 002 0V8.65A1.5 1.5 0 0010 6z" />
         </svg>
-        <p>Message didn't send! Check your internet connection.</p>
+        <p>Message did not send! Check your internet connection.</p>
       </div>
     );
   };
@@ -91,7 +91,7 @@ export default function Contact() {
           <p className="text-xl text-center font-medium py-5">
             Thank you for reaching me!
             <br />
-            I'll get back to you shortly!
+            I will get back to you shortly!
           </p>
           <SnsForm />
         </div>

@@ -41,7 +41,7 @@ export default function ProjectSwiper() {
         '--swiper-pagination-color': '#2DD4BF',
         '--swiper-pagination-bullet-inactive-color': '#fff',
         '--swiper-pagination-bottom': '-5px',
-      }}
+      } as React.CSSProperties}
     >
       {projectData.map((project, i) => (
         <SwiperSlide key={i}>
