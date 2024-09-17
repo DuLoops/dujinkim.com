@@ -50,24 +50,25 @@ export const getBlogTypeColor = (type: BlogType) => BlogTypeColors[type]
       tags: BlogType[];
       link: string;
       date: Date; // Timestampp
+      external?: string
     }
 
 export const homeBlogPosts:BlogPostType[] = [
-    {id: 'steve',
-        title: "Steve Jobs and his designs",
-        description: 'Study on his life, work, and design philosophy.',
-        tags: [BlogType.Study, BlogType.Design],
-        link: 'steve_jobs',
-        date: new Date(1715598775),
-        card: {
-            image: ['/images/dev/wht.png']
-        }
-        // variant:
-    },
+    // {id: 'steve',
+    //     title: "Steve Jobs and his designs",
+    //     description: 'Study on his life, work, and design philosophy.',
+    //     tags: [BlogType.Study, BlogType.Design],
+    //     link: 'steve_jobs',
+    //     date: new Date(1715598775),
+    //     card: {
+    //         image: ['/images/dev/wht.png']
+    //     }
+    //     // variant:
+    // },
     {id: 'photogallery',
         title: 'Photography Gallery',
         tags: [BlogType.Art],
-        link: 'photography_gallery',
+        link: 'gallery',
         date: new Date(),
         card: {
             image: ['/images/dev/photogallery.png']
@@ -78,6 +79,7 @@ export const homeBlogPosts:BlogPostType[] = [
         description: 'Intuitive timer to help you practice the Wim Hof breathing method.',
         tags: [BlogType.Software],
         link: 'wim_hof_timer',
+        external: 'https://wim-hof-timer.vercel.app/',
         date: new Date(),
         card: {
             image: ['/images/dev/wht.png']

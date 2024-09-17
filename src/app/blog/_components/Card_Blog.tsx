@@ -13,11 +13,11 @@ import Link from 'next/link'
 import { cn } from '@/utils/cn';
 export default function Card_Blog({postData}: {postData: BlogPostType}) {
 
-  
+  console.log(postData)
   return (
 
      <Card  className={cn(borderColorVariants[postData.tags[0]], 'hover:scale-105 group')} > 
-      <Link href={`/blog/${postData.link}`}>
+      <Link href={postData.external ? postData.external : `/blog/${postData.link}`} target={postData.external ? '_blank' : '_self'}>
       <CardImage src={postData.card.image[0]} alt={postData.title} height={200} width={200} className=''/>  
       <CardContent >
           <CardTitle className='group-hover:md:text-inherit text-xl md:text-xl'>{postData.title}</CardTitle>
