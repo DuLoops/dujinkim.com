@@ -19,10 +19,11 @@ export const LampContainer = ({
         className
       )}
     >
-      <div className="relative flex w-full flex-1 items-center justify-center isolate z-0 "> <motion.div initial={{ width: "8rem" }} whileInView={{ width: "16rem" }} transition={{
+      <div className="relative flex w-full flex-1 items-center justify-center isolate z-0 "> 
+      <motion.div initial={{ width: "8rem" }} whileInView={{ width: "16rem" }} transition={{
         delay: 2, duration: 2, ease: "easeInOut",
       }}
-        className="absolute inset-auto z-30 h-1/3 w-64 top-0 rounded-full bg-teal-400 blur-2xl"
+        className="absolute inset-auto z-30 h-1/4 w-64 top-0 rounded-full bg-teal-900 blur-2xl"
       ></motion.div>
         {/*Beam*/}
         <motion.div

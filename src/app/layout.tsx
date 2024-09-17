@@ -2,9 +2,11 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { montserrat, montserratAlternates, courgette, poiretOne } from 'data/fonts'
 import HeaderNav from 'components/layout/HeaderNav'
+import { Toaster } from '@/components/ui/toaster'
 export const metadata: Metadata = {
-  title: 'DuJin Blog',
-  description: "DuJin's blog",
+  title: 'Dujin Kim',
+  description: "DuJin Kim's personal website",
+
 }
 
 export default function RootLayout({
@@ -14,12 +16,31 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={ `${montserrat.variable} ${montserratAlternates.variable} ${courgette.variable} ${poiretOne.variable} bg-neutral-800 font-m`}>
+      <head>
+        {/* <link rel="icon" href="/images/dev/favicon.ico" sizes="any" /> */}
+        <link
+          rel="icon"
+          href="/images/dev/favicon.png"
+          type="/images/dev/favicon.png"
+          sizes="32x32"
+      
+        />
+        <link
+          rel="apple-touch-icon"
+          href="/images/dev/favicon.png"
+          type="/images/dev/favicon.png"
+          sizes="32x32"
+          color='#fff'
+        />
+      </head>
+      <body className={`${montserrat.variable} ${montserratAlternates.variable} ${courgette.variable} ${poiretOne.variable} 
+      bg-neutral-800 font-m  w-screen overflow-x-hidden md:pt-[40px] `}>
         <HeaderNav />
-        <main className="overflow-x-hidden w-screen h-[calc(100vh-60px)] ">
+        <Toaster />
+
           {children}
-        </main>
-        </body>
+
+      </body>
     </html>
   )
 }

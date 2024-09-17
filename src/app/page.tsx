@@ -1,29 +1,41 @@
 import SocialLinks from "components/SocialLinks"
-import Landing from "./_blog/Landing"
-import Link from "next/link"
+import LandingBlog from "./blog/_components/LandingBlog"
+import LandingProject from "./project/_components/LandingProject"
+import Contact from "./contact/Contact"
 import { Suspense } from "react"
-import BlogLoader from "../components/blog/Loading"
-import LandingGallery from "./gallery/LandingGallery"
-import GalleryLoader from "components/gallery/GalleryLoader"
+import BlogLoader from "./blog/_components/Loading"
 import { Meteors } from "components/ui/meteors"
+import Image from "next/image"
+import DujinLogo from "@/data/DujinLogo"
+const LandingHome = () => {
+  return (
+    <div className="relative overflow-hidden h-screen flex flex-col justify-around ">
+      <Meteors/>
+      <div className="flex flex-row justify-center items-center bg-neutral-700 py-2 relative w-screen">
+        <p className="mx-2 text-2xl md:text-3xl font-m">WEB</p>
+        <p className="font-ma text-7xl md:text-8xl text-teal-300 leading-10">D</p>
+        <div className="font-ma text-3xl md:text-4xl text-teal-300 leading-8">
+          <p>esigner</p>
+          <p>eveloper</p>
+        </div>
+      </div>
+      <div className="flex flex-col items-center ">
+        <DujinLogo color="#99F6E4" className='h-[300px]' />
+      <div className="scroll"/> 
+      </div>
+    </div>
+  )
+}
+
 export default function page() {
   return (
-    <main className="flex flex-col text-white min-h-screen">
-      <div className='flex flex-col gap-6 '>
-        <div className='py-[20%] relative' >
-        <Meteors number={5} />
-          <p className="text-2xl ml-10">Hi, I'm <span className="font-ma text-4xl text-teal-200">DuJin</span></p>
-          <p className="text-2xl text-center mt-9">Welcome to my <span className="font-ma font-black text-4xl text-teal-200">Blog</span></p>
-        </div>
-        <div className="mt-10">
-          <Suspense fallback={<GalleryLoader />} >
-            <LandingGallery />
-          </Suspense>
-        </div>
-        <Suspense fallback={<BlogLoader />}>
-          <Landing />
-        </Suspense>
-      </div>
+
+    <main 
+    className="flex flex-col text-white gap-[50px] md:gap-[50px] lg:gap-[100px] " >
+      <LandingHome />
+      <LandingBlog />
+      <LandingProject />
+      <Contact />
     </main>
   )
 }
