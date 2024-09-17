@@ -33,7 +33,6 @@ export default async function Page({ params }: { params: { slug: string } }) {
     if (!photo) {
         return <div>Not found <ReturnButton returnId={params.slug} /></div>
     }
-    console.log(photo)
     return (
         <div>
             <ReturnButton returnId={params.slug} />

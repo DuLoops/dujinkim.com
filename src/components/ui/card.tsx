@@ -114,5 +114,8 @@ const CardFooter = React.forwardRef<
   />
 ))
 CardFooter.displayName = "CardFooter"
+CardImage.displayName = "CardImage"
+CardTags.displayName = "CardTags"
+CardDate.displayName = "CardDate"
 
 export { Card, CardImage, CardFooter, CardTitle, CardDescription, CardContent, CardTags, CardDate }

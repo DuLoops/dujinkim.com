@@ -73,5 +73,7 @@ const GradientButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
     )
   }
 )
+GradientButton.displayName = "GradientButton"
+
 
 export { Button, buttonVariants,  GradientButton }

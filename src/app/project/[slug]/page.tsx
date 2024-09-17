@@ -100,7 +100,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       <h1 className='text-2xl mt-4'>{project.title}</h1>
       <h2>{project.desc}</h2>
       <div className='m-4 p-2 bg-neutral-600 rounded lg:w-1/2 lg:px-8'>
-        <CustomMarkdownRenderer children={project.detail}/>
+        <CustomMarkdownRenderer>{project.detail}</CustomMarkdownRenderer>
         <div className='flex flex-row gap-2 p-1 items-center'>
           <p>Tech: </p>
           <ProjectTag tech={project.tech} />
