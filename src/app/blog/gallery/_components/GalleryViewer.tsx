@@ -36,7 +36,6 @@ export default function GalleryViewer({ photos }: { photos: any }) {
 
     useEffect(() => {
         if (selectedIndex !== null) {
-            console.log(selectedIndex)
             router.push(`#${photos[selectedIndex].id}`);
         } else {
             router.push(`/blog/gallery`, {scroll: false});

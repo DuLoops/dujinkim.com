@@ -13,7 +13,6 @@ import Link from 'next/link'
 import { cn } from '@/utils/cn';
 export default function Card_Blog({postData}: {postData: BlogPostType}) {
 
-  console.log(postData)
   return (
 
      <Card  className={cn(borderColorVariants[postData.tags[0]], 'hover:scale-105 group')} > 

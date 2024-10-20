@@ -13,7 +13,6 @@ export default function Page() {
  
 
   useEffect(() => {
-    console.log(selectedType)
     setFilteredPosts(homeBlogPosts.filter(post => selectedType === null || post.tags.includes(selectedType)))
     }, [selectedType]);
   return (

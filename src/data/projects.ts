@@ -37,6 +37,7 @@ export const projectData = [
         `,
         link: "https://penderharbourdemo.web.app/",
         git: "https://github.com/DuLoops/PenderHarbourSpirit",
+        wireframe: 'https://www.figma.com/design/e1klBLZUS84uwxngQjVMQu/Pender-Harbour-Spirit?node-id=87-3015&t=IuRiOq9j9hgXntcm-1'
     },
     {
         id: 'AudioMorpher',
@@ -69,6 +70,7 @@ export const projectData = [
         images: [portfolioImages.WimHofTimer2, portfolioImages.WimHofTimer],
         detail: `The Wim Hof Timer App is a simple and intuitive timer designed for the _Wim Hof Breathing Method_. The app helps users keep track of their breathing and holding time during the exercise and features an audio alarm to indicate the start of each phase.\n# Development Process\nThe app was developed in React. It integrates framer-motion for the visual effects and webpack for sound.`,
         link: "https://duloops.com/timer/wim-hof-timer",
+        wireframe: 'https://www.figma.com/design/WKLSocC7pK5Vpy6dYXSxeL/Wim-Hof-Timer?node-id=0-1&t=IP3RM8jVPqQ9Kn0M-1'
     },
     {
         id: 'OculusPartyViewer',

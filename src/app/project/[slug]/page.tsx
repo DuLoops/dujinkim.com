@@ -9,6 +9,8 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Image from 'next/image';
 import Navigaion from './Navigaion';
+import { FaFigma } from "react-icons/fa6";
+
 interface PageProps {
   params: {
     slug: string;
@@ -25,6 +27,7 @@ interface Project {
   detail: string;
   link?: string;
   git?: string;
+  wireframe?: string;
 }
 
 // export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -107,6 +110,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         </div>
       </div>
       <div className='flex flex-row gap-3 text-lg'>
+        {project.wireframe && <Link href={project.wireframe} target='_blank' className='flex flex-row items-center gap-2  border-b-2 border-green-400'>Wireframe<FaFigma /></Link>}
         {project.link && <Link href={project.link} target='_blank' className='flex flex-row items-center gap-2  border-b-2 border-blue-400'>Visit Site<FaExternalLinkAlt /></Link>}
         {project.git && <Link href={project.git} target='_blank' className='flex flex-row items-center gap-2  border-b-2 border-purple-400'>GitHub<FaGithub /></Link>}
       </div>
