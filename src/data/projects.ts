@@ -51,17 +51,6 @@ export const projectData = [
         git: "https://github.com/DuLoops/Audio-Image_editor",
     },
     {
-        id: 'TankGame',
-        title: "Tank Game",
-        background: `-webkit-linear-gradient(45deg, #D93128, #EDB25A)`,
-
-        desc: "1 VS 1 Tank Game",
-        tech: [tech.Cpp, tech.directX],
-        images: [portfolioImages.TankGame],
-        detail: `The 1 VS 1 Tank Game is a multiplayer game where two players control tanks and compete against each other in a battle arena.  Players can drive their tank through obstacles and shoot at each other.\n# Development Process\nThe project was developed in a team of eight using C++, C#, WPF, and OpenCL. Each team member had a specific role, and the game was developed iteratively over 3 months.\n### Technologies Used\n- C++: Used to develop the game's core functionality and game engine.\n- C#: Used to develop the game's user interface (UI) and user experience (UX) using WPF.\n- OpenCL: Used to enhance the game's graphic performance by optimizing CPU and GPU usage.\n- WPF: Used to create the game's UI, including menus, buttons, and other graphical elements.\n\n### My role\n- Designed and developed game UI/UX with C#, .NET / WPF.\n- Developed Spatial Audio DLL with C++.`,
-        git: "https://github.com/DuLoops/GameEngineUI",
-    },
-    {
         id: 'WimHofTimer',
         title: "Wim Hof Timer",
         background: `-webkit-linear-gradient(45deg, blue, #DAF1DE)`,
@@ -71,6 +60,17 @@ export const projectData = [
         detail: `The Wim Hof Timer App is a simple and intuitive timer designed for the _Wim Hof Breathing Method_. The app helps users keep track of their breathing and holding time during the exercise and features an audio alarm to indicate the start of each phase.\n# Development Process\nThe app was developed in React. It integrates framer-motion for the visual effects and webpack for sound.`,
         link: "https://duloops.com/timer/wim-hof-timer",
         wireframe: 'https://www.figma.com/design/WKLSocC7pK5Vpy6dYXSxeL/Wim-Hof-Timer?node-id=0-1&t=IP3RM8jVPqQ9Kn0M-1'
+    },
+    {
+        id: 'TankGame',
+        title: "Tank Game",
+        background: `-webkit-linear-gradient(45deg, #D93128, #EDB25A)`,
+
+        desc: "1 VS 1 Tank Game",
+        tech: [tech.Cpp, tech.directX],
+        images: [portfolioImages.TankGame],
+        detail: `The 1 VS 1 Tank Game is a multiplayer game where two players control tanks and compete against each other in a battle arena.  Players can drive their tank through obstacles and shoot at each other.\n# Development Process\nThe project was developed in a team of eight using C++, C#, WPF, and OpenCL. Each team member had a specific role, and the game was developed iteratively over 3 months.\n### Technologies Used\n- C++: Used to develop the game's core functionality and game engine.\n- C#: Used to develop the game's user interface (UI) and user experience (UX) using WPF.\n- OpenCL: Used to enhance the game's graphic performance by optimizing CPU and GPU usage.\n- WPF: Used to create the game's UI, including menus, buttons, and other graphical elements.\n\n### My role\n- Designed and developed game UI/UX with C#, .NET / WPF.\n- Developed Spatial Audio DLL with C++.`,
+        git: "https://github.com/DuLoops/GameEngineUI",
     },
     {
         id: 'OculusPartyViewer',

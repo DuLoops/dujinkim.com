@@ -74,17 +74,17 @@ export const homeBlogPosts:BlogPostType[] = [
             image: ['/images/dev/photogallery.png']
         }
     },
-    {id: 'wimhoftimer', 
-        title: 'Wim Hof Timer',
-        description: 'Intuitive timer to help you practice the Wim Hof breathing method.',
-        tags: [BlogType.Software],
-        link: 'wim_hof_timer',
-        external: 'https://wim-hof-timer.vercel.app/',
-        date: new Date(),
-        card: {
-            image: ['/images/dev/wht.png']
-        }
-    }
+    // {id: 'wimhoftimer', 
+    //     title: 'Wim Hof Timer',
+    //     description: 'Intuitive timer to help you practice the Wim Hof breathing method.',
+    //     tags: [BlogType.Software],
+    //     link: 'wim_hof_timer',
+    //     external: 'https://wim-hof-timer.vercel.app/',
+    //     date: new Date(),
+    //     card: {
+    //         image: ['/images/dev/wht.png']
+    //     }
+    // }
 ]
 
 export const blogPosts = [

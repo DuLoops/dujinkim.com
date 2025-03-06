@@ -1,8 +1,5 @@
 import React from 'react'
-import {db} from 'utils/firebase'
-import {DocumentData, collection, getDocs} from 'firebase/firestore'
 import BlogCard from '@/app/blog/_components/Card_Blog';
-import { BentoGrid, BentoGridItem } from '@/components/ui/bentoGrid';
 
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
