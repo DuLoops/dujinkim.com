@@ -9,7 +9,7 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "bg-neutral-700 text-card-foreground overflow-hidden rounded-lg shadow-lg border border-4 transition-all duration-300 ease-in-out",
+      "bg-neutral-700 text-card-foreground overflow-hidden rounded-lg shadow-lg  border-4 transition-all duration-300 ease-in-out ",
       className
     )}
     {...props}
@@ -35,7 +35,7 @@ const CardImage = React.forwardRef<
     alt={alt}
     height={height}
     width={width}
-    className={cn("object-contain w-full ", className)}
+    className={cn("object-cover w-full", className)}
     {...props}
   />
 ))
@@ -44,7 +44,7 @@ const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn(" p-4 flex flex-col gap-2 justify-around bg-neutral-700 ", className)} {...props} />
+  <div ref={ref} className={cn(" p-4 flex flex-col justify-between h-[140px] bg-neutral-700 ", className)} {...props} />
 ))
 CardContent.displayName = "CardContent"
 

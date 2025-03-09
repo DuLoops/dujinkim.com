@@ -9,7 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "border-teal-200 border-2 bg-neutral-900 md:hover:bg-teal-200 md:hover:text-black",
+        default: "border-orange-400 border-2 bg-neutral-900 md:hover:bg-orange-400 md:hover:text-black",
         tag: "bg-neutral-900 border-2 rouned-md",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",

@@ -38,7 +38,7 @@ const Email: React.FC = () => {
 
   return (
     <form ref={form} onSubmit={sendEmail} className='text-white flex flex-col w-full lg:h-full justify-around '>
-      <Link href='mailto:dujink2@gmail.com' className='self-center underline text-teal-100'>To: dujink2@gmail.com</Link>
+      <Link href='mailto:dujink2@gmail.com' className='self-center underline text-orange-300'>To: dujink2@gmail.com</Link>
       <label htmlFor='email'>Email</label>
       <input className='text-black mb-1 lg:h-10 rounded p-1 lg:text-xl' type="email" name="email" id='email' required placeholder='Emaili' />
       <label htmlFor='subject'>Subject</label>

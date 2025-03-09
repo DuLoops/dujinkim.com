@@ -22,16 +22,16 @@ export enum BlogType {
   }
 
   export const borderColorVariants = {
-    [BlogType.Software] : 'border-teal-200 hover:border-teal-400 hover:shadow-md hover:shadow-teal-600 text-teal-200',
-    [BlogType.Design]: 'border-rose-200 hover:border-rose-400 hover:shadow-md hover:shadow-rose-600 text-rose-200',
-    [BlogType.Art]: 'border-yellow-200 hover:border-yellow-400 hover:shadow-md hover:shadow-yellow-600 text-yellow-200',
-    [BlogType.Study]: 'border-sky-200  hover:border-sky-400 hover:shadow-md hover:shadow-sky-600 text-sky-200'
+    [BlogType.Software] : 'border-orange-400 hover:border-orange-500 hover:shadow-md hover:shadow-orange-600 text-orange-200',
+    [BlogType.Design]: 'border-teal-400 hover:border-teal-400 hover:shadow-md hover:shadow-teal-600 text-teal-200',
+    [BlogType.Art]: 'border-yellow-400 hover:border-yellow-400 hover:shadow-md hover:shadow-yellow-600 text-yellow-200',
+    [BlogType.Study]: 'border-sky-400  hover:border-sky-400 hover:shadow-md hover:shadow-sky-600 text-sky-200'
   }
 
 
   export const tagColors = {
-    [BlogType.Software]: 'bg-teal-200',
-    [BlogType.Design]: 'bg-rose-200',
+    [BlogType.Software]: 'bg-orange-200',
+    [BlogType.Design]: 'bg-teal-200',
     [BlogType.Art]: 'bg-yellow-200',
     [BlogType.Study]: 'bg-sky-200'
   } 
@@ -49,7 +49,7 @@ export const getBlogTypeColor = (type: BlogType) => BlogTypeColors[type]
       description?: string;
       tags: BlogType[];
       link: string;
-      date: Date; // Timestampp
+      date: string; // Timestampp
       external?: string
     }
 
@@ -69,22 +69,22 @@ export const homeBlogPosts:BlogPostType[] = [
         title: 'Photography Gallery',
         tags: [BlogType.Art],
         link: 'gallery',
-        date: new Date(),
+        date: '2024-09-01',
         card: {
             image: ['/images/dev/photogallery.png']
         }
     },
-    // {id: 'wimhoftimer', 
-    //     title: 'Wim Hof Timer',
-    //     description: 'Intuitive timer to help you practice the Wim Hof breathing method.',
-    //     tags: [BlogType.Software],
-    //     link: 'wim_hof_timer',
-    //     external: 'https://wim-hof-timer.vercel.app/',
-    //     date: new Date(),
-    //     card: {
-    //         image: ['/images/dev/wht.png']
-    //     }
-    // }
+    {id: 'wimhoftimer', 
+        title: 'Wim Hof Timer',
+        description: 'Intuitive timer to help you practice the Wim Hof breathing method.',
+        tags: [BlogType.Software],
+        link: 'wim_hof_timer',
+        external: 'https://wim-hof-timer.vercel.app/',
+        date: '2025-03-06',
+        card: {
+            image: ['/images/dev/wht.png']
+        }
+    }
 ]
 
 export const blogPosts = [
