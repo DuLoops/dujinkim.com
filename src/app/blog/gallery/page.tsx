@@ -2,6 +2,7 @@ import { getFirestoreImages } from '@/utils/firestore';
 import GalleryContainer from './_components/GalleryContainer';
 import ScrollToTop from '@/components/ScrollToTop';
 
+
 export default async function Page() {
   const { photos } = await getFirestoreImages();
   return (

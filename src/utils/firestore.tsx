@@ -2,7 +2,9 @@
 import 'server-only'
 import {cache} from 'react'
 import { db } from "@/utils/firebase";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs , updateDoc} from "firebase/firestore";
+
+
 
 export const getFirestoreImages = cache( async () => {
     "use server"

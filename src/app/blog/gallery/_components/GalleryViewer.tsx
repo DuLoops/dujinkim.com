@@ -5,11 +5,6 @@ import { useSearchParams, useRouter } from 'next/navigation'
 import GalleryLightbox from './GalleryLightbox';
 import {
     Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
 } from "@/components/ui/dialog"
 interface Photo {
     id: string;
@@ -58,7 +53,7 @@ export default function GalleryViewer({ photos, selectedCategory }: GalleryViewe
                         className='w-full max-h-[800px] object-contain m-auto transition ease-in-out  hover:scale-105 duration-150 md: rounded-sm hover:rounded-none' />
                 ))}
                 {selectedIndex !== null && (
-                    <GalleryLightbox photos={photos} selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} />
+                    <GalleryLightbox photos={filteredPhotos} selectedIndex={selectedIndex} setSelectedIndex={setSelectedIndex} />
                 )}
             </div>
         </Dialog>

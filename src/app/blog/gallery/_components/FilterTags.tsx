@@ -5,7 +5,7 @@ interface FilterTagsProps {
   onCategoryChange: (category: string) => void;
 }
 
-const categories = ['all', 'life', 'architecture', 'adventure', 'landscape', 'products', 'sports'];
+const categories = ['all', 'architecture', 'design', 'landscape', 'lifestyle' , 'travel'];
 
 export default function FilterTags({ selectedCategory, onCategoryChange }: FilterTagsProps) {
   return (
