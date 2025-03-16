@@ -23,22 +23,25 @@ export default function ProjectSwiper() {
         0: {
           slidesPerView: 1,
         },
-        1024: {
+        640: {
+          slidesPerView: 2
+        },
+        800: {
           slidesPerView: 3
-        }
+        },
       }} navigation
       pagination={{ clickable: true }}
       scrollbar
       // draggable={true}
-
+      
       autoplay={{ delay: 500, disableOnInteraction: false, pauseOnMouseEnter: false, stopOnLastSlide: true }}
       loop={true}
       style={{
         padding: '15px 2rem',
         '--swiper-navigation-size': '30px',
         '--swiper-navigation-sides-offset': '7px',
-        '--swiper-navigation-color': '#99F6E4',
-        '--swiper-pagination-color': '#2DD4BF',
+        '--swiper-navigation-color': '#F97316',
+        '--swiper-pagination-color': '#F97316',
         '--swiper-pagination-bullet-inactive-color': '#fff',
         '--swiper-pagination-bottom': '-5px',
       } as React.CSSProperties}
@@ -48,7 +51,7 @@ export default function ProjectSwiper() {
           <Link href={`/project/${project.id}`}>
           <div className='bg-neutral-800 rounded-xl flex flex-col h-full justify-around p-3 items-center  cursor-pointer'>
             {/* <h1 className='text-4xl font-ma font-light text-neutral-500'>{project.title}</h1> */}
-            <Image src={project.images[0]} alt={project.title} className='w-full overflow-hidden' />
+            <Image src={project.images[0]} alt={project.title} width={400} height={400} className='w-full overflow-hidden' />
             <h2 className='text-white text-xl m-1 md:text-xl'>{project.desc}</h2>
           </div>
           </Link>

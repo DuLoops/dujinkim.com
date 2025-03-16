@@ -17,10 +17,10 @@ export default function Page() {
     }, [selectedType]);
   return (
     <div className='flex flex-col items-center w-full'>
-      <h1 className='text-center text-3xl font-ma font-light text-neutral-500 m-5 md:text-5xl md:m-10 md:block'>BLOG</h1>
+      <h1 className='text-center text-3xl font-ma font-light text-neutral-500 m-5 md:text-5xl md:m-6 md:block'>Blog</h1>
       <Filter selectedType={selectedType} setSelectedType={setSelectedType}/>
-      <FaFilter className='text-xl md:text-2xl m-3 text-teal-200' />
-      <div className='p-5 grid md:auto-rows grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto my-6'>
+      <FaFilter className='text-xl md:text-2xl mt-3 text-white' />
+      <div className='p-6 grid md:auto-rows grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto '>
         {filteredPosts.map((post, i) => <BlogCard postData={post} key={i}/>)}
       </div>
     </div>

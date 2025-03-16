@@ -15,9 +15,9 @@ export default function Card_Blog({postData}: {postData: BlogPostType}) {
 
   return (
 
-     <Card  className={cn(borderColorVariants[postData.tags[0]], 'hover:scale-105 group')} > 
+     <Card  className={cn(borderColorVariants[postData.tags[0]], 'md:hover:scale-105 group')} > 
       <Link href={postData.external ? postData.external : `/blog/${postData.link}`} target={postData.external ? '_blank' : '_self'}>
-      <CardImage src={postData.card.image[0]} alt={postData.title} height={200} width={200} className=''/>  
+      <CardImage src={postData.card.image[0]} alt={postData.title} height={200} width={200} className='h-[240px]'/>  
       <CardContent >
           <CardTitle className='group-hover:md:text-inherit text-xl md:text-xl'>{postData.title}</CardTitle>
           <CardDescription className='min-h-8 text-md md:text-md'>{postData.description}</CardDescription>
