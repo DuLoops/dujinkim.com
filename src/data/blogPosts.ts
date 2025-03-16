@@ -78,8 +78,8 @@ export const homeBlogPosts:BlogPostType[] = [
         title: 'Wim Hof Timer',
         description: 'Intuitive timer to help you practice the Wim Hof breathing method.',
         tags: [BlogType.Software],
-        link: 'wim_hof_timer',
-        external: 'https://wim-hof-timer.vercel.app/',
+        link: 'Wim_Hof_breathing_timer',
+        // external: 'https://wim-hof-timer.vercel.app/',
         date: '2025-03-06',
         card: {
             image: ['/images/dev/wht.png']

@@ -13,7 +13,7 @@ export const Meteors = ({
   
   
   const width = useViewportWidth();
-  const number = width > 768 ? 1 : 3;
+  const number = width.width > 768 ? 1 : 3;
   const meteors = new Array(number || 15).fill(true);
 
   return (
@@ -28,7 +28,7 @@ export const Meteors = ({
           )}
           style={{
             top: 0,
-            left: Math.floor(Math.random() * (width)) + "px",
+            left: Math.floor(Math.random() * (width.width)) + "px",
             animationDelay: Math.random() * (0.8 - 0.2) + 0.2 + "s",
             animationDuration: Math.floor(Math.random() * (10 - 2) + 2) + "s",
           }}

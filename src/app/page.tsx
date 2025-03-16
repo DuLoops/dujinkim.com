@@ -7,13 +7,13 @@ const LandingHome = () => {
   return (
     <div className="relative overflow-hidden h-screen flex flex-col  items-center justify-around">
       <BackgroundBeams />
-      <div className="flex flex-col justify-center items-center  w-screen text-center pt-10">
+      <div className="flex flex-col justify-center items-center  w-screen text-center pt-6 md:pt-10">
         <p className="text-3xl md:text-4xl leading-8">
-          Hi, I'm Dujin, a
+          Hi, I&apos;m Dujin, a
           <br className="md:hidden" />
           <span className="font-medium ml-2">Fullstack Developer</span>
         </p>
-        <p className="text-3xl md:text-4xl font-m mt-2">Welcome to my
+        <p className="text-3xl md:text-4xl font-m mt-4">Welcome to my
           <br className="md:hidden" />
           <a className="text-orange-400 font-ma ml-2 font-normal md:hover:underline" href={'/project'}>Portfolio</a> / <a className="text-orange-400 font-ma md:hover:underline" href={'/blog'}>Blog</a></p>
       </div>

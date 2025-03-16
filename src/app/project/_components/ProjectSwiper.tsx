@@ -23,9 +23,12 @@ export default function ProjectSwiper() {
         0: {
           slidesPerView: 1,
         },
-        1024: {
+        640: {
+          slidesPerView: 2
+        },
+        800: {
           slidesPerView: 3
-        }
+        },
       }} navigation
       pagination={{ clickable: true }}
       scrollbar
