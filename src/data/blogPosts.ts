@@ -65,15 +65,6 @@ export const homeBlogPosts:BlogPostType[] = [
     //     }
     //     // variant:
     // },
-    {id: 'photogallery',
-        title: 'Photography Gallery',
-        tags: [BlogType.Art],
-        link: 'gallery',
-        date: '2024-09-01',
-        card: {
-            image: ['/images/dev/photogallery.png']
-        }
-    },
     {id: 'wimhoftimer', 
         title: 'Wim Hof Timer',
         description: 'Intuitive timer to help you practice the Wim Hof breathing method.',
@@ -84,7 +75,17 @@ export const homeBlogPosts:BlogPostType[] = [
         card: {
             image: ['/images/dev/wht.png']
         }
-    }
+    },
+    {id: 'photogallery',
+        title: 'Photography Gallery',
+        tags: [BlogType.Art],
+        link: 'gallery',
+        date: '2024-09-01',
+        card: {
+            image: ['/images/dev/photogallery.png']
+        }
+    },
+  
 ]
 
 export const blogPosts = [
