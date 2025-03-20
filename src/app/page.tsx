@@ -11,12 +11,12 @@ const LandingHome = () => {
         <p className="text-3xl md:text-4xl leading-8">
           Hi, I&apos;m Dujin, a
           <br className="md:hidden" />
-          <span className="font-medium ml-2">Fullstack Developer</span>
+          <span className="font-medium ml-2">Software Developer</span>
         </p>
         <p className="text-3xl md:text-4xl font-m mt-4">Welcome to my
           <br className="md:hidden" />
-          <a className="text-orange-400 font-ma md:hover:underline" href={'/blog'}>Blog</a> /
-          <a className="text-orange-400 font-ma ml-2 font-normal md:hover:underline" href={'/project'}>Portfolio</a></p>
+          <a className="text-orange-400 font-ma ml-2 md:hover:underline" href={'/blog'}>Blog</a> /
+          <a className="text-orange-400 font-ma font-normal md:hover:underline" href={'/project'}>Portfolio</a></p>
       </div>
       <div className="flex flex-col items-center">
 
