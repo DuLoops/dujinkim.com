@@ -9,7 +9,7 @@ const Card = React.forwardRef<
   <div
     ref={ref}
     className={cn(
-      "bg-neutral-700 text-card-foreground overflow-hidden rounded-lg shadow-lg  border-4 transition-all duration-300 ease-in-out ",
+      " bg-neutral-700 text-card-foreground overflow-hidden rounded-lg shadow-lg  border-4 transition-all duration-300 ease-in-out ",
       className
     )}
     {...props}
@@ -35,7 +35,7 @@ const CardImage = React.forwardRef<
     alt={alt}
     height={height}
     width={width}
-    className={cn("object-cover w-full", className)}
+    className={cn("object-fit w-full h-[200px] lg:h-[240px]", className)}
     {...props}
   />
 ))
@@ -44,7 +44,7 @@ const CardContent = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn(" p-4 flex flex-col justify-between h-[140px] bg-neutral-700 ", className)} {...props} />
+  <div ref={ref} className={cn(" p-4 flex flex-col justify-between bg-neutral-700 h-36", className)} {...props} />
 ))
 CardContent.displayName = "CardContent"
 
@@ -69,7 +69,7 @@ const CardTitle = React.forwardRef<
   <h1
     ref={ref}
     className={cn(
-      "text-xl font-semibold leading-none tracking-tight text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]",
+      "text-lg font-semibold leading-none tracking-tight text-white drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]",
       // "bg-gradient-to-b from-white to-black from-70% inline-block text-transparent bg-clip-text",
       // "drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]",
       className

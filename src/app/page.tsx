@@ -15,7 +15,8 @@ const LandingHome = () => {
         </p>
         <p className="text-3xl md:text-4xl font-m mt-4">Welcome to my
           <br className="md:hidden" />
-          <a className="text-orange-400 font-ma ml-2 font-normal md:hover:underline" href={'/project'}>Portfolio</a> / <a className="text-orange-400 font-ma md:hover:underline" href={'/blog'}>Blog</a></p>
+          <a className="text-orange-400 font-ma md:hover:underline" href={'/blog'}>Blog</a> /
+          <a className="text-orange-400 font-ma ml-2 font-normal md:hover:underline" href={'/project'}>Portfolio</a></p>
       </div>
       <div className="flex flex-col items-center">
 
@@ -32,8 +33,8 @@ export default function page() {
     <main
       className="flex flex-col text-white gap-[50px] md:gap-[50px] lg:gap-[100px] " >
       <LandingHome />
-      <LandingProject />
       <LandingBlog />
+      <LandingProject />
       <Contact />
     </main>
   )

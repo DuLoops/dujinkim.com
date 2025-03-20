@@ -13,7 +13,7 @@ export default function WimHofBreathingPost() {
         <main className="min-h-screen bg-white dark:bg-gray-900">
             <article className="max-w-4xl mx-auto px-4 py-12 space-y-8">
                 <header className="mb-12">
-                    <h1 className="text-4xl font-bold mb-6">Wim Hof Breathing Method Saved Me, Try It Yourself With My App</h1>
+                    <h1 className="text-4xl font-bold mb-10">Wim Hof Breathing Saved Me on a Mountain, Try it yourself</h1>
                     <div className="flex flex-col md:block md:relative">
                         <Image
                             src={'/images/blog/Wim_Hof_breathing_timer/dark_dune.jpg'}
@@ -88,7 +88,7 @@ export default function WimHofBreathingPost() {
                             <li>Access it from any device with no downloads required</li>
                         </ul>
                     </div>
-                    <a className='text-xl text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2 underline md:no-underline justify-self-center' href='https://wim-hof-timer.vercel.app/' target='_blank'>Open the timer<IoTimer className='text-2xl'/></a>
+                    <a className='text-2xl text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2 underline justify-self-center' href='https://wim-hof-timer.vercel.app/' target='_blank'>Open the timer<IoTimer className='text-2xl'/></a>
                 </section>
 
                 <section className="space-y-6">

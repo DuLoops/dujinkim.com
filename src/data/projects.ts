@@ -27,6 +27,18 @@ export const projectData = [
     //   link: "https://duloops.com/",
     // },
     {
+        id: 'butterflour',
+        title: "ButterFlour Online Cake Shop",
+        background: `-webkit-linear-gradient(45deg, green, #DAF1DE)`,
+        desc: "Online Cake Shop",
+        tech: [tech.Next],
+        images: ['/images/portfolio/butterflour/bfPoster.png', '/images/portfolio/butterflour/figma.png', '/images/portfolio/butterflour/homeDesktop.png'],
+        detail: `- Developed a responsive e-commerce website for a cake shop.
+- Worked with client to design and develop the website.
+- Integrated Firebase database for product management and order processing.`,
+        link: "https://www.butterflour.ca/",
+    },
+    {
         id: 'WimHofTimer',
         title: "Wim Hof Timer",
         background: `-webkit-linear-gradient(45deg, blue, #DAF1DE)`,

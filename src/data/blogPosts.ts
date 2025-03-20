@@ -9,9 +9,9 @@ export enum BlogType {
 
   export const BlogTypeNames = {
     [BlogType.Software]: 'Software',
-    [BlogType.Design]: 'Design',
+    // [BlogType.Design]: 'Design',
     [BlogType.Art]: 'Art',
-    [BlogType.Study]: 'Study'
+    // [BlogType.Study]: 'Study'
     }
 
   export const BlogTypeColors = {
@@ -66,8 +66,8 @@ export const homeBlogPosts:BlogPostType[] = [
     //     // variant:
     // },
     {id: 'wimhoftimer', 
-        title: 'Wim Hof Timer',
-        description: 'Intuitive timer to help you practice the Wim Hof breathing method.',
+        title: 'Wim Hof Breathing Saved Me',
+        description: 'Learn Wim Hof Breathing Techinque with my custom timer app',
         tags: [BlogType.Software],
         link: 'Wim_Hof_breathing_timer',
         // external: 'https://wim-hof-timer.vercel.app/',
