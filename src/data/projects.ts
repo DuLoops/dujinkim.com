@@ -3,15 +3,15 @@ import portfolioImages from '@/../public/images/portfolio'
 export const tech = {
     React: { name: "React.js", color: "red", bg: "bg-red-200" },
     graphql: { name: "GraphQL", color: "blue", bg: "bg-blue-200" },
-    Strapi: { name: "Strapi", color: "orange" , bg: "bg-orange-200"},
-    Next: { name: "Next.js", color: "cyan" , bg: "bg-cyan-200"},
-    Vue: { name: "Vue.js", color: "purple" , bg: "bg-purple-200"},
-    C: { name: "C", color: "orange" , bg: "bg-orange-200"},
-    Cpp: { name: "C++", color: "orange" , bg: "bg-orange-200"},
-    CSharp: { name: "C#", color: "orange" , bg: "bg-orange-200"},
-    Net: { name: " .NET", color: "teal" , bg: "bg-teal-200"},
-    WPF: { name: "WPF", color: "teal" , bg: "bg-teal-200"},
-    directX: { name: "DirectX", color: "purple" , bg: "bg-purple-200"}
+    Strapi: { name: "Strapi", color: "orange", bg: "bg-orange-200" },
+    Next: { name: "Next.js", color: "cyan", bg: "bg-cyan-200" },
+    Vue: { name: "Vue.js", color: "purple", bg: "bg-purple-200" },
+    C: { name: "C", color: "orange", bg: "bg-orange-200" },
+    Cpp: { name: "C++", color: "orange", bg: "bg-orange-200" },
+    CSharp: { name: "C#", color: "orange", bg: "bg-orange-200" },
+    Net: { name: " .NET", color: "teal", bg: "bg-teal-200" },
+    WPF: { name: "WPF", color: "teal", bg: "bg-teal-200" },
+    directX: { name: "DirectX", color: "purple", bg: "bg-purple-200" }
 };
 
 
@@ -51,17 +51,18 @@ export const projectData = [
         link: "https://wim-hof-timer.vercel.app/",
         wireframe: 'https://www.figma.com/design/WKLSocC7pK5Vpy6dYXSxeL/Wim-Hof-Timer?node-id=0-1&t=IP3RM8jVPqQ9Kn0M-1'
     },
-    {   id: 'PenderHarboutTourism',
+    {
+        id: 'PenderHarboutTourism',
         title: "Tourism Website",
         background: `-webkit-linear-gradient(left, purple, #DAF1DE, purple)`,
 
         desc: "Pender Harbour Tourism Website",
         tech: [tech.Vue],
         images: [portfolioImages.pender, portfolioImages.pender2],
-        detail: `- Developed a responsive tourism website delivering information on local attractions, accommodations, and events.
-- Implemented client-requested features in a team of three, following Agile methodology.
-- Created interactive UI components with Vue.js to enhance user engagement and accessibility.
-        `,
+        detail: `
+- Led a three-person development team to deliver a tourism information platform using Vue.js.
+- Implemented Agile methodologies with weekly sprints, consistently meeting deadlines while exceeding client expectations.
+- Created interactive UI components that enhanced user engagement while ensuring mobile-first design principles and accessibility.`,
         link: "https://penderharbourdemo.web.app/",
         git: "https://github.com/DuLoops/PenderHarbourSpirit",
         wireframe: 'https://www.figma.com/design/e1klBLZUS84uwxngQjVMQu/Pender-Harbour-Spirit?node-id=87-3015&t=IuRiOq9j9hgXntcm-1'

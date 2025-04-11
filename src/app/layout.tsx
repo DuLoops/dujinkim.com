@@ -5,7 +5,7 @@ import HeaderNav from 'components/layout/HeaderNav'
 import { Toaster } from '@/components/ui/toaster'
 
 export const metadata: Metadata = {
-  title: 'Dujin Kim | Full-stack Developer Portfolio & Blog',
+  title: 'Dujin Kim | Software Developer\' Blog & Portfolio',
   description: 'Personal website of Dujin Kim, featuring full-stack development projects, technical blog posts, fitness journey, photography, and professional contact information.',
   keywords: [
     'Dujin Kim', 
