@@ -3,6 +3,7 @@ import './globals.css'
 import { montserrat, montserratAlternates, courgette, poiretOne } from 'data/fonts'
 import HeaderNav from 'components/layout/HeaderNav'
 import { Toaster } from '@/components/ui/toaster'
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: 'Dujin Kim | Software Developer\' Blog & Portfolio',
@@ -78,6 +79,7 @@ export default function RootLayout({
         <HeaderNav />
           {children}
         <Toaster />
+        <Analytics />
       </body>
     </html>
   )
