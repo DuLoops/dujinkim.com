@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss"
-
 const colors = require("tailwindcss/colors");
 const {
   default: flattenColorPalette,
@@ -12,7 +11,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -27,7 +26,7 @@ const config = {
         sans: ['var(--font-montserrat)', 'sans-serif'],
         serif: ['var(--font-courgette)', 'serif'],
         //montserrat
-        'm': ['var(--font-montserrat)', 'serif'],
+        'm': ['var(--font-montserrat)', 'sans-serif'],
         //montserrat alternates
         'ma': ['var(--font-montserrat-alternates)', 'sans-serif'],
         //courgette
@@ -36,12 +35,12 @@ const config = {
         'po': ['var(--font-poiret-one)', 'cursive'],
       },
       colors: {
-        '_red' : '#59252E',
-        '_blue' : '#325573',
-        '_yellow' : '#F2911B',
-        '_beige' : '#F2C288',
-        '_beige-light' : '#F2E5D5',
-        '_orange' : '#D95204',
+        '_red': '#59252E',
+        '_blue': '#325573',
+        '_yellow': '#F2911B',
+        '_beige': '#F2C288',
+        '_beige-light': '#F2E5D5',
+        '_orange': '#D95204',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -103,20 +102,20 @@ const config = {
             transform: "translate(calc(-50% - 0.5rem))",
           },
         },
-        
-        
+
+
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "meteor-effect": "meteor 5s linear infinite",
         scroll:
-        "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
       },
     },
   },
   plugins: [require("tailwindcss-animate"), addVariablesForColors,]
-  
+
 } satisfies Config
 
 function addVariablesForColors({ addBase, theme }: any) {
@@ -124,7 +123,7 @@ function addVariablesForColors({ addBase, theme }: any) {
   let newVars = Object.fromEntries(
     Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
   );
- 
+
   addBase({
     ":root": newVars,
   });

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function WimHofBreathingPost() {
     return (
-        <main className="min-h-screen bg-white dark:bg-gray-900">
+        <main className="min-h-screen bg-neutral-800 ">
             <article className="max-w-4xl mx-auto px-4 py-12 space-y-8">
                 <header className="mb-12">
                     <h1 className="text-4xl font-bold mb-10">Wim Hof Breathing Saved Me on a Mountain, Try it yourself</h1>
@@ -24,8 +24,8 @@ export default function WimHofBreathingPost() {
                         />
                         <div className="bg-gray-900/80 md:bg-transparent p-4 md:p-6 lg:p-10 rounded-lg mt-2 md:mt-0 md:absolute md:inset-0 md:flex md:items-end">
                             <p className="text-white italic text-lg md:text-lg lg:text-xl leading-relaxed tracking-wide drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
-                                Have you been in a situation where you are in trouble and fear is creeping in? I have. What started as an exhilarating day of backcountry skiing at Revelstoke Mountain turned into a nightmarish waiting game in the cold and pain after breaking my leg. 
-                                <br/>
+                                Have you been in a situation where you are in trouble and fear is creeping in? I have. What started as an exhilarating day of backcountry skiing at Revelstoke Mountain turned into a nightmarish waiting game in the cold and pain after breaking my leg.
+                                <br />
                                 However, performing the Wim Hof breathing method while being rescued helped me stay calm for up to 4 hours under difficult circumstances. From this experience, I would like to share the breathing method and my custom app to enhance your breathing skills that can do so much for you.
                             </p>
                         </div>
@@ -78,7 +78,7 @@ export default function WimHofBreathingPost() {
                 <section className="space-y-6">
                     <h2 className="text-3xl font-semibold">Introducing My Custom Wim Hof Timer</h2>
                     <p className="text-lg leading-relaxed">After my experience, I became passionate about making this practice accessible to everyone. That is why I created a customizable Wim Hof breathing timer web app.</p>
-                            <Image src={'/images/blog/Wim_Hof_breathing_timer/poster.png'} alt="Wim Hof" width={1200} height={800} className="rounded-lg" />
+                    <Image src={'/images/blog/Wim_Hof_breathing_timer/poster.png'} alt="Wim Hof" width={1200} height={800} className="rounded-lg" />
                     <div className="bg-blue-50 dark:bg-blue-950/30 p-6 rounded-lg">
                         <p className="text-lg mb-4">Unlike generic meditation apps, this timer is specifically designed for the Wim Hof Method, allowing you to:</p>
                         <ul className="list-disc pl-6 space-y-2 text-lg">
@@ -88,7 +88,7 @@ export default function WimHofBreathingPost() {
                             <li>Access it from any device with no downloads required</li>
                         </ul>
                     </div>
-                    <a className='text-2xl text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2 underline justify-self-center' href='https://wim-hof-timer.vercel.app/' target='_blank'>Open the timer<IoTimer className='text-2xl'/></a>
+                    <a className='text-2xl text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2 underline justify-self-center' href='https://wim-hof-timer.vercel.app/' target='_blank'>Open the timer<IoTimer className='text-2xl' /></a>
                 </section>
 
                 <section className="space-y-6">

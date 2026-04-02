@@ -33,7 +33,7 @@ export default function ProjectSwiper() {
       pagination={{ clickable: true }}
       scrollbar
       // draggable={true}
-      
+
       autoplay={{ delay: 500, disableOnInteraction: false, pauseOnMouseEnter: false, stopOnLastSlide: true }}
       loop={true}
       style={{
@@ -49,11 +49,11 @@ export default function ProjectSwiper() {
       {projectData.map((project, i) => (
         <SwiperSlide key={i}>
           <Link href={`/project/${project.id}`}>
-          <div className='bg-neutral-800 rounded-xl flex flex-col h-full justify-around p-3 items-center  cursor-pointer'>
-            {/* <h1 className='text-4xl font-ma font-light text-neutral-500'>{project.title}</h1> */}
-            <Image src={project.images[0]} alt={project.title} width={400} height={400} className='w-full overflow-hidden' />
-            <h2 className='text-white text-xl m-1 md:text-xl'>{project.desc}</h2>
-          </div>
+            <div className='bg-neutral-800 rounded-xl flex flex-col h-full justify-around p-3 items-center  cursor-pointer'>
+              {/* <h1 className='text-4xl font-ma font-light text-neutral-500'>{project.title}</h1> */}
+              <Image src={project.images[0]} alt={project.title} width={400} height={400} className='w-full overflow-hidden aspect-[3/2] h-auto object-fill' />
+              <h2 className='text-white text-xl m-1 md:text-xl'>{project.desc}</h2>
+            </div>
           </Link>
         </SwiperSlide>
       ))}

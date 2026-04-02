@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { montserrat, montserratAlternates, courgette, poiretOne } from 'data/fonts'
-import HeaderNav from 'components/layout/HeaderNav'
+
 import { Toaster } from '@/components/ui/toaster'
 import { Analytics } from "@vercel/analytics/react"
 
@@ -9,14 +9,14 @@ export const metadata: Metadata = {
   title: 'Dujin Kim | Software Developer\' Blog & Portfolio',
   description: 'Personal website of Dujin Kim, featuring full-stack development projects, technical blog posts, fitness journey, photography, and professional contact information.',
   keywords: [
-    'Dujin Kim', 
-    'full-stack developer', 
-    'software engineer', 
-    'web development', 
-    'portfolio', 
+    'Dujin Kim',
+    'full-stack developer',
+    'software engineer',
+    'web development',
+    'portfolio',
     'programming blog',
-    'fitness', 
-    'photography', 
+    'fitness',
+    'photography',
   ],
   creator: 'Dujin Kim',
   openGraph: {
@@ -64,7 +64,7 @@ export default function RootLayout({
           href="/images/dev/dujinlogo.svg"
           type="/images/dev/dujinlogo.svg"
           sizes="32x32"
-      
+
         />
         <link
           rel="apple-touch-icon"
@@ -76,8 +76,7 @@ export default function RootLayout({
       </head>
       <body className={`${montserrat.variable} ${montserratAlternates.variable} ${courgette.variable} ${poiretOne.variable} 
       bg-neutral-800 font-m  w-screen overflow-x-hidden md:pt-[30px] relative min-h-screen`}>
-        <HeaderNav />
-          {children}
+        {children}
         <Toaster />
         <Analytics />
       </body>

@@ -12,10 +12,10 @@ import Link from 'next/link';
 
 
 export default function Card_Project({ cardData }: { cardData: any }) {
-return (
+  return (
     <Card className={'lg:hover:scale-105 group border-none shadow-neutral-700 shadow-sm'} >
       <Link href={`/project/${cardData.id}`}>
-        <CardImage src={cardData.images[0]} alt={cardData.title} height={240} width={200} />
+        <CardImage className='aspect-[3/2] h-auto object-cover' src={cardData.images[0]} alt={cardData.title} height={240} width={200} />
         <CardContent className='h-30' >
           <CardTitle className=' text-lg md:text-xl group-hover:underline'>{cardData.title}</CardTitle>
           {/* <CardDescription className='min-h-8 text-sm md:text-md'>{postData.description}</CardDescription> */}
