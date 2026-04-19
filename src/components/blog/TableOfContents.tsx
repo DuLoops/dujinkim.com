@@ -127,11 +127,8 @@ export function TableOfContents({ contentSelector = "article" }: TableOfContents
     return (
         <>
             {/* --- Desktop Sidebar --- */}
-            <nav className="hidden xl:block fixed left-8 top-1/4 w-64 p-4 max-h-[70vh] overflow-y-auto z-40">
+            <nav className="hidden xl:block fixed left-8 top-20 w-64 p-4 max-h-[90vh] overflow-y-auto z-40 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-neutral-700/50 hover:[&::-webkit-scrollbar-thumb]:bg-neutral-600/50 [&::-webkit-scrollbar-thumb]:rounded-full">
                 <div className="border-l border-neutral-800 pl-4 space-y-3">
-                    <span className="text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-4 block">
-                        On this page
-                    </span>
                     {headings.map((heading) => (
                         <button
                             key={heading.id}
@@ -152,7 +149,7 @@ export function TableOfContents({ contentSelector = "article" }: TableOfContents
                 </div>
             </nav>
             {/* --- Mobile Progress Ring Trigger --- */}
-            <div className="xl:hidden fixed top-20 left-4 z-50">
+            <div className="xl:hidden fixed top-15 right-2 z-50">
                 <Drawer open={isMobileOpen} onOpenChange={setIsMobileOpen}>
                     <DrawerTrigger asChild>
                         <button
@@ -174,7 +171,7 @@ export function TableOfContents({ contentSelector = "article" }: TableOfContents
                             <DrawerTitle>Table of Contents</DrawerTitle>
                             <DrawerDescription>Navigate to sections in this article</DrawerDescription>
                         </div>
-                        <div className="p-6 h-full overflow-y-auto">
+                        <div className="p-6 h-full overflow-y-auto [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-neutral-800 hover:[&::-webkit-scrollbar-thumb]:bg-neutral-700 [&::-webkit-scrollbar-thumb]:rounded-full">
                             <span className="text-xs font-semibold text-neutral-500 uppercase tracking-wider mb-6 block">
                                 Table of Contents
                             </span>

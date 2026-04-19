@@ -60,7 +60,7 @@ export const homeBlogPosts: BlogPostType[] = [
     description: 'The Way of Steve Jobs: Bending reality to change the world.',
     tags: [BlogType.Philosophy, BlogType.Design],
     link: 'steve_jobs',
-    date: '2025-01-13',
+    date: '2025-03-07',
     card: {
       image: ['/images/blog/steve_jobs/hero.jpeg']
     }

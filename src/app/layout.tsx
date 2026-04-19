@@ -75,7 +75,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${montserrat.variable} ${montserratAlternates.variable} ${courgette.variable} ${poiretOne.variable} 
-      bg-neutral-800 font-m  w-screen overflow-x-hidden md:pt-[30px] relative min-h-screen`}>
+      bg-neutral-800 font-m  w-screen overflow-x-hidden  relative min-h-screen`}>
         {children}
         <Toaster />
         <Analytics />
