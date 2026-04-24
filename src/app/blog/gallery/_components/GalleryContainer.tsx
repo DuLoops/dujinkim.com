@@ -3,9 +3,10 @@ import { useState } from 'react';
 import GalleryViewer from './GalleryViewer';
 import FilterTags from './FilterTags';
 import { Metadata } from 'next';
+import type { Photo, FilterCategory } from '@/types/Photo';
 
 interface GalleryContainerProps {
-  photos: any[];
+  photos: Photo[];
 }
 export const metadata: Metadata = {
     title: 'Photo Gallery | Dujin Kim',
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
       description: 'Explore my personal photography collection',
       images: [
         {
-          url: '/images/dev/photogallery.png', 
+          url: '/images/dev/photogallery.png',
           width: 1200,
           height: 630,
           alt: 'Gallery Cover Photo',
@@ -28,25 +29,25 @@ export const metadata: Metadata = {
       card: 'summary_large_image',
       title: 'Photo Gallery | Dujin Kim',
       description: 'Personal photography collection',
-      images: ['/images/dev/photogallery.png'], 
+      images: ['/images/dev/photogallery.png'],
     },
   };
 export default function GalleryContainer({ photos }: GalleryContainerProps) {
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedCategory, setSelectedCategory] = useState<FilterCategory>('all');
 
-  const handleCategoryChange = (category: string) => {
+  const handleCategoryChange = (category: FilterCategory) => {
     setSelectedCategory(category);
   };
 
   return (
     <>
-      <FilterTags 
-        selectedCategory={selectedCategory} 
-        onCategoryChange={handleCategoryChange} 
+      <FilterTags
+        selectedCategory={selectedCategory}
+        onCategoryChange={handleCategoryChange}
       />
-      <GalleryViewer 
-        photos={photos} 
-        selectedCategory={selectedCategory} 
+      <GalleryViewer
+        photos={photos}
+        selectedCategory={selectedCategory}
       />
     </>
   );

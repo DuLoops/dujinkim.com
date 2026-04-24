@@ -1,16 +1,16 @@
 'use client';
 
-interface FilterTagsProps {
-  selectedCategory: string;
-  onCategoryChange: (category: string) => void;
-}
+import { FILTER_CATEGORIES, type FilterCategory } from '@/types/Photo';
 
-const categories = ['all', 'architecture', 'design', 'landscape', 'lifestyle' , 'travel'];
+interface FilterTagsProps {
+  selectedCategory: FilterCategory;
+  onCategoryChange: (category: FilterCategory) => void;
+}
 
 export default function FilterTags({ selectedCategory, onCategoryChange }: FilterTagsProps) {
   return (
     <div className="flex flex-wrap gap-2 justify-center my-4">
-      {categories.map((category) => (
+      {FILTER_CATEGORIES.map((category) => (
         <button
           key={category}
           onClick={() => onCategoryChange(category)}

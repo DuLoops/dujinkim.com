@@ -1,5 +1,6 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps, getApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 
 const firebaseConfig = {
@@ -10,9 +11,10 @@ const firebaseConfig = {
   messagingSenderId: "14854024796",
   appId: process.env.FIREBASE_APP_ID,
   measurementId: "G-S0Q5NLEX5B"
-};;
+};
 
-const app = initializeApp(firebaseConfig);
+const app = getApps().length ? getApp() : initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
-export {db}
+export { app, db, storage }
